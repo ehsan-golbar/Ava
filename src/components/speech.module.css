@@ -1,6 +1,7 @@
 .userType{
+
     display: flex;
-    justify-content: left;
+ 
     align-items: center;
     gap: 1rem;
     border: 1px #00BA9F solid ;
@@ -8,6 +9,76 @@
     padding-right: 0.5rem;
     padding-left: 0.5rem;
     border-radius: 20px;
-    
+    margin-left: 1rem;
 
 }
+
+.speechBody{
+
+
+    
+    direction: rtl;
+    
+    
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+   
+
+}
+
+.speechOverview{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 14rem;
+    padding-right: 12rem;
+    
+}
+
+.speechHead{
+    display: flex;
+    justify-content: end;
+}
+
+
+/* تبدیل گفتار به متن */
+
+
+.speechTitle{
+    width: 227px;
+height: fit-content;
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 700;
+font-size: 28px;
+
+color: #00BA9F;
+text-align: center;
+}
+
+.speechDetails{
+    /* آوا با استفاده از هزاران ساعت گفتار با صدای افراد مختلف، زبان فارسی را یاد گرفته است و می‌تواند متن صحبت‌ها را بنویسد. */
+
+
+width: 434px;
+height: fit-content;
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 28px;
+text-align: center;
+
+color: #969696;
+
+
+}
+
+
