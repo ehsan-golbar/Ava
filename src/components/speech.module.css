@@ -1,0 +1,13 @@
+.userType{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+    border: 1px #00BA9F solid ;
+    width: fit-content;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    border-radius: 20px;
+    
+
+}
