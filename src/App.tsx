@@ -1,10 +1,12 @@
 import Sidebar from "./components/Sidebar"
 import  "./App.css"
+import ConvertSpeech from "./components/ConvertSpeech"
 
 export default function App() {
   return (
     <>
     <Sidebar></Sidebar>
+    <ConvertSpeech></ConvertSpeech>
     {/* <p>salam</p> */}
     </>
   )
