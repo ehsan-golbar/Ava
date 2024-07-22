@@ -1,0 +1,93 @@
+
+.sidebar{
+    position: absolute;
+    direction: rtl;
+    right: 0;
+    background-color: #00C69B;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+   
+}
+
+.sidebarHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    align-items: center;
+    color: #FFFFFF;
+   
+}
+
+.sidebarHeadItem{
+    margin: 0.5rem;
+    margin-top: 2rem;
+    /* آوا */
+    color: #FFFFFF;
+
+
+width: 24px;
+height: 35px;
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 35px;
+
+
+
+
+
+
+}
+
+.sidebarPages{
+    display: flex ;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: start;
+    margin-right: 1rem;
+    right: 0;
+    margin-top: 7rem;
+}
+
+.pagesItem{
+    margin-top: 1rem;
+/* display: flex;
+justify-content: center;
+align-items: center; */
+display: flex;
+gap: 1rem;
+    
+align-items: center;
+
+
+
+height: 28px;
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 28px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+
+
+}
+
+/* Side menu */
+
+
+/* تبدیل گفتار */
+
+
