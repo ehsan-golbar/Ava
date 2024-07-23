@@ -7,6 +7,7 @@ export default function ConvertSpeech() {
         <>
             <div className={styles.speechBody}>
                 <div className={styles.speechHead}>
+                    
                     <div className={styles.userType}>
                         <button className="buttonStyle">
                             <img style={{ width: 'fit-content' }} src={dropIcon} alt="dropIcon" />
@@ -16,12 +17,37 @@ export default function ConvertSpeech() {
                         <img src={userIcon} alt="userIcon" />
 
                     </div>
+
+                
                 </div>
                 <div className={styles.speechOverview}>
                     <p className={styles.speechTitle}>تبدیل گفتار به متن</p>
                     <p className={styles.speechDetails}>آوا با استفاده از هزاران ساعت گفتار با صدای افراد مختلف، زبان فارسی را یادگرفته است و میتواند متن صحبت هار را بنویسد.</p>
                 </div>
-                
+
+                <div className={styles.speechCard}>
+
+                    <div className={styles.cardHead}>
+
+                        <div className={styles.cardHeadItemOne}>
+                            <p>ضبط صدا</p>
+                        </div>
+
+
+                        <div className={styles.cardHeadItemTwo}>
+                            <p>بارگذاری فایل</p>
+                        </div>
+
+
+
+                        <div className={styles.cardHeadItemThree}>
+                            <p>لینک</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
         </>
     )
