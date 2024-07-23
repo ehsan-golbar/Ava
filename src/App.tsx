@@ -1,7 +1,7 @@
 import Sidebar from "./components/Sidebar"
 import  "./App.css"
 import ConvertSpeech from "./components/ConvertSpeech"
-
+import './iranyekanfont.css'
 export default function App() {
   return (
     <>

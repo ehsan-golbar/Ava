@@ -233,3 +233,24 @@ color: #626262;
 
 
 }
+
+.userTypeItem{
+
+
+
+     /* مهمان */
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 26px;
+/* identical to box height */
+
+/* Primary Color */
+color: #00BA9F;
+
+
+
+}

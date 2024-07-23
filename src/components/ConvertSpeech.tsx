@@ -20,7 +20,7 @@ export default function ConvertSpeech() {
                 alt="dropIcon"
               />
             </button>
-            <p style={{ height: "fit-content", color: "#00BA9F" }}>مهمان</p>
+            <p className={styles.userTypeItem}>مهمان</p>
 
             <img src={userIcon} alt="userIcon" />
           </div>
