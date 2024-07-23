@@ -12,7 +12,8 @@ import bigMicIcon from "../assets/big mic Icon.png";
 
 import UploadFile from "./UploadFile"
 
-
+import LInkFile from "./LinkFile"
+import LinkFile from "./LinkFile";
 
 export default function ConvertSpeech() {
   return (
@@ -44,6 +45,8 @@ export default function ConvertSpeech() {
       <RecordSpeech></RecordSpeech>
       {/* card */}
       <UploadFile></UploadFile>
+
+      <LinkFile></LinkFile>
       </div>
     </>
   );
