@@ -66,7 +66,7 @@ text-align: center;
     /* آوا با استفاده از هزاران ساعت گفتار با صدای افراد مختلف، زبان فارسی را یاد گرفته است و می‌تواند متن صحبت‌ها را بنویسد. */
 
 
-width: 434px;
+
 height: fit-content;
 
 
@@ -86,12 +86,42 @@ color: #969696;
 .speechCard{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: 65%;
 
 }
 
 
 .cardHead{
     display: flex;
-    gap: 1rem;
+    
+    gap: 2rem;
+}
+
+
+.cardHeadItemOne{
+    color: #969696;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+.cardBody{
+    /* Back Center */
+
+box-sizing: border-box;
+
+width: 653px;
+height: 429px;
+left: 989px;
+top: 285px;
+
+background: #FFFFFF;
+/* Primary Color */
+border: 1px solid #00BA9F;
+box-shadow: 1px 1px 50px rgba(99, 99, 99, 0.05);
+border-radius: 25px 0px 25px 25px;
+/* transform: matrix(-1, 0, 0, 1, 0, 0); */
+
 }
