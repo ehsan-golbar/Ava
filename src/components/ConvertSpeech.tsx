@@ -13,6 +13,10 @@ export default function ConvertSpeech() {
       <div className={styles.speechBody}>
         <div className={styles.speechHead}>
           <div className={styles.userType}>
+          <img src={userIcon} alt="userIcon" />
+            <p className={styles.userTypeItem}>مهمان</p>
+
+       
             <button className="buttonStyle">
               <img
                 style={{ width: "fit-content" }}
@@ -20,9 +24,6 @@ export default function ConvertSpeech() {
                 alt="dropIcon"
               />
             </button>
-            <p className={styles.userTypeItem}>مهمان</p>
-
-            <img src={userIcon} alt="userIcon" />
           </div>
         </div>
         <div className={styles.speechOverview}>
@@ -54,10 +55,12 @@ export default function ConvertSpeech() {
 
           <div className={styles.cardBody}>
             <div className={styles.bodyDescription}>
+
+              <button className="buttonStyle">
                 <div className={styles.recordLogo} >
                 <img src={bigMicIcon} alt="micIcon" />
                 </div>
-            
+                </button>
             <p className={styles.recordDescription}>برای شروع به صحبت، دکمه را فشار دهید
             متن پیاده شده آن، در اینجا ظاهر شود</p>
 
