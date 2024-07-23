@@ -124,6 +124,9 @@ box-shadow: 1px 1px 50px rgba(99, 99, 99, 0.05);
 border-radius: 25px 0px 25px 25px;
 /* transform: matrix(-1, 0, 0, 1, 0, 0); */
 
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .cardFoot{
@@ -187,3 +190,46 @@ color: #00BA9F;
 }
 
 
+
+.bodyDescription{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.recordLogo{
+    /* Back */
+
+
+    width: 62px;
+    height: 62px;
+    left: 632px;
+    top: 437px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+background: #00B3A1;
+
+}
+
+
+.recordDescription{
+    /* برای شروع به صحبت، دکمه را فشار دهید متن پیاده شده آن، در اینجا ظاهر شود */
+
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 28px;
+text-align: center;
+
+color: #626262;
+
+
+}

@@ -1,11 +1,12 @@
 import userIcon from "../assets/user Icon.png";
 import styles from "./speech.module.css";
 import dropIcon from "../assets/drop Icon.png";
-import chainicon from "../assets/chain Icon.png"
-import uploadIcon from "../assets/upload Icon.png"
+import chainicon from "../assets/chain Icon.png";
+import uploadIcon from "../assets/upload Icon.png";
 import "../App.css";
 
-import micIcon from "../assets/mic Icon.png"
+import micIcon from "../assets/mic Icon.png";
+import bigMicIcon from "../assets/big mic Icon.png";
 export default function ConvertSpeech() {
   return (
     <>
@@ -35,36 +36,42 @@ export default function ConvertSpeech() {
         <div className={styles.speechCard}>
           <div className={styles.cardHead}>
             <div className={styles.cardHeadItemOne}>
-                <img  src={micIcon} alt="micIcon" />
+              <img src={micIcon} alt="micIcon" />
               <p>ضبط صدا</p>
             </div>
 
             <div className={styles.cardHeadItemOne}>
-                <img src={uploadIcon} alt="uploadIcon" />
+              <img src={uploadIcon} alt="uploadIcon" />
               <p>بارگذاری فایل</p>
             </div>
 
             <div className={styles.cardHeadItemOne}>
-            <img src={chainicon} alt="chainIcon" />
+              <img src={chainicon} alt="chainIcon" />
 
               <p>لینک</p>
             </div>
           </div>
 
           <div className={styles.cardBody}>
-            <p>بدنه</p>
+            <div className={styles.bodyDescription}>
+                <div className={styles.recordLogo} >
+                <img src={bigMicIcon} alt="micIcon" />
+                </div>
+            
+            <p className={styles.recordDescription}>برای شروع به صحبت، دکمه را فشار دهید
+            متن پیاده شده آن، در اینجا ظاهر شود</p>
+
+            </div>
+
           </div>
 
           <div className={styles.cardFoot}>
+            <p className={styles.footTitle}>زبان گفتار:</p>
 
-                <p className={styles.footTitle}>زبان گفتار:</p>
-                
-                <div className={styles.langType}>
-                    
-                    <p className={styles.footItem}>فارسی</p>
-                    <img src={dropIcon} alt="dropIcon" />
-                </div>
-
+            <div className={styles.langType}>
+              <p className={styles.footItem}>فارسی</p>
+              <img src={dropIcon} alt="dropIcon" />
+            </div>
           </div>
         </div>
       </div>
