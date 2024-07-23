@@ -101,7 +101,7 @@ color: #969696;
 }
 
 
-.cardHeadItemOne{
+.cardHeadItem{
     color: #969696;
     display: flex;
     justify-content: center;
@@ -114,7 +114,7 @@ font-size: 14px;
 line-height: 24px;
 }
 
-.cardHeadItemOneSelected{
+.cardHeadItemOne{
     color: #FFFFFF;
     background-color: #00BA9F;
     display: flex;
@@ -131,7 +131,50 @@ font-size: 14px;
 line-height: 24px;
 }
 
-.cardBody{
+
+
+.cardHeadItemTwo{
+    color: #FFFFFF;
+    background-color: #118AD3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    border-radius: 10px 10px 0px 0px;
+    font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 24px;
+}
+
+
+
+.cardBodyUpload{
+    /* Back Center */
+
+box-sizing: border-box;
+
+    width: 653px;
+    height: 429px;
+    left: 989px;
+    top: 285px;
+
+background: #FFFFFF;
+border: 1px solid #118AD3;
+box-shadow: 1px 1px 50px rgba(99, 99, 99, 0.05);
+border-radius: 25px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+/* transform: matrix(-1, 0, 0, 1, 0, 0); */
+
+}
+
+.cardBodyRecord{
     /* Back Center */
 
 box-sizing: border-box;
@@ -213,15 +256,36 @@ color: #00BA9F;
    
 }
 
+.uploadLogo{
+    
+    width: 62px;
+    height: 62px;
+    left: 632px;
+    top: 437px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+background: #118AD3;
 
-.bodyDescription{
+}
+
+.bodyDescriptionRecord{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+
+
+.bodyDescriptionUpload{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .recordLogo{
     /* Back */
@@ -258,6 +322,22 @@ color: #626262;
 
 }
 
+
+.uploadDescription{
+    
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 28px;
+text-align: center;
+
+color: #626262;
+
+padding-left: 7rem;
+padding-right: 7rem;
+
+}
 .userTypeItem{
 
 
@@ -278,3 +358,4 @@ color: #00BA9F;
 
 
 }
+
