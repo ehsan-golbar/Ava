@@ -3,9 +3,11 @@ import styles from "./speech.module.css";
 import dropIcon from "../assets/drop Icon.png";
 import chainicon from "../assets/chain Icon.png";
 import uploadIcon from "../assets/upload Icon.png";
+
 import "../App.css";
 
 import micIcon from "../assets/mic Icon.png";
+import micIconWhite from "../assets/mic Icon white.png";
 import bigMicIcon from "../assets/big mic Icon.png";
 export default function ConvertSpeech() {
   return (
@@ -36,8 +38,10 @@ export default function ConvertSpeech() {
 
         <div className={styles.speechCard}>
           <div className={styles.cardHead}>
-            <div className={styles.cardHeadItemOne}>
-              <img src={micIcon} alt="micIcon" />
+            {/* <div className={styles.cardHeadItemOne}> */}
+            <div className={styles.cardHeadItemOneSelected}>
+              <img src={micIconWhite} alt="micIcon" />
+              {/* <img src={micIcon} alt="micIcon" /> */}
               <p>ضبط صدا</p>
             </div>
 
