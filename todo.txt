@@ -1,2 +1,4 @@
 fix font farsi 
 arragment  ofusertype
+
+fix height of sidebar

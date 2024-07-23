@@ -54,6 +54,18 @@ export default function ConvertSpeech() {
           <div className={styles.cardBody}>
             <p>بدنه</p>
           </div>
+
+          <div className={styles.cardFoot}>
+
+                <p className={styles.footTitle}>زبان گفتار:</p>
+                
+                <div className={styles.langType}>
+                    
+                    <p className={styles.footItem}>فارسی</p>
+                    <img src={dropIcon} alt="dropIcon" />
+                </div>
+
+          </div>
         </div>
       </div>
     </>

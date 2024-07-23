@@ -125,3 +125,65 @@ border-radius: 25px 0px 25px 25px;
 /* transform: matrix(-1, 0, 0, 1, 0, 0); */
 
 }
+
+.cardFoot{
+    display: flex;
+    margin-top: 1rem;
+   gap: 1rem;
+   justify-content: end;
+    width: 653px;;
+}
+
+
+.footTitle{
+    width: fit-content;
+
+
+    /* زبان گفتار: */
+
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 24px;
+text-align: right;
+
+color: #626262;
+
+
+}
+
+.footItem{
+    width: fit-content;
+
+    /* فارسی */
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+text-align: center;
+
+/* Primary Color */
+color: #00BA9F;
+
+
+}
+
+.langType{
+    display: flex;
+ 
+    align-items: center;
+    gap: 1rem;
+    border: 1px #00BA9F solid ;
+    width: fit-content;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    border-radius: 20px;
+   
+}
+
+
