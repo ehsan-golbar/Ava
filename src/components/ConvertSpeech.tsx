@@ -70,7 +70,10 @@ export default function ConvertSpeech() {
 
             <div className={styles.langType}>
               <p className={styles.footItem}>فارسی</p>
+
+              <button className ="buttonStyle">
               <img src={dropIcon} alt="dropIcon" />
+              </button>
             </div>
           </div>
         </div>

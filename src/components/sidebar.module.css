@@ -1,8 +1,10 @@
 
 .sidebar{
-    position: absolute;
+    position: fixed;
     direction: rtl;
     right: 0;
+    bottom: 0;
+    top: 0 ;
     background-color: #00C69B;
     height: 100%;
     width: 20%;
