@@ -12,6 +12,10 @@
     flex-direction: column;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    background-image: url('../assets/Alefba.png');
+    background-size: auto; /* Default size of the image */
+   
+    background-repeat: repeat; /* Repeat the image */
    
 }
 
