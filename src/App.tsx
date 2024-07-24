@@ -1,16 +1,24 @@
-import Sidebar from "./components/Sidebar"
-import  "./App.css"
-import ConvertSpeech from "./components/ConvertSpeech"
-import './iranyekanfont.css'
+import Sidebar from "./components/Sidebar";
+import "./App.css";
+import ConvertSpeech from "./components/ConvertSpeech";
+import "./iranyekanfont.css";
+import Archive from "./components/Archive";
+import styles from "./components/speech.module.css";
+import dropIcon from "./assets/drop Icon.png";
+import userIcon from "./assets/user Icon.png";
+
+import UserType from "./components/UserType"
 export default function App() {
   return (
     <>
-    <Sidebar></Sidebar>
-    <ConvertSpeech></ConvertSpeech>
-    {/* <p>salam</p> */}
+    <UserType></UserType>
+      <Sidebar></Sidebar>
+      <ConvertSpeech></ConvertSpeech>
+      <Archive></Archive>
+      {/* <p>salam</p> */}
     </>
-  )
-};
+  );
+}
 
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'

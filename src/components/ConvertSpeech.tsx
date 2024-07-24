@@ -19,20 +19,7 @@ export default function ConvertSpeech() {
   return (
     <>
       <div className={styles.speechBody}>
-        <div className={styles.speechHead}>
-          <div className={styles.userType}>
-            <img src={userIcon} alt="userIcon" />
-            <p className={styles.userTypeItem}>مهمان</p>
 
-            <button className="buttonStyle">
-              <img
-                style={{ width: "fit-content" }}
-                src={dropIcon}
-                alt="dropIcon"
-              />
-            </button>
-          </div>
-        </div>
         <div className={styles.speechOverview}>
           <p className={styles.speechTitle}>تبدیل گفتار به متن</p>
           <p className={styles.speechDetails}>
