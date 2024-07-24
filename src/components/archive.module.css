@@ -78,3 +78,39 @@ background: #FF1654;
 
     width: 100%; /* Ensure the container has a constrained width */
 }
+
+
+
+
+.fileDate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+}
+
+
+.fileType{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+}
+
+
+.fileTime{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+}
+
+
+
+.fileActions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2rem;
+}
