@@ -1,13 +1,15 @@
 import styles from "./archive.module.css";
 import "../App.css";
 
-import downloadIcon from "../assets/download Icon.png"
-import copyIcon from "../assets/copy Icon.png"
-import wordIcon from "../assets/Word icon.png"
-import deleteIcon from "../assets/del Btn.png"
+import downloadIcon from "../assets/download Icon.png";
+import copyIcon from "../assets/copy Icon.png";
+import wordIcon from "../assets/Word icon.png";
+import deleteIcon from "../assets/del Btn.png";
 
 import littleChain from "../assets/little chain Icon.png";
-import FileTypeIcon from "./FileTypeIcon"
+import FileTypeIcon from "./FileTypeIcon";
+
+import FileItem from "./FileItem";
 export default function Archive() {
   return (
     <>
@@ -36,45 +38,12 @@ export default function Archive() {
           </div>
           <ul className="ulStyle">
             <li>
-              <div className={styles.fileItem}>
-                <div className={styles.fileName}>
-                    
-                    <FileTypeIcon fileType="chain"></FileTypeIcon>
-                   
-
-                  <div className={styles.fileDescription}>
-                    <p>
-                      {" "}
-                      https://irsv.upmusics.com/Downloads/Musics/Sirvan%20Khttps://irsv.upmusics.com/Downloads/Musics/Sirvan%20K{" "}
-                    </p>
-                  </div>
-
-
-                </div>
-
-
-                <div className={styles.fileDate}>
-                    <p>1400-08-21</p>
-                  </div>
-
-                  <div className={styles.fileType}>
-                    <p>.mp3</p>
-                  </div>
-
-                  <div className={styles.fileTime}>
-                    <p>4:29</p>
-                  </div>
-
-
-
-                  <div className={styles.fileActions}>
-                    <img src={downloadIcon} alt="downloadIcon" />
-                    <img src={wordIcon} alt="wordIcon" />
-                    <img src={copyIcon} alt="copyIcon" />
-                    <img src={deleteIcon} alt="deleteIcon" />
-
-                  </div>
-              </div>
+              <FileItem
+                fileDescription="https://irsv.upmusics.com/Downloads/Musics/Sirvan%20Khttps://irsv.upmusics.com/Downloads/Musics/Sirvan%20K"
+                fileDate="1400-08-21"
+                fileType=".mp3"
+                fileTime="4:29"
+              ></FileItem>
             </li>
 
             <li>
