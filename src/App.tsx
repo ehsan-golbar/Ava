@@ -13,7 +13,7 @@ export default function App() {
     <>
     <UserType></UserType>
       <Sidebar></Sidebar>
-      <ConvertSpeech></ConvertSpeech>
+      {/* <ConvertSpeech></ConvertSpeech> */}
       <Archive></Archive>
       {/* <p>salam</p> */}
     </>

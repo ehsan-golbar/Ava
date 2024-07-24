@@ -13,3 +13,10 @@
 .pStyle{
     width: auto;
 }
+
+
+.ulStyle{
+    list-style-type: none; /* Remove default list item markers */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}

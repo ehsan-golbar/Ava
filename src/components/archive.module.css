@@ -1,0 +1,80 @@
+.archive{
+    direction: rtl;
+    
+    
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   /* margin-right: 2rem;\ */
+}
+
+.archiveHead{
+    width: 80%;
+}
+
+.archiveFiles{
+    width: 80%;
+}
+
+.fileItems{
+    display: flex;
+    /* gap: 1rem; */
+}
+
+.fileItemsTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fileItem{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+
+.typeLogo{
+display: flex;
+justify-content: center;
+align-items: center;
+   
+   
+    border-radius: 100%;
+
+
+    /* Back */
+
+        padding: 0.5rem;
+
+background: #FF1654;
+
+}
+
+
+
+
+.fileName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+    gap: 1rem;
+}
+
+.fileDescription{
+    direction: ltr;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    overflow-x: hidden ;
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+
+    width: 100%; /* Ensure the container has a constrained width */
+}
