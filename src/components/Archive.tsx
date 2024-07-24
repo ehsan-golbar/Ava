@@ -1,13 +1,13 @@
 import styles from "./archive.module.css";
 import "../App.css";
 
-import downloadIcon from "../assets/download Icon.png";
-import copyIcon from "../assets/copy Icon.png";
-import wordIcon from "../assets/Word icon.png";
-import deleteIcon from "../assets/del Btn.png";
+// import downloadIcon from "../assets/download Icon.png";
+// import copyIcon from "../assets/copy Icon.png";
+// import wordIcon from "../assets/Word icon.png";
+// import deleteIcon from "../assets/del Btn.png";
 
-import littleChain from "../assets/little chain Icon.png";
-import FileTypeIcon from "./FileTypeIcon";
+// import littleChain from "../assets/little chain Icon.png";
+// import FileTypeIcon from "./FileTypeIcon";
 
 import FileItem from "./FileItem";
 export default function Archive() {
