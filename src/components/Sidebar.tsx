@@ -15,7 +15,8 @@ export default function Sidebar() {
         </div>
         <div className={styles.sidebarPages}>
           <button className="buttonStyle">
-            <div className={styles.pagesItem}>
+            {/* <div className={styles.pagesItem}> */}
+            <div className={styles.pagesItemSelected}>
               <img
                 className={styles.pagesItemRight}
                 src={speechIcon}

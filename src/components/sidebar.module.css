@@ -91,6 +91,37 @@ color: #FFFFFF;
 
 }
 
+
+.pagesItemSelected{
+    margin-top: 1rem;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    display: flex;
+    gap: 1rem;
+        
+    align-items: center;
+    
+    
+    
+    height: 28px;
+    
+    
+    font-family: 'IRANYekan';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    /* identical to box height */
+    
+    
+    color: #FFFFFF; 
+    background-color: #02816E;
+
+    padding: 1rem;
+    border-radius: 10px;
+}
+
 /* Side menu */
 
 
