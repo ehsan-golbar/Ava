@@ -58,7 +58,7 @@ export default function Archive() {
                   </div>
 
                   <div className={styles.fileType}>
-                    <p>mp3</p>
+                    <p>.mp3</p>
                   </div>
 
                   <div className={styles.fileTime}>

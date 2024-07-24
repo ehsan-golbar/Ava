@@ -1,7 +1,7 @@
 /* src/fonts/iranyekan.css */
 @font-face {
     font-family: 'IRANYekan';
-    src: url('./font/Qs_Iranyekan.ttf') format('truetype');
+    src: url('./font/iranyekan/Qs_Iranyekan.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }

@@ -2,6 +2,7 @@ import Sidebar from "./components/Sidebar";
 import "./App.css";
 import ConvertSpeech from "./components/ConvertSpeech";
 import "./iranyekanfont.css";
+import "./IRANSans.css";
 import Archive from "./components/Archive";
 import styles from "./components/speech.module.css";
 import dropIcon from "./assets/drop Icon.png";

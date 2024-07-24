@@ -13,6 +13,21 @@
 
 .archiveHead{
     width: 80%;
+
+    /* آرشیو من */
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 41px;
+text-align: right;
+
+/* Primary Color */
+color: #00BA9F;
+
+
 }
 
 .archiveFiles{
@@ -28,6 +43,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+
+
+    /* نام فایل */
+
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+text-align: right;
+
+color: #000000;
+
+
+
 }
 
 .fileItem{
@@ -100,6 +133,23 @@ background: #FF1654;
 
     width: 50%;
     gap: 1rem;
+
+
+
+    /* https://irsv.upmusics.com/Downloads/Musics/Sirvan%20K ... */
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 28px;
+/* identical to box height */
+text-align: right;
+
+color: #118AD3;
+
+
 }
 
 .fileDescription{
@@ -123,6 +173,23 @@ background: #FF1654;
     justify-content: center;
     align-items: center;
     width: 10%;
+
+
+
+    /* 1400-08-21 */
+
+
+font-family: 'IRANYekan' ,sans-serif;
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height */
+text-align: center;
+
+color: #000000;
+
+
 }
 
 
@@ -131,6 +198,25 @@ background: #FF1654;
     justify-content: center;
     align-items: center;
     width: 10%;
+
+
+
+    /* .mp3 */
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 21px;
+/* identical to box height */
+text-align: center;
+
+color: #000000;
+
+direction: ltr;
+
+
 }
 
 
@@ -139,6 +225,23 @@ background: #FF1654;
     justify-content: center;
     align-items: center;
     width: 10%;
+
+
+    /* 4:29 */
+
+
+
+font-family: 'IRANSansXFaNum';
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height */
+text-align: center;
+
+color: #000000;
+
+
 }
 
 
