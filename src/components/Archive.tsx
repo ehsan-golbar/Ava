@@ -39,7 +39,8 @@ export default function Archive() {
               <div className={styles.fileItem}>
                 <div className={styles.fileName}>
                     
-                    <FileTypeIcon></FileTypeIcon>
+                    <FileTypeIcon fileType="chain"></FileTypeIcon>
+                   
 
                   <div className={styles.fileDescription}>
                     <p>

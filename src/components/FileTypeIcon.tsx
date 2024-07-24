@@ -6,27 +6,71 @@ import littleUpload from "../assets/little upload Icon.png"
 import littleMic from "../assets/little mic Icon.png"
 
 
+type FileType = 'mic' | 'upload' | 'chain';
 
-export default function FileTypeIcon() {
-     return(
+interface MyComponentProps {
+    fileType: FileType;
+  }
 
-        <>
-        
-        
-                <div className={styles.chainLogo}>
-                    <img src={littleChain} alt="typeLogo" />
-                </div>
+const FileTypeIcon: React.FC<MyComponentProps> = (props) => {
 
+
+
+    switch (props.fileType) {
+        case 'mic':
+            return (
+                <>
                 <div className={styles.micLogo}>
                     <img src={littleMic} alt="littleMic" />
                 </div>
 
+                </>
+            )
+            break;
 
-                <div className={styles.uploadLogo}>
-                    <img src={littleUpload} alt="littleUpload" />
+
+            case 'upload':
+                return(
+
+                    <>
+                    
+            
+                    
+            
+            
+            
+                            <div className={styles.uploadLogo}>
+                                <img src={littleUpload} alt="littleUpload" />
+                            </div>
+            
+            
+                    </>
+                 )
+            break;
+        
+            case 'chain':
+                return (
+                    <>
+                <div className={styles.chainLogo}>
+                    <img src={littleChain} alt="typeLogo" />
                 </div>
 
+    
+                    </>
+                )
+                break;
+        
+        default:
+            return(
+                <>
+                <p>no type found</p>
+                </>
+            )
+            break;
+    }
 
-        </>
-     )
 }
+
+
+
+export default FileTypeIcon;
