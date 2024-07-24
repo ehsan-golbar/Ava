@@ -7,6 +7,7 @@ import wordIcon from "../assets/Word icon.png"
 import deleteIcon from "../assets/del Btn.png"
 
 import littleChain from "../assets/little chain Icon.png";
+import FileTypeIcon from "./FileTypeIcon"
 export default function Archive() {
   return (
     <>
@@ -37,9 +38,8 @@ export default function Archive() {
             <li>
               <div className={styles.fileItem}>
                 <div className={styles.fileName}>
-                  <div className={styles.typeLogo}>
-                    <img src={littleChain} alt="typeLogo" />
-                  </div>
+                    
+                    <FileTypeIcon></FileTypeIcon>
 
                   <div className={styles.fileDescription}>
                     <p>

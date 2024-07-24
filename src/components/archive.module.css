@@ -37,7 +37,7 @@
 }
 
 
-.typeLogo{
+.chainLogo{
 display: flex;
 justify-content: center;
 align-items: center;
@@ -54,6 +54,42 @@ background: #FF1654;
 
 }
 
+
+.micLogo{
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+       
+       
+        border-radius: 100%;
+    
+    
+        /* Back */
+    
+            padding: 0.5rem;
+    
+    background: #40C6B8;
+    
+    }
+
+    
+.uploadLogo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+           
+           
+            border-radius: 100%;
+        
+        
+            /* Back */
+        
+                padding: 0.5rem;
+        
+        background: #118AD3;
+        
+        }
+        
 
 
 
