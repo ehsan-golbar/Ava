@@ -56,6 +56,59 @@ export default function TimedText() {
           </button>
         </div>
       </div>
+
+      <div className={styles.resultBody}>
+        <ul className="ulStyle">
+          <li>
+            <div className={styles.timedTextItemSelected}>
+
+                <div className={styles.timedTextItemOne}>
+              <p className="pStyle">00:03</p>
+
+              </div>
+
+
+              <div className={styles.timedTextItemTwo}>
+              <p className="pStyle">00:00</p>
+              </div>
+              <div className={styles.timedTextItemThree}>
+              <p className="pStyle">[با]</p>
+
+              </div>
+            </div>
+           
+          </li>
+
+
+          <li>
+            <div className={styles.timedTextItem}>
+
+                <div className={styles.timedTextItemOne}>
+              <p className="pStyle">01:03</p>
+
+              </div>
+
+
+              <div className={styles.timedTextItemTwo}>
+              <p className="pStyle">02:00</p>
+              </div>
+              <div className={styles.timedTextItemThree}>
+              <p className="pStyle">[به] این [زودی] چه جوری شد [عشق]</p>
+
+              </div>
+            </div>
+           
+          </li>
+
+
+        </ul>
+      </div>
+
+
+      
+      <div className={styles.resultFoot}>
+          <p>hee</p>
+        </div>
     </>
   );
 }

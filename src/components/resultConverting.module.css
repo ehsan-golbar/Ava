@@ -276,3 +276,71 @@ color: #000000;
 
   }
 
+
+
+
+
+
+  .timedTextItem{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+
+        font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 28px;
+/* identical to box height */
+text-align: right;
+
+  }
+
+
+
+
+  .timedTextItemSelected{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+
+    font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 28px;
+/* identical to box height */
+text-align: right;
+    color: #118AD3;
+}
+
+
+
+  .timedTextItemOne{
+    width: 10%;
+
+
+
+    /* [با] */
+
+
+
+
+
+  }
+
+
+  
+  .timedTextItemTwo{
+    width: 10%;
+  }
+
+
+  
+  .timedTextItemThree{
+    width: 80%;
+
+    margin-right: 2rem;
+  }
