@@ -5,3 +5,6 @@ change css file of userType
 overflow of file name 
 
 handle number font
+
+
+font of pagination

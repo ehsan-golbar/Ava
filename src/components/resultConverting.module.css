@@ -1,0 +1,76 @@
+.resultCard{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    
+
+    
+}
+
+.resultHead{
+    display: flex;
+
+    align-items: center;
+    /* padding: 1rem; */
+
+    gap: 1rem;
+
+
+    border-bottom: 0.25px solid  rgba(0, 0, 0, 0.25);
+
+     
+
+
+    margin: 1rem;
+}
+
+.simpletext{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+
+.timedText{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.resultActions{
+    display: flex;
+
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+
+    width: 60%;
+}
+
+
+
+.resultBody{
+
+    padding: 0rem 3rem;
+
+
+    overflow-y: scroll;
+
+    height:70%;
+}
+
+
+.resultFoot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
