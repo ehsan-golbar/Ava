@@ -256,3 +256,23 @@ color: #000000;
 
     
 }
+
+
+
+.pagination{
+    display: flex;
+    justify-content: center;
+
+    width: 80%;
+
+    /* align-items: center; */
+
+    /* direction: rtl; */
+}
+
+.a{
+    background-color: #000000;
+
+
+    direction: rtl;
+}

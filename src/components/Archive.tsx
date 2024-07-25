@@ -1,6 +1,10 @@
 import styles from "./archive.module.css";
 import "../App.css";
 
+import { Pagination } from "@mui/material";
+
+import { PaginationItem } from "@mui/material";
+
 // import downloadIcon from "../assets/download Icon.png";
 // import copyIcon from "../assets/copy Icon.png";
 // import wordIcon from "../assets/Word icon.png";
@@ -59,6 +63,15 @@ export default function Archive() {
             </li>
           </ul>
         </div>
+      </div>
+      <div className={styles.pagination}>
+        <Pagination
+          count={356}
+          defaultPage={122}
+          siblingCount={1}
+          boundaryCount={1}
+        ></Pagination>
+        {/* <PaginationItem MuiPaginationItem-icon = {styles.a} disabled ></PaginationItem> */}
       </div>
     </>
   );
