@@ -8,3 +8,5 @@ handle number font
 
 
 font of pagination
+
+progress bar

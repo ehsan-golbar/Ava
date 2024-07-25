@@ -1,28 +1,46 @@
 import styles from "./resultConverting.module.css";
 import copyIcon from "../assets/copy Icon.png";
 import downloadIcon from "../assets/download Icon.png";
-import textIcon from "../assets/text icon.png";
-import timeIcon from "../assets/time icon.png";
+import textIconLight from "../assets/text icon light.png";
+import timeIconLight from "../assets/time icon light.png";
+
+import refreshIcon from "../assets/Refresh.png"
+
+
+
+
+
 export default function ResultConverting() {
+
+
+
+
+
+
+
+
+
   return (
     <>
       <div className={styles.resultCard}>
         <div className={styles.resultHead}>
           <div className={styles.simpletext}>
-            <img src={textIcon} alt="textIcon" />
-            <p> متن ساده </p>
+            <img src={textIconLight} alt="textIcon" />
+            <p className={styles.resultHeadItem}> متن ساده </p>
           </div>
 
           <div className={styles.timedText}>
-            <img src={timeIcon} alt="timeIcon" />
-            <p>متن زمانبندی شده</p>
+            <img src={timeIconLight} alt="timeIcon" />
+            <p className={styles.resultHeadItem}>متن زمانبندی شده</p>
           </div>
 
           <div className={styles.resultActions}>
             <img src={downloadIcon} alt="downoadIcon" />
             <img src={copyIcon} alt="copyIcon" />
             <div className={styles.startAgain}>
-              <p>شروع دوباره</p>
+
+                <img src={refreshIcon} alt="refreshIcon" />
+              <p className={styles.refreshItem}>شروع دوباره</p>
             </div>
           </div>
         </div>
@@ -73,6 +91,9 @@ export default function ResultConverting() {
 
                 <p>hee</p>
         </div>
+
+
+
       </div>
     </>
   );
