@@ -12,6 +12,9 @@ import copyIcon from "../assets/copy Icon.png";
 import downloadIcon from "../assets/download Icon.png";
 import { useState } from "react";
 
+
+import AudioPlayer from "./AudioPlayer"
+
 export default function TimedText() {
   const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
   const [copyIconImg, setCopyIconImg] = useState(copyIcon);
@@ -107,7 +110,7 @@ export default function TimedText() {
 
       
       <div className={styles.resultFoot}>
-          <p>hee</p>
+          <AudioPlayer></AudioPlayer>
         </div> 
     </>
   );

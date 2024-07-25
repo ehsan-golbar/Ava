@@ -10,3 +10,8 @@ handle number font
 font of pagination
 
 progress bar
+
+
+
+
+padding of sidebar
