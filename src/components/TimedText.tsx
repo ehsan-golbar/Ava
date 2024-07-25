@@ -108,7 +108,7 @@ export default function TimedText() {
       
       <div className={styles.resultFoot}>
           <p>hee</p>
-        </div>
+        </div> 
     </>
   );
 }
