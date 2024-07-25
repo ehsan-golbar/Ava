@@ -22,7 +22,7 @@
     border-bottom: 0.25px solid  rgba(0, 0, 0, 0.25);
 
      
-    padding-bottom: 0.5rem;
+    /* padding-bottom: 0.5rem; */
 
     margin: 1rem;
 }
@@ -48,6 +48,37 @@
 }
 
 
+
+.simpletextSelected{
+
+
+
+    /* Line 19 */
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+
+
+
+    /* متن زمان‌بندی شده */
+
+
+
+    width: 20%;
+
+
+    border-bottom: #000000 1px solid;
+    height: 100%;
+
+
+
+}
+
+
 .resultHeadItem {
     font-family: 'IRANYekan';
 font-style: normal;
@@ -60,6 +91,38 @@ color: #000000;
 }
 
 
+
+
+.resultHeadItemSelected{
+
+
+/* متن زمان‌بندی شده */
+
+
+
+
+
+/* متن ساده */
+
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 1000;
+font-size: 14px;
+line-height: 24px;
+text-align: right;
+
+color: #000000;
+
+
+
+
+
+
+
+}
+
 .timedText{
     display: flex;
 
@@ -69,6 +132,22 @@ color: #000000;
 
 
     width: 30%;
+}
+
+
+.timedTextSelected{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+
+    width: 30%;
+
+
+    border-bottom: #000000 1px solid;
+    height: 100%;
 }
 
 
@@ -196,3 +275,4 @@ color: #000000;
 
 
   }
+
