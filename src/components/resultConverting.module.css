@@ -96,6 +96,11 @@ color: #000000;
     overflow-y: scroll;
 
     height:70%;
+
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    
 }
 
 
@@ -134,3 +139,60 @@ color: #FFFFFF;
 
 
 }
+
+
+
+/* Style the entire scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+    height: 8px; /* Height of the scrollbar */
+  }
+  
+  /* Style the scrollbar track (the background) */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+  }
+  
+  /* Style the draggable part of the scrollbar */
+  ::-webkit-scrollbar-thumb {
+    background: #DADADA; /* Darker gray color */
+    border-radius: 8px; /* Rounded corners */
+  }
+  
+  /* Change the color of the scrollbar thumb when hovered */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c7c7c7; /* Even darker gray */
+    
+  }
+  
+  /* Hide the scrollbar arrows */
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  
+
+
+
+  .bodyText{
+
+    /* .[عشقی اگر] .[می کنی فرد] .تو آدم میره .خوب تو خوب تو دارم .آرزو که [دیگه رو] .خوب [تو] .[قبل] تو میشه [می گفتم] .با [خود] .خوب تو [رو خوب تو] .آرزو [مینه بمونه] که [ام] .خوب [دوم] .[عشقی اگر] .[می کنی فرد] .تو آدم میره .خوب تو خوب تو دارم .آرزو که [دیگه رو] .خوب [تو] .[قبل] تو میشه [می گفتم] .با [خود] .خوب تو [رو خوب تو] .آرزو [مینه بمونه] که [ام] .خوب [دوم] .[عشقی اگر] .[می کنی فرد] .تو آدم میره .خوب تو خوب تو دارم .آرزو که [دیگه رو] .خوب [تو] .[قبل] تو میشه [می گفتم] .با [خود] .خوب تو [رو خوب تو] .آرزو [مینه بمونه] که [ام] .خوب [دوم] */
+
+
+/* [با][---][---] [با] و[---][---] [با][---][---][---][---] کجایی تو [خوش] می دیدی من خسته شدم [ما را] [به] این [زودی] چه جوری شد [عشق شدی] به این است[---] [آخرش] سی با فکر [و] چقدر [نزار می خوام] که [چشم تو] [و با رفت][---][---][---][---][---][---][---][---] سخت [آرام] ولی ازت می خوام[---] بر نگردی هر کسی که به [تو] باشه[---] کاشکی تو منو [بردی] [که چشمک][---] با[---][---][---][---][---] [ابو][---] [با] و و و و و [او] */
+
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 28px;
+text-align: right;
+
+color: #000000;
+
+
+
+
+  }
