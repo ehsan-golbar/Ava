@@ -4,21 +4,15 @@ import downloadIcon from "../assets/download Icon.png";
 import textIconLight from "../assets/text icon light.png";
 import timeIconLight from "../assets/time icon light.png";
 
-import refreshIcon from "../assets/Refresh.png"
+import refreshIcon from "../assets/Refresh.png";
 
-
-
-
+import downloadIconHover from "../assets/download Icon hover.png";
+import copyIconHover from "../assets/copy Icon hover.png";
+import { useState } from "react";
 
 export default function ResultConverting() {
-
-
-
-
-
-
-
-
+  const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
+  const [copyIconImg, setCopyIconImg] = useState(copyIcon);
 
   return (
     <>
@@ -35,13 +29,30 @@ export default function ResultConverting() {
           </div>
 
           <div className={styles.resultActions}>
-            <img src={downloadIcon} alt="downoadIcon" />
-            <img src={copyIcon} alt="copyIcon" />
-            <div className={styles.startAgain}>
+            <button className="buttonStyle">
+              <img
+                src={downloadIconImg}
+                alt="Changeable"
+                onMouseOver={() => setDownloadIconImg(downloadIconHover)}
+                onMouseOut={() => setDownloadIconImg(downloadIcon)}
+              />
+            </button>
 
+            <button className="buttonStyle">
+              <img
+                src={copyIconImg}
+                alt="Changeable"
+                onMouseOver={() => setCopyIconImg(copyIconHover)}
+                onMouseOut={() => setCopyIconImg(copyIcon)}
+              />
+            </button>
+
+            <button className="buttonStyle">
+              <div className={styles.startAgain}>
                 <img src={refreshIcon} alt="refreshIcon" />
-              <p className={styles.refreshItem}>شروع دوباره</p>
-            </div>
+                <p className={styles.refreshItem}>شروع دوباره</p>
+              </div>
+            </button>
           </div>
         </div>
 
@@ -85,15 +96,9 @@ export default function ResultConverting() {
           </p>
         </div>
 
-
-
         <div className={styles.resultFoot}>
-
-                <p>hee</p>
+          <p>hee</p>
         </div>
-
-
-
       </div>
     </>
   );
