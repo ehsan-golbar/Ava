@@ -16,12 +16,28 @@ import SimpleText from "./SimpleText"
 import TimedText from "./TimedText";
 
 
-export default function ResultConverting() {
+
+
+
+type ResultState = 'simpleResult' | "timedResult"
+
+
+interface MyComponentProps{
+  result : ResultState;
+}
+
+
+
+export default function ResultConverting(props : MyComponentProps) {
   const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
   const [copyIconImg, setCopyIconImg] = useState(copyIcon);
 
   return (
     <>
+
+
+
+
       <div className={styles.resultCard}>
         {/* <div className={styles.resultHead}>
           <div className={styles.simpletext}>
@@ -70,7 +86,15 @@ export default function ResultConverting() {
 
         {/* <SimpleText></SimpleText> */}
 
-        <TimedText></TimedText>
+        { props.result === 'simpleResult' ?
+    <SimpleText></SimpleText>
+    
+    
+    : 
+
+    
+    <TimedText></TimedText>
+    }
             
 
 

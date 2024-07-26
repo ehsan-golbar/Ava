@@ -12,6 +12,8 @@ import downloadIcon from "../assets/download Icon.png";
 import { useState } from "react";
 
 
+import AudioPlayer from "./AudioPlayer"
+
 
 export default function SimpleText() {
     const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
@@ -109,7 +111,7 @@ export default function SimpleText() {
 
 
         <div className={styles.resultFoot}>
-          <p>hee</p>
+         <AudioPlayer></AudioPlayer>
         </div>
 </>
 

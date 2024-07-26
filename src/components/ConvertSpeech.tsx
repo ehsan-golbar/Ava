@@ -31,7 +31,9 @@ export default function ConvertSpeech() {
 
       <RecordSpeech></RecordSpeech>
       {/* card */}
-      <UploadFile></UploadFile>
+      <UploadFile state="upload"></UploadFile>
+      <UploadFile state="simpleResult"></UploadFile>
+      <UploadFile state="timedResult"></UploadFile>
 
       <LinkFile></LinkFile>
 
