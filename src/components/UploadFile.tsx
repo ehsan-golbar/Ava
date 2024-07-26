@@ -8,6 +8,9 @@ import micIcon from "../assets/mic Icon.png";
 
 import ResultConverting from "./ResultConverting";
 
+
+import SpeechCardFoot from "./SpeechCardFoot";
+
 export default function UploadFile() {
   return (
     <>
@@ -47,7 +50,7 @@ export default function UploadFile() {
             </p>
           </div> */}
         </div>
-
+{/* 
         <div className={styles.cardFoot}>
           <p className={styles.footTitle}>زبان گفتار:</p>
 
@@ -58,7 +61,10 @@ export default function UploadFile() {
               <img src={dropIcon} alt="dropIcon" />
             </button>
           </div>
-        </div>
+        </div> */}
+
+
+       <SpeechCardFoot></SpeechCardFoot>
       </div>
     </>
   );

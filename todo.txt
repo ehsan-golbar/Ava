@@ -1,6 +1,6 @@
 change css file of userType 
 
-
+fix size of userType
 
 overflow of file name 
 
@@ -15,3 +15,8 @@ progress bar
 
 
 padding of sidebar
+
+
+style of audioPlayer
+
+add download bar to audioPlayer

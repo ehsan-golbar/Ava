@@ -6,6 +6,8 @@ import bigMicIcon from "../assets/big mic Icon.png";
 import dropIcon from "../assets/drop Icon.png";
 
 
+import SpeechCardFoot from "./SpeechCardFoot";
+
 export default function RecordSpeech(){
     return(
         <>
@@ -43,7 +45,7 @@ export default function RecordSpeech(){
               </p>
             </div>
           </div>
-
+{/* 
           <div className={styles.cardFoot}>
             <p className={styles.footTitle}>زبان گفتار:</p>
 
@@ -54,7 +56,10 @@ export default function RecordSpeech(){
                 <img src={dropIcon} alt="dropIcon" />
               </button>
             </div>
-          </div>
+          </div> */}
+
+
+          <SpeechCardFoot></SpeechCardFoot>
         </div>
         </>
     )

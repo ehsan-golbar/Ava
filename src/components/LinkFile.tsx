@@ -9,6 +9,8 @@ import littleChainIcon from "../assets/little chain Icon.png"
 
 import uploadIcon from "../assets/upload Icon.png";
 
+import SpeechCardFoot from "./SpeechCardFoot";
+
 export default function LinkFile() {
     return(
         <>
@@ -54,7 +56,7 @@ export default function LinkFile() {
             </div>
           </div>
 
-          <div className={styles.cardFoot}>
+          {/* <div className={styles.cardFoot}>
             <p className={styles.footTitle}>زبان گفتار:</p>
 
             <div className={styles.langType}>
@@ -64,7 +66,10 @@ export default function LinkFile() {
                 <img src={dropIcon} alt="dropIcon" />
               </button>
             </div>
-          </div>
+          </div> */}
+
+
+          <SpeechCardFoot></SpeechCardFoot>
         </div>
         </>
     )

@@ -12,11 +12,18 @@ import copyIconHover from "../assets/copy Icon hover.png";
 import wordIconHover from "../assets/Word icon hover.png";
 import deleteIconHover from "../assets/del Btn hover.png";
 
+
+
+type FileType = "mic" | "upload" | "chain";
+
+
+
 interface MyComponentProps {
   fileDescription: string;
   fileDate: string;
   fileType: string;
   fileTime: string;
+  fileLogo : FileType;
 }
 
 const FileItem: React.FC<MyComponentProps> = (props) => {
@@ -29,7 +36,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
     <>
       <div className={styles.fileItem}>
         <div className={styles.fileName}>
-          <FileTypeIcon fileType="chain"></FileTypeIcon>
+          <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
 
           <div className={styles.fileDescription}>
             <p>{props.fileDescription}</p>

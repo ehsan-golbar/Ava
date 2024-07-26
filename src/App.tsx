@@ -15,7 +15,7 @@ export default function App() {
     <UserType></UserType>
       <Sidebar></Sidebar>
       <ConvertSpeech></ConvertSpeech>
-      {/* <Archive></Archive> */}
+      <Archive></Archive>
       {/* <p>salam</p> */}
     </>
   );

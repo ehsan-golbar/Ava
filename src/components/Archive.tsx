@@ -47,20 +47,35 @@ export default function Archive() {
                 fileDate="1400-08-21"
                 fileType=".mp3"
                 fileTime="4:29"
+                fileLogo="chain"
               ></FileItem>
             </li>
 
-            <li>
-              <div className={styles.fileItem}>
-                <p>two</p>
-              </div>
-            </li>
 
             <li>
-              <div className={styles.fileItem}>
-                <p>three</p>
-              </div>
+              <FileItem
+                fileDescription="پادکست رادیو راه - فصل دوم -قسمت ششم- راه سروش"
+                fileDate="1400-08-21"
+                fileType=".mp3"
+                fileTime="4:29"
+                fileLogo="mic"
+              ></FileItem>
             </li>
+
+
+
+
+            <li>
+              <FileItem
+                fileDescription="khaterate To"
+                fileDate="1400-08-21"
+                fileType=".mp3"
+                fileTime="4:29"
+                fileLogo="upload"
+              ></FileItem>
+            </li>
+
+
           </ul>
         </div>
       </div>
