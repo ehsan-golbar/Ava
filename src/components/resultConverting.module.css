@@ -387,8 +387,15 @@ text-align: right;
     margin-right: 1rem;
 
     /* [با] */
-
-
+    font-family: 'IRANSansXFaNum' ;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1px;
+    /* identical to box height */
+    text-align: center;
+    
+   
 
 
 
@@ -398,6 +405,16 @@ text-align: right;
   
   .timedTextItemTwo{
     width: 10%;
+
+
+    font-family: 'IRANSansXFaNum' ;
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 1px;
+/* identical to box height */
+text-align: center;
+
   }
 
 

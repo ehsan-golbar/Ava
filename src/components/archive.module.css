@@ -61,13 +61,15 @@ color: #000000;
 
 
 
+
+
 }
 
 .fileItem{
     display: flex;
     justify-content: start;
     align-items: center;
-    padding-right: 1rem
+    padding-right: 1rem;
 }
 
 
@@ -203,6 +205,7 @@ text-align: right;
 color: #118AD3;
 
 
+
 }
 
 .fileDescription{
@@ -232,15 +235,16 @@ color: #118AD3;
     /* 1400-08-21 */
 
 
-font-family: 'IRANYekan' ,sans-serif;
+font-family: 'IRANSansXFaNum' ;
 font-style: normal;
-font-weight: 300;
-font-size: 12px;
-line-height: 18px;
+font-weight: 600;
+font-size: 15px;
+line-height: 1px;
 /* identical to box height */
 text-align: center;
 
 color: #000000;
+opacity: 0.8;
 
 
 }
@@ -286,13 +290,18 @@ direction: ltr;
 
 font-family: 'IRANSansXFaNum';
 font-style: normal;
-font-weight: 300;
-font-size: 12px;
+font-weight: 600;
+font-size: 15px;
 line-height: 18px;
 /* identical to box height */
 text-align: center;
 
 color: #000000;
+
+opacity: 0.8;
+
+
+
 
 
 }

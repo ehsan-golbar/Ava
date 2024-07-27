@@ -35,6 +35,15 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   const [copyIconImg, setCopyIconImg] = useState(copyIcon);
   const [deleteIconImg, setDeleteIconImg] = useState(deleteIcon);
 
+
+  const toPersianNumber = (num: number | string) => {
+    const persianDigits = '۰۱۲۳۴۵۶۷۸۹';
+    return num.toString().replace(/\d/g, (digit) => persianDigits[parseInt(digit)]);
+  };
+
+  
+
+
   return (
     <>
       {!props.fileResult ? (
@@ -52,7 +61,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
           </div>
 
           <div className={styles.fileDate}>
-            <p>{props.fileDate}</p>
+            <p>{toPersianNumber(props.fileDate)}</p>
           </div>
 
           <div className={styles.fileType}>
@@ -60,7 +69,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
           </div>
 
           <div className={styles.fileTime}>
-            <p>{props.fileTime}</p>
+            <p>{toPersianNumber(props.fileTime)}</p>
           </div>
 
           <div className={styles.fileActions}>

@@ -33,7 +33,14 @@ const TinyText = styled(Typography)({
   letterSpacing: 0.2,
 });
 
+
+
+
+
 export default function MusicPlayerSlider() {
+
+
+
   const theme = useTheme();
   const duration = 200; // seconds
   const [position, setPosition] = React.useState(32);
@@ -41,7 +48,7 @@ export default function MusicPlayerSlider() {
   function formatDuration(value: number) {
     const minute = Math.floor(value / 60);
     const secondLeft = value - minute * 60;
-    return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
+    return `${toPersianNumber(minute)}:${secondLeft < 10 ? `0${toPersianNumber(secondLeft)}` : toPersianNumber(secondLeft)}`;
   }
   const mainIconColor = theme.palette.mode === "dark" ? "#fff" : "#000";
 
@@ -55,6 +62,13 @@ export default function MusicPlayerSlider() {
 
   // background: #F8F8F8;
   // border-radius: 10px;
+
+
+  const toPersianNumber = (num: number | string) => {
+    const persianDigits = '۰۱۲۳۴۵۶۷۸۹';
+    return num.toString().replace(/\d/g, (digit) => persianDigits[parseInt(digit)]);
+  };
+  
 
   return (
     <Box
@@ -143,7 +157,15 @@ export default function MusicPlayerSlider() {
             }}
           />
 
-          <Typography sx={{ color: "#3D3D3D" }}>
+          <Typography sx={{ color: "#3D3D3D" , fontFamily: 'IRANSansXFaNum' ,
+fontStyle: 'normal',
+fontWeight: '600',
+fontSize: '15px',
+lineHeight: '1px',
+/* identical to box height */
+textAlign: 'center'
+
+}}>
             {formatDuration(position)}
           </Typography>
 

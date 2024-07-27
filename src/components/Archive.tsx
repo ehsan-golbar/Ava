@@ -29,6 +29,15 @@ const theme = createTheme({
           '&.Mui-selected': {
             color: '#FFFFFF', // Text color of the selected page
             backgroundColor: '#07B49B', // Background color of the selected page
+
+          },
+          '&.MuiPaginationItem-root': {
+            fontFamily: 'IRANSansXFaNum',
+            fontStyle: 'normal',
+            fontWeight: 600,
+            fontSize: '15px',
+            lineHeight: '1px',
+            textAlign: 'center',
           },
         },
       },
@@ -122,8 +131,9 @@ export default function Archive() {
           defaultPage={122}
           siblingCount={1}
           boundaryCount={1}
-          color="primary"
+          // color="primary"
           // color=""
+
         ></Pagination>
 
 
