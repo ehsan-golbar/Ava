@@ -14,7 +14,7 @@ import deleteIconHover from "../assets/del Btn hover.png";
 
 import ResultConverting from "./ResultConverting";
 
-import Tooltip from '@mui/material/Tooltip';
+import Tooltip from "@mui/material/Tooltip";
 
 type FileType = "mic" | "upload" | "chain";
 
@@ -25,6 +25,8 @@ interface MyComponentProps {
   fileTime: string;
   fileLogo: FileType;
   fileResult: boolean;
+
+  backGround: boolean;
 }
 
 const FileItem: React.FC<MyComponentProps> = (props) => {
@@ -36,7 +38,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   return (
     <>
       {!props.fileResult ? (
-        <div className={styles.fileItem}>
+        <div className={props.backGround ? styles.fileItemBackground : styles.fileItem}>
           <div className={styles.fileName}>
             <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
 
@@ -60,16 +62,14 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
           <div className={styles.fileActions}>
             {/* <img src={downloadIcon} alt="downloadIcon" /> */}
 
-
-          <Tooltip title="۳.۱۸ مگابایت">
-            <img
-              src={downloadIconImg}
-              alt="Changeable"
-              onMouseOver={() => setDownloadIconImg(downloadIconHover)}
-              onMouseOut={() => setDownloadIconImg(downloadIcon)}
-            />
-
-</Tooltip>
+            <Tooltip title="۳.۱۸ مگابایت">
+              <img
+                src={downloadIconImg}
+                alt="Changeable"
+                onMouseOver={() => setDownloadIconImg(downloadIconHover)}
+                onMouseOut={() => setDownloadIconImg(downloadIcon)}
+              />
+            </Tooltip>
             {/* <img src={wordIcon} alt="wordIcon" /> */}
             <img
               src={wordIconImg}
@@ -121,16 +121,14 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
             <div className={styles.fileActions}>
               {/* <img src={downloadIcon} alt="downloadIcon" /> */}
 
-
               <Tooltip title="۳.۱۸ مگابایت">
-              <img
-                src={downloadIconImg}
-                alt="Changeable"
-                onMouseOver={() => setDownloadIconImg(downloadIconHover)}
-                onMouseOut={() => setDownloadIconImg(downloadIcon)}
-              />
-
-</Tooltip>
+                <img
+                  src={downloadIconImg}
+                  alt="Changeable"
+                  onMouseOver={() => setDownloadIconImg(downloadIconHover)}
+                  onMouseOut={() => setDownloadIconImg(downloadIcon)}
+                />
+              </Tooltip>
               {/* <img src={wordIcon} alt="wordIcon" /> */}
               <img
                 src={wordIconImg}
@@ -155,7 +153,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
             </div>
           </div>
 
-          <div  className={styles.resultBody}>
+          <div className={styles.resultBody}>
             <ResultConverting result="simpleResult"></ResultConverting>
           </div>
         </div>

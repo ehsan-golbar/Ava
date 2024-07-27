@@ -67,8 +67,27 @@ color: #000000;
     display: flex;
     justify-content: start;
     align-items: center;
+    padding-right: 1rem
 }
 
+
+
+.fileItemBackground{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    background-color: #F2F2F2;
+
+    padding-right: 1rem;
+
+
+
+box-shadow: 1px 1px 50px rgba(99, 99, 99, 0.05);
+border-radius: 25px;
+
+
+}
 
 .chainLogo{
 display: flex;
@@ -265,9 +284,15 @@ color: #000000;
 
     width: 80%;
 
+
+    margin-top: 4rem;
+
+    margin-bottom: 2rem ;
+
     /* align-items: center; */
 
     /* direction: rtl; */
+    bottom: 0;
 }
 
 .a{
