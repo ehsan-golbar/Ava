@@ -276,3 +276,39 @@ color: #000000;
 
     direction: rtl;
 }
+
+
+
+.resultBody{
+    /* width: 653px; */
+    height: 429px;
+    left: 989px;
+    top: 285px;
+
+}
+
+
+
+
+.fileItemSelected{
+    display: flex;
+    flex-direction: column;
+
+ 
+
+
+    /* Main Back */
+
+box-sizing: border-box;
+
+background: #FFFFFF;
+/* Primary Color */
+border: 1px solid #00BA9F;
+box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.05);
+border-radius: 10px;
+
+padding: 2rem;
+
+}
+
+

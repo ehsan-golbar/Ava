@@ -12,18 +12,17 @@ import copyIconHover from "../assets/copy Icon hover.png";
 import wordIconHover from "../assets/Word icon hover.png";
 import deleteIconHover from "../assets/del Btn hover.png";
 
-
+import ResultConverting from "./ResultConverting";
 
 type FileType = "mic" | "upload" | "chain";
-
-
 
 interface MyComponentProps {
   fileDescription: string;
   fileDate: string;
   fileType: string;
   fileTime: string;
-  fileLogo : FileType;
+  fileLogo: FileType;
+  fileResult: boolean;
 }
 
 const FileItem: React.FC<MyComponentProps> = (props) => {
@@ -34,62 +33,123 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
 
   return (
     <>
-      <div className={styles.fileItem}>
-        <div className={styles.fileName}>
-          <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
+      {!props.fileResult ? (
+        <div className={styles.fileItem}>
+          <div className={styles.fileName}>
+            <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
 
-          <div className={styles.fileDescription}>
-            <p>{props.fileDescription}</p>
+            <div className={styles.fileDescription}>
+              <p>{props.fileDescription}</p>
+            </div>
+          </div>
+
+          <div className={styles.fileDate}>
+            <p>{props.fileDate}</p>
+          </div>
+
+          <div className={styles.fileType}>
+            <p>{props.fileType}</p>
+          </div>
+
+          <div className={styles.fileTime}>
+            <p>{props.fileTime}</p>
+          </div>
+
+          <div className={styles.fileActions}>
+            {/* <img src={downloadIcon} alt="downloadIcon" /> */}
+
+            <img
+              src={downloadIconImg}
+              alt="Changeable"
+              onMouseOver={() => setDownloadIconImg(downloadIconHover)}
+              onMouseOut={() => setDownloadIconImg(downloadIcon)}
+            />
+            {/* <img src={wordIcon} alt="wordIcon" /> */}
+            <img
+              src={wordIconImg}
+              alt="Changeable"
+              onMouseOver={() => setWordIconImg(wordIconHover)}
+              onMouseOut={() => setWordIconImg(wordIcon)}
+            />
+            {/* <img src={copyIcon} alt="copyIcon" /> */}
+            <img
+              src={copyIconImg}
+              alt="Changeable"
+              onMouseOver={() => setCopyIconImg(copyIconHover)}
+              onMouseOut={() => setCopyIconImg(copyIcon)}
+            />
+            {/* <img src={deleteIcon} alt="deleteIcon" /> */}
+            <img
+              src={deleteIconImg}
+              alt="Changeable"
+              onMouseOver={() => setDeleteIconImg(deleteIconHover)}
+              onMouseOut={() => setDeleteIconImg(deleteIcon)}
+            />
           </div>
         </div>
+      ) : (
+        //************************************************************************ */
 
-        <div className={styles.fileDate}>
-          <p>{props.fileDate}</p>
+        <div className={styles.fileItemSelected}>
+          <div className={styles.fileItem}>
+            <div className={styles.fileName}>
+              <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
+
+              <div className={styles.fileDescription}>
+                <p>{props.fileDescription}</p>
+              </div>
+            </div>
+
+            <div className={styles.fileDate}>
+              <p>{props.fileDate}</p>
+            </div>
+
+            <div className={styles.fileType}>
+              <p>{props.fileType}</p>
+            </div>
+
+            <div className={styles.fileTime}>
+              <p>{props.fileTime}</p>
+            </div>
+
+            <div className={styles.fileActions}>
+              {/* <img src={downloadIcon} alt="downloadIcon" /> */}
+
+              <img
+                src={downloadIconImg}
+                alt="Changeable"
+                onMouseOver={() => setDownloadIconImg(downloadIconHover)}
+                onMouseOut={() => setDownloadIconImg(downloadIcon)}
+              />
+              {/* <img src={wordIcon} alt="wordIcon" /> */}
+              <img
+                src={wordIconImg}
+                alt="Changeable"
+                onMouseOver={() => setWordIconImg(wordIconHover)}
+                onMouseOut={() => setWordIconImg(wordIcon)}
+              />
+              {/* <img src={copyIcon} alt="copyIcon" /> */}
+              <img
+                src={copyIconImg}
+                alt="Changeable"
+                onMouseOver={() => setCopyIconImg(copyIconHover)}
+                onMouseOut={() => setCopyIconImg(copyIcon)}
+              />
+              {/* <img src={deleteIcon} alt="deleteIcon" /> */}
+              <img
+                src={deleteIconImg}
+                alt="Changeable"
+                onMouseOver={() => setDeleteIconImg(deleteIconHover)}
+                onMouseOut={() => setDeleteIconImg(deleteIcon)}
+              />
+            </div>
+          </div>
+
+          <div  className={styles.resultBody}>
+            <ResultConverting result="simpleResult"></ResultConverting>
+          </div>
         </div>
-
-        <div className={styles.fileType}>
-          <p>{props.fileType}</p>
-        </div>
-
-        <div className={styles.fileTime}>
-          <p>{props.fileTime}</p>
-        </div>
-
-        <div className={styles.fileActions}>
-          {/* <img src={downloadIcon} alt="downloadIcon" /> */}
-
-
-          <img
-            src={downloadIconImg}
-            alt="Changeable"
-            onMouseOver={() => setDownloadIconImg(downloadIconHover)}
-            onMouseOut={() => setDownloadIconImg(downloadIcon)}
-          />
-          {/* <img src={wordIcon} alt="wordIcon" /> */}
-          <img
-            src={wordIconImg}
-            alt="Changeable"
-            onMouseOver={() => setWordIconImg(wordIconHover)}
-            onMouseOut={() => setWordIconImg(wordIcon)}
-          />
-          {/* <img src={copyIcon} alt="copyIcon" /> */}
-          <img
-            src={copyIconImg}
-            alt="Changeable"
-            onMouseOver={() => setCopyIconImg(copyIconHover)}
-            onMouseOut={() => setCopyIconImg(copyIcon)}
-          />
-          {/* <img src={deleteIcon} alt="deleteIcon" /> */}
-          <img
-            src={deleteIconImg}
-            alt="Changeable"
-            onMouseOver={() => setDeleteIconImg(deleteIconHover)}
-            onMouseOut={() => setDeleteIconImg(deleteIcon)}
-
-           
-          />
-        </div>
-      </div>
+      )}
     </>
   );
 };
