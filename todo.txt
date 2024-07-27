@@ -20,3 +20,6 @@ padding of sidebar
 style of audioPlayer
 
 add download bar to audioPlayer
+
+
+atyyle of tooltip

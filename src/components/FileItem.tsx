@@ -14,6 +14,8 @@ import deleteIconHover from "../assets/del Btn hover.png";
 
 import ResultConverting from "./ResultConverting";
 
+import Tooltip from '@mui/material/Tooltip';
+
 type FileType = "mic" | "upload" | "chain";
 
 interface MyComponentProps {
@@ -58,12 +60,16 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
           <div className={styles.fileActions}>
             {/* <img src={downloadIcon} alt="downloadIcon" /> */}
 
+
+          <Tooltip title="۳.۱۸ مگابایت">
             <img
               src={downloadIconImg}
               alt="Changeable"
               onMouseOver={() => setDownloadIconImg(downloadIconHover)}
               onMouseOut={() => setDownloadIconImg(downloadIcon)}
             />
+
+</Tooltip>
             {/* <img src={wordIcon} alt="wordIcon" /> */}
             <img
               src={wordIconImg}
