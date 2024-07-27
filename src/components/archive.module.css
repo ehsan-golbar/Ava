@@ -202,7 +202,7 @@ line-height: 28px;
 /* identical to box height */
 text-align: right;
 
-color: #118AD3;
+/* color: #118AD3; */
 
 
 
@@ -219,8 +219,27 @@ color: #118AD3;
     text-overflow: ellipsis; /* Add ellipsis if text overflows */
 
     width: 100%; /* Ensure the container has a constrained width */
+color: #118AD3;
+
 }
 
+
+.fileDescriptionUrl{
+
+    direction: ltr;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    overflow-x: hidden ;
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+
+    width: 100%; /* Ensure the container has a constrained width */
+
+color: #000000;
+
+}
 
 
 

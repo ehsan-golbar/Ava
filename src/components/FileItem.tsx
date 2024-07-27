@@ -25,7 +25,7 @@ interface MyComponentProps {
   fileTime: string;
   fileLogo: FileType;
   fileResult: boolean;
-
+  blueText : boolean;
   backGround: boolean;
 }
 
@@ -55,8 +55,8 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
           <div className={styles.fileName}>
             <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
 
-            <div className={styles.fileDescription}>
-              <p>{props.fileDescription}</p>
+            <div className={!props.blueText ? styles.fileDescriptionUrl  :  styles.fileDescription}>
+              <p style={{paddingLeft:"2rem"}}>{props.fileDescription}</p>
             </div>
           </div>
 
@@ -125,8 +125,9 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
             <div className={styles.fileName}>
               <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
 
-              <div className={styles.fileDescription}>
-                <p>{props.fileDescription}</p>
+              <div className={!props.blueText ? styles.fileDescriptionUrl  :  styles.fileDescription}>
+              <p style={{paddingLeft:"2rem"}}>{props.fileDescription}</p>
+
               </div>
             </div>
 

@@ -82,7 +82,7 @@ export default function Archive() {
                 fileLogo="chain"
 
                 fileResult={false}
-
+                blueText={true}
                 backGround={false}
               ></FileItem>
             </li>
@@ -97,6 +97,7 @@ export default function Archive() {
                 fileLogo="mic"
                 fileResult={false}
                 backGround={true}
+                blueText={false}
 
               ></FileItem>
             </li>
@@ -111,7 +112,8 @@ export default function Archive() {
                 fileType=".mp3"
                 fileTime="4:29"
                 fileLogo="upload"
-                fileResult={false}
+                fileResult={true}
+                blueText={false}
 
                 backGround={false}
 
