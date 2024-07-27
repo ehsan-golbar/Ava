@@ -146,7 +146,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
             <div className={styles.fileActions}>
             {/* <img src={downloadIcon} alt="downloadIcon" /> */}
 
-            <Tooltip title="۳.۱۸ مگابایت">
+            <Tooltip title="۳.۱۸ مگابایت" >
               <button className="buttonStyle">
                 <img
                   src={downloadIconImg}

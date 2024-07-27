@@ -16,6 +16,10 @@ import TimedTextItem from "./TimedTextItem";
 
 import AudioPlayer from "./AudioPlayer";
 
+
+import Tooltip from "@mui/material/Tooltip";
+
+
 export default function TimedText() {
   const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
   const [copyIconImg, setCopyIconImg] = useState(copyIcon);
@@ -42,6 +46,8 @@ export default function TimedText() {
         <div className={styles.resultActions}>
 
 
+
+        <Tooltip title="۳.۱۸ مگابایت">
         <div className={styles.actionOne}>
           <button className="buttonStyle">
             <img
@@ -52,6 +58,9 @@ export default function TimedText() {
             />
           </button>
           </div>
+            </Tooltip>
+
+
         <div className={styles.actionTwo}>
 
 

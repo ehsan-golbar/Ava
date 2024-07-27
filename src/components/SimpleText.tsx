@@ -13,6 +13,7 @@ import { useState } from "react";
 
 
 import AudioPlayer from "./AudioPlayer"
+import Tooltip from "@mui/material/Tooltip";
 
 
 export default function SimpleText() {
@@ -45,7 +46,11 @@ export default function SimpleText() {
 
           <div className={styles.resultActions}>
 
-            <div className={styles.actionOne}>
+
+
+          <Tooltip title="۳.۱۸ مگابایت">
+            
+          <div className={styles.actionOne}>
             <button className="buttonStyle">
               <img
                 src={downloadIconImg}
@@ -56,6 +61,8 @@ export default function SimpleText() {
             </button>
 
             </div>
+            </Tooltip>
+
 
             <div className={styles.actionOne}>
 
