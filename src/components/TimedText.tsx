@@ -12,8 +12,9 @@ import copyIcon from "../assets/copy Icon.png";
 import downloadIcon from "../assets/download Icon.png";
 import { useState } from "react";
 
+import TimedTextItem from "./TimedTextItem";
 
-import AudioPlayer from "./AudioPlayer"
+import AudioPlayer from "./AudioPlayer";
 
 export default function TimedText() {
   const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
@@ -62,29 +63,16 @@ export default function TimedText() {
 
       <div className={styles.resultBody}>
         <ul className="ulStyle">
-          <li>
-            <div className={styles.timedTextItemSelected}>
-
-                <div className={styles.timedTextItemOne}>
-              <p className="pStyle">00:03</p>
-
-              </div>
-
-
-              <div className={styles.timedTextItemTwo}>
-              <p className="pStyle">00:00</p>
-              </div>
-              <div className={styles.timedTextItemThree}>
-              <p className="pStyle">[با]</p>
-
-              </div>
-            </div>
-           
-          </li>
-
+          <TimedTextItem
+            text="[با]"
+            timeOne="00:00"
+            timeTwo="00:03"
+            backGround={false}
+            textBlue={true}
+          ></TimedTextItem>
 
           <li>
-            <div className={styles.timedTextItem}>
+            {/* <div className={styles.timedTextItem}>
 
                 <div className={styles.timedTextItemOne}>
               <p className="pStyle">01:03</p>
@@ -100,18 +88,33 @@ export default function TimedText() {
 
               </div>
             </div>
-           
+
+             */}
+
+            <TimedTextItem
+              text="[به] این [زودی] چه جوری شد [عشق]"
+              timeOne="02:00"
+              timeTwo="01:03"
+              backGround={true}
+              textBlue={false}
+            ></TimedTextItem>
           </li>
 
-
+          <li>
+          <TimedTextItem
+              text="[به] این  [عشق]"
+              timeOne="02:00"
+              timeTwo="01:03"
+              backGround={false}
+              textBlue={false}
+            ></TimedTextItem>
+          </li>
         </ul>
       </div>
 
-
-      
       <div className={styles.resultFoot}>
-          <AudioPlayer></AudioPlayer>
-        </div> 
+        <AudioPlayer></AudioPlayer>
+      </div>
     </>
   );
 }
