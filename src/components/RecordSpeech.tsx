@@ -3,7 +3,7 @@ import styles from "./speech.module.css";
 import chainicon from "../assets/chain Icon.png";
 import uploadIcon from "../assets/upload Icon.png";
 import bigMicIcon from "../assets/big mic Icon.png";
-import dropIcon from "../assets/drop Icon.png";
+// import dropIcon from "../assets/drop Icon.png";
 
 import SpeechCardFoot from "./SpeechCardFoot";
 

@@ -1,6 +1,6 @@
 import styles from "./resultConverting.module.css";
-import copyIcon from "../assets/copy Icon.png";
-import downloadIcon from "../assets/download Icon.png";
+// import copyIcon from "../assets/copy Icon.png";
+// import downloadIcon from "../assets/download Icon.png";
 // import textIconLight from "../assets/text icon light.png";
 // import textIcon from "../assets/text icon.png";
 // import timeIconLight from "../assets/time icon light.png";

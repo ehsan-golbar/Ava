@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import {  useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
@@ -26,12 +26,12 @@ import StopIcon from "@mui/icons-material/Stop";
 //   //   backdropFilter: "blur(40px)",
 // }));
 
-const TinyText = styled(Typography)({
-  fontSize: "0.75rem",
-  opacity: 0.38,
-  fontWeight: 500,
-  letterSpacing: 0.2,
-});
+// const TinyText = styled(Typography)({
+//   fontSize: "0.75rem",
+//   opacity: 0.38,
+//   fontWeight: 500,
+//   letterSpacing: 0.2,
+// });
 
 
 
@@ -85,7 +85,7 @@ export default function MusicPlayerSlider() {
         justifyContent:"center"
       }}
     >
-      <Widget>
+      {/* <Widget> */}
         <Stack
           width="100%"
           direction="row"
@@ -205,7 +205,7 @@ textAlign: 'center'
             />
           </Stack>
         </Stack>
-      </Widget>
+      {/* </Widget> */}
     </Box>
   );
 }
