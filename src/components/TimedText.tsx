@@ -1,7 +1,7 @@
 import styles from "./resultConverting.module.css";
 import textIconLight from "../assets/text icon light.png";
-import textIcon from "../assets/text icon.png";
-import timeIconLight from "../assets/time icon light.png";
+// import textIcon from "../assets/text icon.png";
+// import timeIconLight from "../assets/time icon light.png";
 import timeIcon from "../assets/time icon.png";
 
 import refreshIcon from "../assets/Refresh.png";

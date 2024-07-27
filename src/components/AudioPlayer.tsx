@@ -8,23 +8,23 @@ import Stack from "@mui/material/Stack";
 import PauseRounded from "@mui/icons-material/PauseRounded";
 import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
 import VolumeUpRounded from "@mui/icons-material/VolumeUpRounded";
-import VolumeDownRounded from "@mui/icons-material/VolumeDownRounded";
+// import VolumeDownRounded from "@mui/icons-material/VolumeDownRounded";
 
 import StopIcon from "@mui/icons-material/Stop";
 
-const Widget = styled("div")(({ theme }) => ({
-  padding: 16,
-  borderRadius: 16,
-  //   direction :"ltr"
-  //   width: 343,
-  //   maxWidth: "100%",
-  //   margin: "auto",
-  //   position: "relative",
-  //   zIndex: 1,
-  //   backgroundColor:
-  //     theme.palette.mode === "dark" ? "rgba(0,0,0,0.6)" : "rgba(255,255,255,0.4)",
-  //   backdropFilter: "blur(40px)",
-}));
+// const Widget = styled("div")(({ theme }) => ({
+//   padding: 16,
+//   borderRadius: 16,
+//   //   direction :"ltr"
+//   //   width: 343,
+//   //   maxWidth: "100%",
+//   //   margin: "auto",
+//   //   position: "relative",
+//   //   zIndex: 1,
+//   //   backgroundColor:
+//   //     theme.palette.mode === "dark" ? "rgba(0,0,0,0.6)" : "rgba(255,255,255,0.4)",
+//   //   backdropFilter: "blur(40px)",
+// }));
 
 const TinyText = styled(Typography)({
   fontSize: "0.75rem",

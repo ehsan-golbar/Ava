@@ -1,18 +1,18 @@
-import userIcon from "../assets/user Icon.png";
+// import userIcon from "../assets/user Icon.png";
 import styles from "./speech.module.css";
-import dropIcon from "../assets/drop Icon.png";
-import chainicon from "../assets/chain Icon.png";
-import uploadIcon from "../assets/upload Icon.png";
+// import dropIcon from "../assets/drop Icon.png";
+// import chainicon from "../assets/chain Icon.png";
+// import uploadIcon from "../assets/upload Icon.png";
 import RecordSpeech from "./RecordSpeech";
 import "../App.css";
 
-import micIcon from "../assets/mic Icon.png";
-import micIconWhite from "../assets/mic Icon white.png";
-import bigMicIcon from "../assets/big mic Icon.png";
+// import micIcon from "../assets/mic Icon.png";
+// import micIconWhite from "../assets/mic Icon white.png";
+// import bigMicIcon from "../assets/big mic Icon.png";
 
 import UploadFile from "./UploadFile";
 
-import LInkFile from "./LinkFile";
+// import LInkFile from "./LinkFile";
 import LinkFile from "./LinkFile";
 
 export default function ConvertSpeech() {

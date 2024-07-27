@@ -1,9 +1,9 @@
-import micIconWhite from "../assets/mic Icon white.png";
+// import micIconWhite from "../assets/mic Icon white.png";
 import styles from "./speech.module.css";
 import chainicon from "../assets/chain Icon.png";
 import uploadIconWhite from "../assets/upload Icon white.png";
 import bigUploadIcon from "../assets/big upload Icon.png";
-import dropIcon from "../assets/drop Icon.png";
+// import dropIcon from "../assets/drop Icon.png";
 import micIcon from "../assets/mic Icon.png";
 
 import ResultConverting from "./ResultConverting";

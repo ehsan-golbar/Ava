@@ -1,5 +1,5 @@
 import styles from "./resultConverting.module.css" 
-import textIconLight from "../assets/text icon light.png";
+// import textIconLight from "../assets/text icon light.png";
 import textIcon from "../assets/text icon.png";
 import timeIconLight from "../assets/time icon light.png";
 

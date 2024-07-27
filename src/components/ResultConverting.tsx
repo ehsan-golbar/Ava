@@ -1,15 +1,15 @@
 import styles from "./resultConverting.module.css";
 import copyIcon from "../assets/copy Icon.png";
 import downloadIcon from "../assets/download Icon.png";
-import textIconLight from "../assets/text icon light.png";
-import textIcon from "../assets/text icon.png";
-import timeIconLight from "../assets/time icon light.png";
+// import textIconLight from "../assets/text icon light.png";
+// import textIcon from "../assets/text icon.png";
+// import timeIconLight from "../assets/time icon light.png";
 
-import refreshIcon from "../assets/Refresh.png";
+// import refreshIcon from "../assets/Refresh.png";
 
-import downloadIconHover from "../assets/download Icon hover.png";
-import copyIconHover from "../assets/copy Icon hover.png";
-import { useState } from "react";
+// import downloadIconHover from "../assets/download Icon hover.png";
+// import copyIconHover from "../assets/copy Icon hover.png";
+// import { useState } from "react";
 
 
 import SimpleText from "./SimpleText"
@@ -29,8 +29,8 @@ interface MyComponentProps{
 
 
 export default function ResultConverting(props : MyComponentProps) {
-  const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
-  const [copyIconImg, setCopyIconImg] = useState(copyIcon);
+  // const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
+  // const [copyIconImg, setCopyIconImg] = useState(copyIcon);
 
   return (
     <>
