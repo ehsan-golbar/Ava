@@ -38,7 +38,11 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   return (
     <>
       {!props.fileResult ? (
-        <div className={props.backGround ? styles.fileItemBackground : styles.fileItem}>
+        <div
+          className={
+            props.backGround ? styles.fileItemBackground : styles.fileItem
+          }
+        >
           <div className={styles.fileName}>
             <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
 
@@ -63,34 +67,45 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
             {/* <img src={downloadIcon} alt="downloadIcon" /> */}
 
             <Tooltip title="۳.۱۸ مگابایت">
-              <img
-                src={downloadIconImg}
-                alt="Changeable"
-                onMouseOver={() => setDownloadIconImg(downloadIconHover)}
-                onMouseOut={() => setDownloadIconImg(downloadIcon)}
-              />
+              <button className="buttonStyle">
+                <img
+                  src={downloadIconImg}
+                  alt="Changeable"
+                  onMouseOver={() => setDownloadIconImg(downloadIconHover)}
+                  onMouseOut={() => setDownloadIconImg(downloadIcon)}
+                />
+              </button>
             </Tooltip>
             {/* <img src={wordIcon} alt="wordIcon" /> */}
-            <img
-              src={wordIconImg}
-              alt="Changeable"
-              onMouseOver={() => setWordIconImg(wordIconHover)}
-              onMouseOut={() => setWordIconImg(wordIcon)}
-            />
+
+            <button className="buttonStyle">
+              <img
+                src={wordIconImg}
+                alt="Changeable"
+                onMouseOver={() => setWordIconImg(wordIconHover)}
+                onMouseOut={() => setWordIconImg(wordIcon)}
+              />
+            </button>
             {/* <img src={copyIcon} alt="copyIcon" /> */}
-            <img
-              src={copyIconImg}
-              alt="Changeable"
-              onMouseOver={() => setCopyIconImg(copyIconHover)}
-              onMouseOut={() => setCopyIconImg(copyIcon)}
-            />
+
+            <button className="buttonStyle">
+              <img
+                src={copyIconImg}
+                alt="Changeable"
+                onMouseOver={() => setCopyIconImg(copyIconHover)}
+                onMouseOut={() => setCopyIconImg(copyIcon)}
+              />
+            </button>
             {/* <img src={deleteIcon} alt="deleteIcon" /> */}
-            <img
-              src={deleteIconImg}
-              alt="Changeable"
-              onMouseOver={() => setDeleteIconImg(deleteIconHover)}
-              onMouseOut={() => setDeleteIconImg(deleteIcon)}
-            />
+
+            <button className="buttonStyle">
+              <img
+                src={deleteIconImg}
+                alt="Changeable"
+                onMouseOver={() => setDeleteIconImg(deleteIconHover)}
+                onMouseOut={() => setDeleteIconImg(deleteIcon)}
+              />
+            </button>
           </div>
         </div>
       ) : (
@@ -119,38 +134,49 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
             </div>
 
             <div className={styles.fileActions}>
-              {/* <img src={downloadIcon} alt="downloadIcon" /> */}
+            {/* <img src={downloadIcon} alt="downloadIcon" /> */}
 
-              <Tooltip title="۳.۱۸ مگابایت">
+            <Tooltip title="۳.۱۸ مگابایت">
+              <button className="buttonStyle">
                 <img
                   src={downloadIconImg}
                   alt="Changeable"
                   onMouseOver={() => setDownloadIconImg(downloadIconHover)}
                   onMouseOut={() => setDownloadIconImg(downloadIcon)}
                 />
-              </Tooltip>
-              {/* <img src={wordIcon} alt="wordIcon" /> */}
+              </button>
+            </Tooltip>
+            {/* <img src={wordIcon} alt="wordIcon" /> */}
+
+            <button className="buttonStyle">
               <img
                 src={wordIconImg}
                 alt="Changeable"
                 onMouseOver={() => setWordIconImg(wordIconHover)}
                 onMouseOut={() => setWordIconImg(wordIcon)}
               />
-              {/* <img src={copyIcon} alt="copyIcon" /> */}
+            </button>
+            {/* <img src={copyIcon} alt="copyIcon" /> */}
+
+            <button className="buttonStyle">
               <img
                 src={copyIconImg}
                 alt="Changeable"
                 onMouseOver={() => setCopyIconImg(copyIconHover)}
                 onMouseOut={() => setCopyIconImg(copyIcon)}
               />
-              {/* <img src={deleteIcon} alt="deleteIcon" /> */}
+            </button>
+            {/* <img src={deleteIcon} alt="deleteIcon" /> */}
+
+            <button className="buttonStyle">
               <img
                 src={deleteIconImg}
                 alt="Changeable"
                 onMouseOver={() => setDeleteIconImg(deleteIconHover)}
                 onMouseOut={() => setDeleteIconImg(deleteIcon)}
               />
-            </div>
+            </button>
+          </div>  
           </div>
 
           <div className={styles.resultBody}>

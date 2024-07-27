@@ -12,11 +12,15 @@ import UserType from "./components/UserType"
 export default function App() {
   return (
     <>
+
+    <div style={{background:"#FEFEFE"}}>
     <UserType></UserType>
       <Sidebar></Sidebar>
       <ConvertSpeech></ConvertSpeech>
       <Archive></Archive>
       {/* <p>salam</p> */}
+
+      </div>
     </>
   );
 }

@@ -86,7 +86,7 @@ export default function Archive() {
                 fileType=".mp3"
                 fileTime="4:29"
                 fileLogo="mic"
-                fileResult={true}
+                fileResult={false}
                 backGround={true}
 
               ></FileItem>
