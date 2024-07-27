@@ -13,7 +13,30 @@ import { Pagination } from "@mui/material";
 // import littleChain from "../assets/little chain Icon.png";
 // import FileTypeIcon from "./FileTypeIcon";
 
+
 import FileItem from "./FileItem";
+
+
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from "@emotion/react";
+
+
+const theme = createTheme({
+  components: {
+    MuiPaginationItem: {
+      styleOverrides: {
+        root: {
+          '&.Mui-selected': {
+            color: '#FFFFFF', // Text color of the selected page
+            backgroundColor: '#07B49B', // Background color of the selected page
+          },
+        },
+      },
+    },
+  },
+});
+
+
 export default function Archive() {
   return (
     <>
@@ -84,12 +107,20 @@ export default function Archive() {
         </div>
       </div>
       <div className={styles.pagination}>
+
+
+        <ThemeProvider theme={theme}>
         <Pagination
           count={356}
           defaultPage={122}
           siblingCount={1}
           boundaryCount={1}
+          color="primary"
+          // color=""
         ></Pagination>
+
+
+</ThemeProvider>
         {/* <PaginationItem MuiPaginationItem-icon = {styles.a} disabled ></PaginationItem> */}
       </div>
     </>
