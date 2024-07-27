@@ -4,12 +4,19 @@
     flex-direction: column;
     align-items: center;
     /* gap: 1rem; */
-    border: 1px #00BA9F solid ;
+    border: 1.5px #00BA9F solid ;
     width: fit-content;
     padding-right: 0.5rem;
     padding-left: 0.5rem;
     border-radius: 20px;
     margin-left: 1rem;
+
+
+    /* Back */
+
+box-sizing: border-box;
+
+background: #FEFEFE;
 
 
 
@@ -24,9 +31,11 @@
     height: max-content;
     width: 100%;
     gap: 0.5rem;
+    
+        
+    /* flex-direction: row; */
 
     
-    /* flex-direction: row; */
 }
 
 .speechBody{
@@ -112,12 +121,20 @@ color: #969696;
 
 .cardHead{
     display: flex;
-    width: 653px;
-    
-    gap: 2rem;
+    /* width: 100%; */
+    width: 653px;   
+    justify-content: start;
+    /* right: 0; */
+    /* gap: 2rem; */
 }
 
-
+.cardHeadItems{
+    display: flex;
+    width: 75%;
+    justify-content: start;
+    /* right: 0; */
+    /* gap: 2rem; */
+}
 .cardHeadItem{
     color: #969696;
     display: flex;
@@ -129,6 +146,8 @@ font-style: normal;
 font-weight: 300;
 font-size: 14px;
 line-height: 24px;
+
+width: 100%;
 }
 
 .cardHeadItemOne{
@@ -138,14 +157,16 @@ line-height: 24px;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
+    /* padding-right: 2.5rem;
+    padding-left: 2.5rem; */
     border-radius: 10px 10px 0px 0px;
     font-family: 'IRANYekan';
 font-style: normal;
 font-weight: 300;
 font-size: 14px;
 line-height: 24px;
+
+width: 100%;
 }
 
 
@@ -157,14 +178,16 @@ line-height: 24px;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
+    /* padding-right: 2.5rem;
+    padding-left: 2.5rem; */
     border-radius: 10px 10px 0px 0px;
     font-family: 'IRANYekan';
 font-style: normal;
 font-weight: 300;
 font-size: 14px;
 line-height: 24px;
+
+width: 100%;
 }
 
 
@@ -175,14 +198,16 @@ line-height: 24px;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
+    /* padding-right: 2.5rem;
+    padding-left: 2.5rem; */
     border-radius: 10px 10px 0px 0px;
     font-family: 'IRANYekan';
 font-style: normal;
 font-weight: 300;
 font-size: 14px;
 line-height: 24px;
+
+width: 100%;
 }
 
 

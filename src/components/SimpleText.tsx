@@ -30,17 +30,22 @@ export default function SimpleText() {
           <div className={styles.simpletextSelected}>
 
             
-           
+          <button className="buttonStyle">
             <img src={textIcon} alt="textIcon" />
             <p className={styles.resultHeadItemSelected}> متن ساده </p>
+            </button>
           </div>
 
           <div className={styles.timedText}>
+          <button className="buttonStyle">
             <img src={timeIconLight} alt="timeIcon" />
             <p className={styles.resultHeadItem}>متن زمانبندی شده</p>
+            </button>
           </div>
 
           <div className={styles.resultActions}>
+
+            <div className={styles.actionOne}>
             <button className="buttonStyle">
               <img
                 src={downloadIconImg}
@@ -49,6 +54,10 @@ export default function SimpleText() {
                 onMouseOut={() => setDownloadIconImg(downloadIcon)}
               />
             </button>
+
+            </div>
+
+            <div className={styles.actionOne}>
 
             <button className="buttonStyle">
               <img
@@ -59,12 +68,19 @@ export default function SimpleText() {
               />
             </button>
 
+            </div>
+
+            {/* <div className={styles.actionOne}> */}
+            <div className={styles.startAgain}>
             <button className="buttonStyle">
-              <div className={styles.startAgain}>
+              
                 <img src={refreshIcon} alt="refreshIcon" />
                 <p className={styles.refreshItem}>شروع دوباره</p>
-              </div>
+        
             </button>
+            </div>
+            {/* </div> */}
+
           </div>
         </div>
 

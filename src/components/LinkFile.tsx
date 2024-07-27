@@ -17,21 +17,42 @@ export default function LinkFile() {
          <div className={styles.speechCard}>
           <div className={styles.cardHead}>
             {/* <div className={styles.cardHeadItemOne}> */}
+              <div className={styles.cardHeadItems}>
+           
+
             <div className={styles.cardHeadItem}>
+            <button className="buttonStyle">
               {/* <img src={micIconWhite} alt="micIcon" /> */}
               <img src={micIcon} alt="micIcon" />
               <p>ضبط صدا</p>
+              </button>
             </div>
+        
+
+           
+
 
             <div className={styles.cardHeadItem}>
+            <button className="buttonStyle">
               <img src={uploadIcon} alt="uploadIcon" />
               <p>بارگذاری فایل</p>
+              </button>
             </div>
 
+            
+
+
+
             <div className={styles.cardHeadItemThree}>
+              
+            <button className="buttonStyle">
               <img src={chainiconWhite} alt="chainIcon" />
 
               <p>لینک</p>
+              
+            </button>
+            </div>
+
             </div>
           </div>
 

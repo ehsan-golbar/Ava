@@ -5,47 +5,54 @@ import uploadIcon from "../assets/upload Icon.png";
 import bigMicIcon from "../assets/big mic Icon.png";
 import dropIcon from "../assets/drop Icon.png";
 
-
 import SpeechCardFoot from "./SpeechCardFoot";
 
-export default function RecordSpeech(){
-    return(
-        <>
-                <div className={styles.speechCard}>
-          <div className={styles.cardHead}>
+export default function RecordSpeech() {
+  return (
+    <>
+      <div className={styles.speechCard}>
+        <div className={styles.cardHead}>
+          <div className={styles.cardHeadItems}>
             {/* <div className={styles.cardHeadItemOne}> */}
             <div className={styles.cardHeadItemOne}>
-              <img src={micIconWhite} alt="micIcon" />
-              {/* <img src={micIcon} alt="micIcon" /> */}
-              <p>ضبط صدا</p>
-            </div>
-
-            <div className={styles.cardHeadItem}>
-              <img src={uploadIcon} alt="uploadIcon" />
-              <p>بارگذاری فایل</p>
-            </div>
-
-            <div className={styles.cardHeadItem}>
-              <img src={chainicon} alt="chainIcon" />
-
-              <p>لینک</p>
-            </div>
-          </div>
-
-          <div className={styles.cardBodyRecord}>
-            <div className={styles.bodyDescriptionRecord}>
               <button className="buttonStyle">
-                <div className={styles.recordLogo}>
-                  <img src={bigMicIcon} alt="micIcon" />
-                </div>
+                <img src={micIconWhite} alt="micIcon" />
+                {/* <img src={micIcon} alt="micIcon" /> */}
+                <p>ضبط صدا</p>
               </button>
-              <p className={styles.recordDescription}>
-                برای شروع به صحبت، دکمه را فشار دهید متن پیاده شده آن، در اینجا
-                ظاهر شود
-              </p>
+            </div>
+
+            <div className={styles.cardHeadItem}>
+              <button className="buttonStyle">
+                <img src={uploadIcon} alt="uploadIcon" />
+                <p>بارگذاری فایل</p>
+              </button>
+            </div>
+
+            <div className={styles.cardHeadItem}>
+              <button className="buttonStyle">
+                <img src={chainicon} alt="chainIcon" />
+
+                <p>لینک</p>
+              </button>
             </div>
           </div>
-{/* 
+        </div>
+
+        <div className={styles.cardBodyRecord}>
+          <div className={styles.bodyDescriptionRecord}>
+            <button className="buttonStyle">
+              <div className={styles.recordLogo}>
+                <img src={bigMicIcon} alt="micIcon" />
+              </div>
+            </button>
+            <p className={styles.recordDescription}>
+              برای شروع به صحبت، دکمه را فشار دهید متن پیاده شده آن، در اینجا
+              ظاهر شود
+            </p>
+          </div>
+        </div>
+        {/* 
           <div className={styles.cardFoot}>
             <p className={styles.footTitle}>زبان گفتار:</p>
 
@@ -58,9 +65,8 @@ export default function RecordSpeech(){
             </div>
           </div> */}
 
-
-          <SpeechCardFoot></SpeechCardFoot>
-        </div>
-        </>
-    )
+        <SpeechCardFoot></SpeechCardFoot>
+      </div>
+    </>
+  );
 }

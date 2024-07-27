@@ -24,16 +24,25 @@ export default function TimedText() {
     <>
       <div className={styles.resultHead}>
         <div className={styles.simpletext}>
+
+          <button className="buttonStyle">
           <img src={textIconLight} alt="textIcon" />
           <p className={styles.resultHeadItem}> متن ساده </p>
+
+          </button>
         </div>
 
         <div className={styles.timedTextSelected}>
+        <button className="buttonStyle">
           <img src={timeIcon} alt="timeIcon" />
           <p className={styles.resultHeadItemSelected}>متن زمانبندی شده</p>
+          </button>
         </div>
 
         <div className={styles.resultActions}>
+
+
+        <div className={styles.actionOne}>
           <button className="buttonStyle">
             <img
               src={downloadIconImg}
@@ -42,6 +51,9 @@ export default function TimedText() {
               onMouseOut={() => setDownloadIconImg(downloadIcon)}
             />
           </button>
+          </div>
+        <div className={styles.actionTwo}>
+
 
           <button className="buttonStyle">
             <img
@@ -52,12 +64,18 @@ export default function TimedText() {
             />
           </button>
 
+          </div>
+        {/* <div className={styles.actionOne}> */}
+
+        <div className={styles.startAgain}>
           <button className="buttonStyle">
-            <div className={styles.startAgain}>
+           
               <img src={refreshIcon} alt="refreshIcon" />
               <p className={styles.refreshItem}>شروع دوباره</p>
-            </div>
+           
           </button>
+
+          </div>
         </div>
       </div>
 

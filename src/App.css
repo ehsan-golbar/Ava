@@ -1,12 +1,18 @@
 .buttonStyle{
-    /* background: none;
-    border: none; */
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.3s ease; 
-
-    width: auto;
+    border: none;          /* Remove default border */
+    background: none;      /* Remove default background */
+    padding: inherit;            /* Remove default padding */
+    margin: none;             /* Remove default margin */
+    font: inherit;         /* Inherit font styles from parent */
+    color: inherit;        /* Inherit text color */
+    outline: none;         /* Remove default outline */
+    cursor: pointer;       /* Ensure the cursor shows a pointer on hover */
+    display: inherit;         /* To allow children to align properly */
+    gap: inherit;
+    align-items: inherit;  /* Inherit alignment from the parent, if needed */
+    justify-content: inherit; /* Inherit justification from the parent */
+    
+    width: 100%;
 }
 
 
@@ -19,4 +25,9 @@
     list-style-type: none; /* Remove default list item markers */
     padding: 0; /* Remove default padding */
     margin: 0; /* Remove default margin */
+}
+
+
+.aStyle{
+    text-decoration: none;
 }

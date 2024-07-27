@@ -37,6 +37,7 @@ export default function SpeechCardFoot() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
+            sx={{ width : "auto", minWidth: "auto"}}
           >
            <img src={dropIcon} alt="dropIcon" />
           </Button>

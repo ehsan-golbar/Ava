@@ -4,7 +4,14 @@ import userIcon from "../assets/user Icon.png";
 
 import logoutIcon from "../assets/logout.png"
 
+
+
+
+
 export default function UserType() {
+
+
+  
   return (
     <>
       <div className={styles.speechHead}>
@@ -31,19 +38,24 @@ export default function UserType() {
 
           </div>
 
-
+          
           <div className={styles.userTypeOne}>
-
-          <img src={logoutIcon} alt="logoutIcon" />
+          
+          <button className="buttonStyle">
+          <img style={{paddingRight: "0.1rem", paddingLeft: "0.1rem"}} src={logoutIcon} alt="logoutIcon" />
             <p className={styles.userTypeItem}>خروج</p>
-
+            </button>
           </div>
+          
         </div>
       </div>
 
-      {/*     
+
+    <br />
+          
       <div className={styles.speechHead}>
         <div className={styles.userType}>
+          <div className={styles.userTypeOne}>
           <img src={userIcon} alt="userIcon" />
           <p className={styles.userTypeItem}>مهمان</p>
 
@@ -54,8 +66,10 @@ export default function UserType() {
               alt="dropIcon"
             />
           </button>
+
+          </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
