@@ -104,7 +104,7 @@ export default function TimedText(props:MyComponentProps) {
             text="[با]"
             timeOne="00:00"
             timeTwo="00:03"
-            backGround={false}
+            backGround={true}
             textBlue={true}
           ></TimedTextItem>
 
@@ -132,6 +132,16 @@ export default function TimedText(props:MyComponentProps) {
               text="[به] این [زودی] چه جوری شد [عشق]"
               timeOne="02:00"
               timeTwo="01:03"
+              backGround={false}
+              textBlue={false}
+            ></TimedTextItem>
+          </li>
+
+          <li>
+          <TimedTextItem
+              text="[به] این  [عشق]"
+              timeOne="02:00"
+              timeTwo="01:03"
               backGround={true}
               textBlue={false}
             ></TimedTextItem>
@@ -143,6 +153,16 @@ export default function TimedText(props:MyComponentProps) {
               timeOne="02:00"
               timeTwo="01:03"
               backGround={false}
+              textBlue={false}
+            ></TimedTextItem>
+          </li>
+
+          <li>
+          <TimedTextItem
+              text="[به] این  [عشق]"
+              timeOne="02:00"
+              timeTwo="01:03"
+              backGround={true}
               textBlue={false}
             ></TimedTextItem>
           </li>
