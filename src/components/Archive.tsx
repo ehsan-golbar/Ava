@@ -41,6 +41,21 @@ const theme = createTheme({
             textAlign: 'center',
           },
         },
+
+        
+      },
+    },
+    MuiPagination: {
+      styleOverrides: {
+        ul: {
+          display: 'flex',
+          justifyContent: 'center', // Center align pagination items
+          padding: '0', // Remove default padding
+          margin: '0', // Remove default margin
+          alignItems:'end',
+          
+          // bottom:'0'
+        },
       },
     },
   },
@@ -48,6 +63,7 @@ const theme = createTheme({
 
 type FileType = "mic" | "upload" | "chain";
 
+type Language = 'persian' | 'english'
 
 interface FileDetails {
   fileDescription: string;
@@ -55,6 +71,7 @@ interface FileDetails {
   fileType: string;
   fileTime: string;
   fileLogo: FileType;
+  lang : Language;
 }   
 
 const files: FileDetails[] = [
@@ -63,13 +80,16 @@ const files: FileDetails[] = [
     fileDate: "1400-08-21",
     fileType: ".mp3",
     fileTime: "4:29",
-    fileLogo: "chain"
+    fileLogo: "chain",
+    lang : "english"
   },
-  {                fileDescription:"پادکست رادیو راه - فصل دوم -قسمت ششم- راه سروش",
+  {                fileDescription:"  پادکست رادیو راه - فصل دوم -قسمت ششم- راه سروش ",
     fileDate:"1400-08-21",
     fileType:".mp3",
     fileTime:"4:29",
-    fileLogo:"mic"},
+    fileLogo:"mic",
+    lang : "persian"
+  },
 
 
     {
@@ -77,7 +97,8 @@ const files: FileDetails[] = [
       fileDate:"1400-08-21",
       fileType:".mp3",
       fileTime:"4:29",
-      fileLogo:"upload"
+      fileLogo:"upload",
+    lang : "english"
     }
     ,
   {
@@ -85,7 +106,8 @@ const files: FileDetails[] = [
     fileDate: "1400-09-01",
     fileType: ".mp3",
     fileTime: "3:45",
-    fileLogo: "chain"
+    fileLogo: "chain",
+    lang : "english"
   },
 
 
@@ -94,7 +116,8 @@ const files: FileDetails[] = [
     fileDate:"1400-08-21",
     fileType:".mp3",
     fileTime:"4:29",
-    fileLogo:"upload"
+    fileLogo:"upload",
+    lang : "english"
   }
   // Add more objects as needed
 ];
@@ -179,6 +202,7 @@ export default function Archive() {
                 // fileResult={ false}
                 blueText={file.fileLogo === 'chain' ? true : false}
                 backGround={(index + 1) % 2 === 0 ? true : false}
+                lang={file.lang}
               ></FileItem>
 
 {/* </button> */}

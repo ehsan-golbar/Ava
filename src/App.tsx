@@ -25,7 +25,9 @@ export default function App() {
 
         <Routes>
           {/* <Route path="/" element={<UserType />} /> */}
+          <Route index element={<ConvertSpeech />}/>
           <Route path="/convert-speech/*" element={<ConvertSpeech />}>
+       
             <Route index element={<RecordSpeech />} />
             {/* Default child route */}
             <Route path="record" element={<RecordSpeech />}></Route>

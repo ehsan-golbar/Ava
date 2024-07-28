@@ -21,7 +21,9 @@ import { Outlet } from "react-router-dom";
 
 type FileType = "mic" | "upload" | "chain";
 
-interface MyComponentProps {
+type Language = 'persian' | 'english'
+
+ interface MyComponentProps {
   fileDescription: string;
   fileDate: string;
   fileType: string;
@@ -30,6 +32,8 @@ interface MyComponentProps {
   // fileResult: boolean;
   blueText: boolean;
   backGround: boolean;
+
+  lang : Language;
 }
 
 const FileItem: React.FC<MyComponentProps> = (props) => {
@@ -70,12 +74,13 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
 
             <div
               className={
-                !props.blueText
+                props.blueText
                   ? styles.fileDescriptionUrl
-                  : styles.fileDescription
+                  : ( props.lang === 'english' ? styles.fileDescription  : styles.fileDescriptionRight)
+              //  : styles.fileDescription 
               }
             >
-              <p style={{ paddingLeft: "2rem" }}>{props.fileDescription}</p>
+              <p style={{ paddingLeft: "1rem" }}>{props.fileDescription}</p>
             </div>
           </div>
 
@@ -151,12 +156,13 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
               <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
 
               <div
-                className={
-                  !props.blueText
-                    ? styles.fileDescriptionUrl
-                    : styles.fileDescription
-                }
-              >
+              className={
+                props.blueText
+                  ? styles.fileDescriptionUrl
+                  : ( props.lang === 'english' ? styles.fileDescription  : styles.fileDescriptionRight)
+              //  : styles.fileDescription 
+              }
+            >
                 <p style={{ paddingLeft: "2rem" }}>{props.fileDescription}</p>
               </div>
             </div>

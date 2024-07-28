@@ -219,7 +219,27 @@ text-align: right;
     text-overflow: ellipsis; /* Add ellipsis if text overflows */
 
     width: 100%; /* Ensure the container has a constrained width */
-color: #118AD3;
+    color: #000000;
+
+    margin-left: 1rem;
+
+
+}
+
+.fileDescriptionRight{
+    direction: rtl;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    overflow-x: hidden ;
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+
+    width: 100%; /* Ensure the container has a constrained width */
+    color: #000000;
+
+    margin-left: 1rem;
 
 }
 
@@ -237,7 +257,9 @@ color: #118AD3;
 
     width: 100%; /* Ensure the container has a constrained width */
 
-color: #000000;
+color: #118AD3;
+
+margin-left: 1rem;
 
 }
 
