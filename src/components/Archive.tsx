@@ -19,6 +19,7 @@ import FileItem from "./FileItem";
 
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from "@emotion/react";
+import { useState } from "react";
 
 
 const theme = createTheme({
@@ -45,8 +46,77 @@ const theme = createTheme({
   },
 });
 
+type FileType = "mic" | "upload" | "chain";
+
+
+interface FileDetails {
+  fileDescription: string;
+  fileDate: string;
+  fileType: string;
+  fileTime: string;
+  fileLogo: FileType;
+}   
+
+const files: FileDetails[] = [
+  {
+    fileDescription: "https://irsv.upmusics.com/Downloads/Musics/Sirvan%20K",
+    fileDate: "1400-08-21",
+    fileType: ".mp3",
+    fileTime: "4:29",
+    fileLogo: "chain"
+  },
+  {                fileDescription:"پادکست رادیو راه - فصل دوم -قسمت ششم- راه سروش",
+    fileDate:"1400-08-21",
+    fileType:".mp3",
+    fileTime:"4:29",
+    fileLogo:"mic"},
+
+
+    {
+      fileDescription:"khaterate To",
+      fileDate:"1400-08-21",
+      fileType:".mp3",
+      fileTime:"4:29",
+      fileLogo:"upload"
+    }
+    ,
+  {
+    fileDescription: "https://example.com/path/to/another/music",
+    fileDate: "1400-09-01",
+    fileType: ".mp3",
+    fileTime: "3:45",
+    fileLogo: "chain"
+  }
+  // Add more objects as needed
+];
+
+
+
+
 
 export default function Archive() {
+
+
+  const [page, setPage] = useState<number>(1);
+
+  // Total number of pages (could be dynamic based on data)
+  const totalPages : number = 10;
+  // const lastPageSel : number = 1 ;
+  // Handler for page change event
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value : number) => {
+    setPage(value);
+
+    // Fetch new data based on the new page, if necessary
+  };
+
+  const itemsPerPage = 3;
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  // Slice the array to get only the items for the current page
+  const currentFiles = files.slice(startIndex, endIndex);
+
+  
   return (
     <>
       <div className={styles.archive}>
@@ -73,22 +143,28 @@ export default function Archive() {
             </div>
           </div>
           <ul className="ulStyle">
-            <li>
+
+
+          {currentFiles.map((file, index) => (
+
+        <li key={index}>
               <FileItem
-                fileDescription="https://irsv.upmusics.com/Downloads/Musics/Sirvan%20Khttps://irsv.upmusics.com/Downloads/Musics/Sirvan%20K"
-                fileDate="1400-08-21"
-                fileType=".mp3"
-                fileTime="4:29"
-                fileLogo="chain"
+                fileDescription={file.fileDescription}
+                fileDate={file.fileDate}
+                fileType={file.fileType}
+                fileTime={file.fileTime}
+                fileLogo={file.fileLogo}
 
                 fileResult={false}
-                blueText={true}
+                blueText={file.fileLogo === 'chain' ? true : false}
                 backGround={false}
               ></FileItem>
-            </li>
+        </li>
+      ))}
+      
+ 
 
-
-            <li>
+            {/* <li>
               <FileItem
                 fileDescription="پادکست رادیو راه - فصل دوم -قسمت ششم- راه سروش"
                 fileDate="1400-08-21"
@@ -118,7 +194,7 @@ export default function Archive() {
                 backGround={false}
 
               ></FileItem>
-            </li>
+            </li> */}
 
 
           </ul>
@@ -129,14 +205,18 @@ export default function Archive() {
 
         <ThemeProvider theme={theme}>
         <Pagination
-          count={356}
+          count={totalPages}
           defaultPage={1}
           siblingCount={1}
           boundaryCount={1}
+          page={page}
+          onChange={handlePageChange}
           // color="primary"
           // color=""
 
         ></Pagination>
+{/* 
+        <p>{page}</p> */}
 
 
 </ThemeProvider>
