@@ -18,6 +18,7 @@ import AudioPlayer from "./AudioPlayer";
 
 
 import Tooltip from "@mui/material/Tooltip";
+import { Link } from "react-router-dom";
 
 
 export default function TimedText() {
@@ -30,9 +31,11 @@ export default function TimedText() {
         <div className={styles.simpletext}>
 
           <button className="buttonStyle">
+
+          <Link to="/convert-speech/upload/simpleText" className="linkStyle">
           <img src={textIconLight} alt="textIcon" />
           <p className={styles.resultHeadItem}> متن ساده </p>
-
+          </Link>
           </button>
         </div>
 

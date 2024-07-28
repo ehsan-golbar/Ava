@@ -15,16 +15,13 @@ import UploadFile from "./UploadFile";
 // import LInkFile from "./LinkFile";
 import LinkFile from "./LinkFile";
 
-
 import { Route, Routes } from "react-router-dom";
+import SimpleText from "./SimpleText";
+import TimedText from "./TimedText";
 
 export default function ConvertSpeech() {
   return (
     <>
-
-
-
-
       <div className={styles.speechBody}>
         <div className={styles.speechOverview}>
           <p className={styles.speechTitle}>تبدیل گفتار به متن</p>
@@ -42,17 +39,16 @@ export default function ConvertSpeech() {
 
         <LinkFile></LinkFile> */}
 
-
-
-<Routes>
-<Route index element={<RecordSpeech />} /> {/* Default child route */}
-<Route path="record" element={<RecordSpeech />}></Route>
-<Route path="upload" element={<UploadFile state="upload"/>}></Route>
-<Route path="link" element={<LinkFile />}></Route>
-<Route path="*" element={<div>404 Not Found</div>} />
-
-</Routes>
-
+        <Routes>
+          <Route index element={<RecordSpeech />} /> {/* Default child route */}
+          <Route path="record" element={<RecordSpeech />}></Route>
+          <Route path="upload/*" element={<UploadFile state="simpleResult" />}>
+            {/* <Route path="simpleText" element={<SimpleText />} />  
+<Route path="timedText" element={<TimedText />} /> */}
+          </Route>
+          <Route path="link" element={<LinkFile />}></Route>
+          <Route path="*" element={<div>404 Not Found</div>} />
+        </Routes>
       </div>
     </>
   );

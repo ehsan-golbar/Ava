@@ -10,6 +10,9 @@ import Archive from "./components/Archive";
 
 import UserType from "./components/UserType"
 import { Route, Routes } from "react-router-dom";
+import UploadFile from "./components/UploadFile";
+
+
 export default function App() {
   return (
     <>
@@ -23,7 +26,10 @@ export default function App() {
         <Route path="/convert-speech/*" element={<ConvertSpeech />} />
         <Route path="/archive" element={<Archive />} />
 
-        
+        {/* <Route path="/convert-speech/upload/*" element={<UploadFile state={"simpleResult"} />} /> */}
+        {/* <Route path="/convert-speech/upload/*" element={<UploadFile state={"simpleResult"} />} /> */}
+
+        {/* <Route path="/convert-speech/upload/*" element={<UploadFile state="simpleResult"/>}/> */}
         {/* Add more routes as needed */}
       </Routes>
 

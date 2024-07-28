@@ -130,7 +130,7 @@ export default function Archive() {
         <ThemeProvider theme={theme}>
         <Pagination
           count={356}
-          defaultPage={122}
+          defaultPage={1}
           siblingCount={1}
           boundaryCount={1}
           // color="primary"

@@ -14,6 +14,7 @@ import { useState } from "react";
 
 import AudioPlayer from "./AudioPlayer"
 import Tooltip from "@mui/material/Tooltip";
+import { Link } from "react-router-dom";
 
 
 export default function SimpleText() {
@@ -32,15 +33,23 @@ export default function SimpleText() {
 
             
           <button className="buttonStyle">
-            <img src={textIcon} alt="textIcon" />
+
+          <Link to="/convert-speech/upload/simpleText" className="linkStyle">
+            <img src={textIcon} alt="textIcon" /> 
             <p className={styles.resultHeadItemSelected}> متن ساده </p>
+            </Link>
             </button>
           </div>
 
           <div className={styles.timedText}>
           <button className="buttonStyle">
+
+          <Link to="/convert-speech/upload/timedText" className="linkStyle">
             <img src={timeIconLight} alt="timeIcon" />
             <p className={styles.resultHeadItem}>متن زمانبندی شده</p>
+            </Link>
+
+
             </button>
           </div>
 

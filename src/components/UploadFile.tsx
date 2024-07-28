@@ -5,11 +5,14 @@ import uploadIconWhite from "../assets/upload Icon white.png";
 import bigUploadIcon from "../assets/big upload Icon.png";
 // import dropIcon from "../assets/drop Icon.png";
 import micIcon from "../assets/mic Icon.png";
+import rstyles from "./resultConverting.module.css";
 
 import ResultConverting from "./ResultConverting";
 
 import SpeechCardFoot from "./SpeechCardFoot";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
+import SimpleText from "./SimpleText";
+import TimedText from "./TimedText";
 
 type UploadState = "upload" | "simpleResult" | "timedResult";
 
@@ -27,35 +30,29 @@ export default function UploadFile(props: MyComponentProps) {
             <div className={styles.cardHeadItems}>
               <div className={styles.cardHeadItem}>
                 <button className="buttonStyle">
-
-
-                    <Link to="/convert-speech/record" className="linkStyle">
-                  {/* <img src={micIconWhite} alt="micIcon" /> */}
-                  <img src={micIcon} alt="micIcon" />
-                  <p>ضبط صدا</p>
-
+                  <Link to="/convert-speech/record" className="linkStyle">
+                    {/* <img src={micIconWhite} alt="micIcon" /> */}
+                    <img src={micIcon} alt="micIcon" />
+                    <p>ضبط صدا</p>
                   </Link>
                 </button>
               </div>
 
               <div className={styles.cardHeadItemTwo}>
                 <button className="buttonStyle">
-
-                <Link to="/convert-speech/upload" className="linkStyle">
-                  <img src={uploadIconWhite} alt="uploadIcon" />
-                  <p>بارگذاری فایل</p>
-
+                  <Link to="/convert-speech/upload" className="linkStyle">
+                    <img src={uploadIconWhite} alt="uploadIcon" />
+                    <p>بارگذاری فایل</p>
                   </Link>
                 </button>
               </div>
 
               <div className={styles.cardHeadItem}>
                 <button className="buttonStyle">
+                  <Link to="/convert-speech/link" className="linkStyle">
+                    <img src={chainicon} alt="chainIcon" />
 
-                <Link to="/convert-speech/link" className="linkStyle">
-                  <img src={chainicon} alt="chainIcon" />
-
-                  <p>لینک</p>
+                    <p>لینک</p>
                   </Link>
                 </button>
               </div>
@@ -103,32 +100,29 @@ export default function UploadFile(props: MyComponentProps) {
 
               <div className={styles.cardHeadItem}>
                 <button className="buttonStyle">
-
-                <Link to="/convert-speech/record" className="linkStyle">
-                  {/* <img src={micIconWhite} alt="micIcon" /> */}
-                  <img src={micIcon} alt="micIcon" />
-                  <p>ضبط صدا</p>
-
+                  <Link to="/convert-speech/record" className="linkStyle">
+                    {/* <img src={micIconWhite} alt="micIcon" /> */}
+                    <img src={micIcon} alt="micIcon" />
+                    <p>ضبط صدا</p>
                   </Link>
                 </button>
               </div>
 
               <div className={styles.cardHeadItemTwo}>
                 <button className="buttonStyle">
-                <Link to="/convert-speech/upload" className="linkStyle">
-                  <img src={uploadIconWhite} alt="uploadIcon" />
-                  <p>بارگذاری فایل</p>
+                  <Link to="/convert-speech/upload" className="linkStyle">
+                    <img src={uploadIconWhite} alt="uploadIcon" />
+                    <p>بارگذاری فایل</p>
                   </Link>
                 </button>
               </div>
 
               <div className={styles.cardHeadItem}>
                 <button className="buttonStyle">
-                <Link to="/convert-speech/link" className="linkStyle">
-                  <img src={chainicon} alt="chainIcon" />
+                  <Link to="/convert-speech/link" className="linkStyle">
+                    <img src={chainicon} alt="chainIcon" />
 
-                  <p>لینک</p>
-
+                    <p>لینک</p>
                   </Link>
                 </button>
               </div>
@@ -136,111 +130,33 @@ export default function UploadFile(props: MyComponentProps) {
           </div>
 
           <div className={styles.cardBodyUpload}>
-            <ResultConverting
+            {/* <ResultConverting
               result={
                 props.state === "timedResult" ? "timedResult" : "simpleResult"
               }
-            ></ResultConverting>
+            ></ResultConverting> */}
+            <div className={rstyles.resultCard}>
+              <Routes>
+                {/* <Route  path="" element = {<ResultConverting
+              result={
+                props.state === "timedResult" ? "timedResult" : "simpleResult"
+              }
+            ></ResultConverting>}></Route> */}
 
-            {/* <div className={styles.bodyDescriptionUpload}>
-                  <button className="buttonStyle">
-                    <div className={styles.uploadLogo}>
-                      <img src={bigUploadIcon} alt="micIcon" />
-                    </div>
-                  </button>
-                  <p className={styles.uploadDescription}>
-                    برای بارگذاری فایل گفتاری (صوتی/تصویری)، دکمه را فشار دهید متن
-                    پیاده شده آن، در اینجا ظاهر می شود
-                  </p>
-                </div> */}
+                <Route
+                  path="simpleText"
+                  element={<SimpleText></SimpleText>}
+                ></Route>
+                <Route index element={<TimedText></TimedText>}></Route>
+                <Route path="timedText" element={<TimedText></TimedText>}></Route>
+              </Routes>
+            </div>
           </div>
-
-          {/* 
-              <div className={styles.cardFoot}>
-                <p className={styles.footTitle}>زبان گفتار:</p>
-      
-                <div className={styles.langType}>
-                  <p className={styles.footItem}>فارسی</p>
-      
-                  <button className="buttonStyle">
-                    <img src={dropIcon} alt="dropIcon" />
-                  </button>
-                </div>
-              </div> */}
 
           <SpeechCardFoot></SpeechCardFoot>
         </div>
       </>
     );
-    // break;
-
-    // case 'simpleResult':
-    //   return (
-    //     <>
-    //       <div className={styles.speechCard}>
-    //         <div className={styles.cardHead}>
-    //           {/* <div className={styles.cardHeadItemOne}> */}
-    //           <button className="buttonStyle">
-
-    //           <div className={styles.cardHeadItem}>
-    //             {/* <img src={micIconWhite} alt="micIcon" /> */}
-    //             <img src={micIcon} alt="micIcon" />
-    //             <p>ضبط صدا</p>
-    //           </div>
-    //           </button>
-    //           <button className="buttonStyle">
-
-    //           <div className={styles.cardHeadItemTwo}>
-    //             <img src={uploadIconWhite} alt="uploadIcon" />
-    //             <p>بارگذاری فایل</p>
-    //           </div>
-    //           </button>
-    //           <button className="buttonStyle">
-
-    //           <div className={styles.cardHeadItem}>
-    //             <img src={chainicon} alt="chainIcon" />
-
-    //             <p>لینک</p>
-    //           </div>
-    //           </button>
-    //         </div>
-
-    //         <div className={styles.cardBodyUpload}>
-
-    //           <ResultConverting result="simpleResult"></ResultConverting>
-
-    //           {/* <div className={styles.bodyDescriptionUpload}>
-    //             <button className="buttonStyle">
-    //               <div className={styles.uploadLogo}>
-    //                 <img src={bigUploadIcon} alt="micIcon" />
-    //               </div>
-    //             </button>
-    //             <p className={styles.uploadDescription}>
-    //               برای بارگذاری فایل گفتاری (صوتی/تصویری)، دکمه را فشار دهید متن
-    //               پیاده شده آن، در اینجا ظاهر می شود
-    //             </p>
-    //           </div> */}
-    //         </div>
-    // {/*
-    //         <div className={styles.cardFoot}>
-    //           <p className={styles.footTitle}>زبان گفتار:</p>
-
-    //           <div className={styles.langType}>
-    //             <p className={styles.footItem}>فارسی</p>
-
-    //             <button className="buttonStyle">
-    //               <img src={dropIcon} alt="dropIcon" />
-    //             </button>
-    //           </div>
-    //         </div> */}
-
-    //        <SpeechCardFoot></SpeechCardFoot>
-    //       </div>
-    //     </>
-    //   );
-    // break;
-    // default:
-    //   break;
   } else {
     return (
       <>

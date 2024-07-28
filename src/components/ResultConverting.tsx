@@ -1,3 +1,4 @@
+import { Outlet, Route, Routes } from "react-router-dom";
 import styles from "./resultConverting.module.css";
 // import copyIcon from "../assets/copy Icon.png";
 // import downloadIcon from "../assets/download Icon.png";
@@ -86,7 +87,7 @@ export default function ResultConverting(props : MyComponentProps) {
 
         {/* <SimpleText></SimpleText> */}
 
-        { props.result === 'simpleResult' ?
+        {/* { props.result === 'simpleResult' ?
     <SimpleText></SimpleText>
     
     
@@ -94,12 +95,19 @@ export default function ResultConverting(props : MyComponentProps) {
 
     
     <TimedText></TimedText>
-    }
+    } */}
             
 
+            {/* <p>here</p> */}
 
 
+ {/* <Routes>
 
+  <Route index element={<SimpleText></SimpleText>}></Route>
+  <Route path="timedText" element={<TimedText></TimedText>}></Route>
+  
+ </Routes> */}
+            {/* <Outlet /> */}
       </div>
     </>
   );
