@@ -9,6 +9,7 @@ import Archive from "./components/Archive";
 // import userIcon from "./assets/user Icon.png";
 
 import UserType from "./components/UserType"
+import { Route, Routes } from "react-router-dom";
 export default function App() {
   return (
     <>
@@ -16,8 +17,17 @@ export default function App() {
     <div style={{background:"#FEFEFE"}}>
     <UserType></UserType>
       <Sidebar></Sidebar>
+
+      <Routes>
+        {/* <Route path="/" element={<UserType />} /> */}
+        <Route path="/convert-speech" element={<ConvertSpeech />} />
+        <Route path="/archive" element={<Archive />} />
+        {/* Add more routes as needed */}
+      </Routes>
+
+{/*       
       <ConvertSpeech></ConvertSpeech>
-      <Archive></Archive>
+      <Archive></Archive> */}
       {/* <p>salam</p> */}
 
       </div>

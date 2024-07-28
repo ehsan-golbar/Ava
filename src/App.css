@@ -31,3 +31,16 @@
 .aStyle{
     text-decoration: none;
 }
+
+
+
+.linkStyle{
+    color: inherit;          /* Inherit text color from parent */
+    font-size: inherit;      /* Inherit font size */
+    font-family: inherit;    /* Inherit font family */
+    text-decoration: none;   /* Remove underline */
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    gap: inherit;
+}
