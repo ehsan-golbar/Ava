@@ -25,7 +25,7 @@ export default function Sidebar() {
             {/* <div className={styles.pagesItem}> */}
 
             
-            <div className={location.pathname === "/archive" ?  styles.pagesItem: styles.pagesItemSelected}>
+            <div className={location.pathname.startsWith("/convert-speech") ? styles.pagesItemSelected  : styles.pagesItem}>
             
               <button className="buttonStyle">
               <Link to="/convert-speech" className="linkStyle">
@@ -46,7 +46,7 @@ export default function Sidebar() {
 
           {/* <a href="#" className="aStyle"> */}
 
-            <div className={location.pathname === "/convert-speech" ?  styles.pagesItem : styles.pagesItemSelected}>
+            <div className={location.pathname.startsWith("/archive") ? styles.pagesItemSelected :styles.pagesItem  }>
               <button className="buttonStyle">
           <Link to="/archive" className="linkStyle">
 

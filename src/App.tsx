@@ -20,8 +20,10 @@ export default function App() {
 
       <Routes>
         {/* <Route path="/" element={<UserType />} /> */}
-        <Route path="/convert-speech" element={<ConvertSpeech />} />
+        <Route path="/convert-speech/*" element={<ConvertSpeech />} />
         <Route path="/archive" element={<Archive />} />
+
+        
         {/* Add more routes as needed */}
       </Routes>
 

@@ -6,6 +6,7 @@ import bigMicIcon from "../assets/big mic Icon.png";
 // import dropIcon from "../assets/drop Icon.png";
 
 import SpeechCardFoot from "./SpeechCardFoot";
+import { Link } from "react-router-dom";
 
 export default function RecordSpeech() {
   return (
@@ -16,17 +17,29 @@ export default function RecordSpeech() {
             {/* <div className={styles.cardHeadItemOne}> */}
             <div className={styles.cardHeadItemOne}>
               <button className="buttonStyle">
+
+              <Link to="/convert-speech/record" className="linkStyle">
+
+                
                 <img src={micIconWhite} alt="micIcon" />
                 {/* <img src={micIcon} alt="micIcon" /> */}
                 <p>ضبط صدا</p>
+
+                </Link>
               </button>
             </div>
 
             <div className={styles.cardHeadItem}>
+
+        
               <button className="buttonStyle">
+              <Link to="/convert-speech/upload" className="linkStyle">
                 <img src={uploadIcon} alt="uploadIcon" />
                 <p>بارگذاری فایل</p>
+                </Link>
               </button>
+
+       
             </div>
 
             <div className={styles.cardHeadItem}>
