@@ -20,8 +20,13 @@ import AudioPlayer from "./AudioPlayer";
 import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 
+type Source = 'convert' | 'archive'
+interface MyComponentProps{
+  source : Source;
+}
 
-export default function TimedText() {
+
+export default function TimedText(props:MyComponentProps) {
   const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
   const [copyIconImg, setCopyIconImg] = useState(copyIcon);
 
@@ -32,7 +37,7 @@ export default function TimedText() {
 
           <button className="buttonStyle">
 
-          <Link to="/convert-speech/upload/simpleText" className="linkStyle">
+          <Link to={props.source ==="convert" ? "/convert-speech/upload/simpleText" : "/archive/simpleResult"} className="linkStyle">
           <img src={textIconLight} alt="textIcon" />
           <p className={styles.resultHeadItem}> متن ساده </p>
           </Link>
@@ -41,8 +46,10 @@ export default function TimedText() {
 
         <div className={styles.timedTextSelected}>
         <button className="buttonStyle">
+          <Link to = {props.source === "convert" ? "/convert-speech/upload/timedText" : "/archive/timedResult"} className="linkStyle">
           <img src={timeIcon} alt="timeIcon" />
           <p className={styles.resultHeadItemSelected}>متن زمانبندی شده</p>
+          </Link>
           </button>
         </div>
 

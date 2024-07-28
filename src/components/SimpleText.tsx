@@ -17,7 +17,11 @@ import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 
 
-export default function SimpleText() {
+type Source = 'convert' | 'archive'
+interface MyComponentProps{
+  source : Source;
+}
+export default function SimpleText(props: MyComponentProps) {
     const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
     const [copyIconImg, setCopyIconImg] = useState(copyIcon);
 
@@ -34,7 +38,7 @@ export default function SimpleText() {
             
           <button className="buttonStyle">
 
-          <Link to="/convert-speech/upload/simpleText" className="linkStyle">
+          <Link to= {props.source ==='convert' ? "/convert-speech/upload/simpleText" : "/archive/simpleResult"} className="linkStyle">
             <img src={textIcon} alt="textIcon" /> 
             <p className={styles.resultHeadItemSelected}> متن ساده </p>
             </Link>
@@ -44,7 +48,7 @@ export default function SimpleText() {
           <div className={styles.timedText}>
           <button className="buttonStyle">
 
-          <Link to="/convert-speech/upload/timedText" className="linkStyle">
+          <Link to={ props.source ==="convert" ? "/convert-speech/upload/timedText" : "/archive/timedResult"} className="linkStyle">
             <img src={timeIconLight} alt="timeIcon" />
             <p className={styles.resultHeadItem}>متن زمانبندی شده</p>
             </Link>

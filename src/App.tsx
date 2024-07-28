@@ -35,15 +35,21 @@ export default function App() {
             >
               <Route
                 path="simpleText"
-                element={<SimpleText></SimpleText>}
+                element={<SimpleText source="convert"></SimpleText>}
               ></Route>
-              <Route index element={<TimedText></TimedText>}></Route>
-              <Route path="timedText" element={<TimedText></TimedText>}></Route>
+              <Route index element={<TimedText source="convert"></TimedText>}></Route>
+              <Route path="timedText" element={<TimedText source="convert"></TimedText>}></Route>
             </Route>
             <Route path="link" element={<LinkFile />}></Route>
             <Route path="*" element={<div>404 Not Found</div>} />
           </Route>
-          <Route path="/archive" element={<Archive />} />
+          <Route path="/archive/*" element={<Archive />} >
+              <Route path="simpleResult" element={<SimpleText source="archive"></SimpleText>} ></Route>
+              <Route index element={<SimpleText source="archive"></SimpleText>} ></Route>
+              <Route path="timedResult" element={<TimedText source="archive" ></TimedText>} ></Route>
+          
+          
+          </Route>
 
           {/* <Route path="/convert-speech/upload/*" element={<UploadFile state={"simpleResult"} />} /> */}
           {/* <Route path="/convert-speech/upload/*" element={<UploadFile state={"simpleResult"} />} /> */}

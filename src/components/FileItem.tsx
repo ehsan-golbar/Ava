@@ -5,6 +5,9 @@ import copyIcon from "../assets/copy Icon.png";
 import wordIcon from "../assets/Word icon.png";
 import deleteIcon from "../assets/del Btn.png";
 
+import rstyles from "./resultConverting.module.css";
+
+
 import { useState } from "react";
 
 import downloadIconHover from "../assets/download Icon hover.png";
@@ -15,6 +18,7 @@ import deleteIconHover from "../assets/del Btn hover.png";
 import ResultConverting from "./ResultConverting";
 
 import Tooltip from "@mui/material/Tooltip";
+import { Outlet } from "react-router-dom";
 
 type FileType = "mic" | "upload" | "chain";
 
@@ -190,7 +194,12 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
           </div>
 
           <div className={styles.resultBody}>
-            <ResultConverting result="simpleResult"></ResultConverting>
+            {/* <ResultConverting result="simpleResult"></ResultConverting> */}
+
+            <div className={rstyles.resultCard}>
+            <Outlet></Outlet>
+
+            </div>
           </div>
         </div>
       )}
