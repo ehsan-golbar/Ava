@@ -1,4 +1,4 @@
-import styles from "./resultConverting.module.css" 
+import styles from "./resultConverting.module.css";
 // import textIconLight from "../assets/text icon light.png";
 import textIcon from "../assets/text icon.png";
 import timeIconLight from "../assets/time icon light.png";
@@ -11,74 +11,77 @@ import copyIcon from "../assets/copy Icon.png";
 import downloadIcon from "../assets/download Icon.png";
 import { useState } from "react";
 
-
-import AudioPlayer from "./AudioPlayer"
+import AudioPlayer from "./AudioPlayer";
 import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 
+import { useData } from './DataContext';
 
-type Source = 'convert' | 'archive'
-interface MyComponentProps{
-  source : Source;
+type Source = "convert" | "archive";
+interface MyComponentProps {
+  source: Source;
+  // persian :boolean;
 }
 export default function SimpleText(props: MyComponentProps) {
-    const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
-    const [copyIconImg, setCopyIconImg] = useState(copyIcon);
-
-    return(
-<>
+  const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
+  const [copyIconImg, setCopyIconImg] = useState(copyIcon);
 
 
+  const { resultLanguage } = useData();
 
+  console.log('Result Language:', resultLanguage); // Debugging
 
-
-<div className={styles.resultHead}>
-          <div className={styles.simpletextSelected}>
-
-            
+  return (
+    <>
+   
+      <div className={styles.resultHead}>
+        <div className={styles.simpletextSelected}>
           <button className="buttonStyle">
-
-          <Link to= {props.source ==='convert' ? "/convert-speech/upload/simpleText" : "/archive/simpleResult"} className="linkStyle">
-            <img src={textIcon} alt="textIcon" /> 
-            <p className={styles.resultHeadItemSelected}> متن ساده </p>
+            <Link
+              to={
+                props.source === "convert"
+                  ? "/convert-speech/upload/simpleText"
+                  : "/archive/simpleResult"
+              }
+              className="linkStyle"
+            >
+              <img src={textIcon} alt="textIcon" />
+              <p className={styles.resultHeadItemSelected}> متن ساده </p>
             </Link>
-            </button>
-          </div>
+          </button>
+        </div>
 
-          <div className={styles.timedText}>
+        <div className={styles.timedText}>
           <button className="buttonStyle">
-
-          <Link to={ props.source ==="convert" ? "/convert-speech/upload/timedText" : "/archive/timedResult"} className="linkStyle">
-            <img src={timeIconLight} alt="timeIcon" />
-            <p className={styles.resultHeadItem}>متن زمانبندی شده</p>
+            <Link
+              to={
+                props.source === "convert"
+                  ? "/convert-speech/upload/timedText"
+                  : "/archive/timedResult"
+              }
+              className="linkStyle"
+            >
+              <img src={timeIconLight} alt="timeIcon" />
+              <p className={styles.resultHeadItem}>متن زمانبندی شده</p>
             </Link>
+          </button>
+        </div>
 
-
-            </button>
-          </div>
-
-          <div className={styles.resultActions}>
-
-
-
+        <div className={styles.resultActions}>
           <Tooltip title="۳.۱۸ مگابایت">
-            
-          <div className={styles.actionOne}>
-            <button className="buttonStyle">
-              <img
-                src={downloadIconImg}
-                alt="Changeable"
-                onMouseOver={() => setDownloadIconImg(downloadIconHover)}
-                onMouseOut={() => setDownloadIconImg(downloadIcon)}
-              />
-            </button>
-
-            </div>
-            </Tooltip>
-
-
             <div className={styles.actionOne}>
+              <button className="buttonStyle">
+                <img
+                  src={downloadIconImg}
+                  alt="Changeable"
+                  onMouseOver={() => setDownloadIconImg(downloadIconHover)}
+                  onMouseOut={() => setDownloadIconImg(downloadIcon)}
+                />
+              </button>
+            </div>
+          </Tooltip>
 
+          <div className={styles.actionOne}>
             <button className="buttonStyle">
               <img
                 src={copyIconImg}
@@ -87,70 +90,71 @@ export default function SimpleText(props: MyComponentProps) {
                 onMouseOut={() => setCopyIconImg(copyIcon)}
               />
             </button>
-
-            </div>
-
-            {/* <div className={styles.actionOne}> */}
-            <div className={styles.startAgain}>
-            <button className="buttonStyle">
-              
-                <img src={refreshIcon} alt="refreshIcon" />
-                <p className={styles.refreshItem}>شروع دوباره</p>
-        
-            </button>
-            </div>
-            {/* </div> */}
-
           </div>
+
+          {/* <div className={styles.actionOne}> */}
+          <div className={styles.startAgain}>
+            <button className="buttonStyle">
+              <img src={refreshIcon} alt="refreshIcon" />
+              <p className={styles.refreshItem}>شروع دوباره</p>
+            </button>
+          </div>
+          {/* </div> */}
         </div>
+      </div>
 
-<div className={styles.resultBody}>
-          <p className={styles.bodyText}>
-            [با][---][---] [با] و[---][---] [با][---][---][---][---] کجایی تو
-            [خوش] می دیدی من خسته شدم [ما را] [به] این [زودی] چه جوری شد [عشق
-            شدی] به این است[---] [آخرش] سی با فکر [و] چقدر [نزار می خوام] که
-            [چشم تو] [و با رفت][---][---][---][---][---][---][---][---] سخت
-            [آرام] ولی ازت می خوام[---] بر نگردی هر کسی که به [تو] باشه[---]
-            کاشکی تو منو [بردی] [که چشمک][---] با[---][---][---][---][---]
-            [ابو][---] [با] و و و و و [او]
-          </p>
-          <p className={styles.bodyText}>
-            [با][---][---] [با] و[---][---] [با][---][---][---][---] کجایی تو
-            [خوش] می دیدی من خسته شدم [ما را] [به] این [زودی] چه جوری شد [عشق
-            شدی] به این است[---] [آخرش] سی با فکر [و] چقدر [نزار می خوام] که
-            [چشم تو] [و با رفت][---][---][---][---][---][---][---][---] سخت
-            [آرام] ولی ازت می خوام[---] بر نگردی هر کسی که به [تو] باشه[---]
-            کاشکی تو منو [بردی] [که چشمک][---] با[---][---][---][---][---]
-            [ابو][---] [با] و و و و و [او]
-          </p>
-          <p className={styles.bodyText}>
-            [با][---][---] [با] و[---][---] [با][---][---][---][---] کجایی تو
-            [خوش] می دیدی من خسته شدم [ما را] [به] این [زودی] چه جوری شد [عشق
-            شدی] به این است[---] [آخرش] سی با فکر [و] چقدر [نزار می خوام] که
-            [چشم تو] [و با رفت][---][---][---][---][---][---][---][---] سخت
-            [آرام] ولی ازت می خوام[---] بر نگردی هر کسی که به [تو] باشه[---]
-            کاشکی تو منو [بردی] [که چشمک][---] با[---][---][---][---][---]
-            [ابو][---] [با] و و و و و [او]
-          </p>
+{  resultLanguage === 'fa'  ? <div className={styles.resultBody}>
+        <p className={styles.bodyText}>
+          [با][---][---] [با] و[---][---] [با][---][---][---][---] کجایی تو
+          [خوش] می دیدی من خسته شدم [ما را] [به] این [زودی] چه جوری شد [عشق شدی]
+          به این است[---] [آخرش] سی با فکر [و] چقدر [نزار می خوام] که [چشم تو]
+          [و با رفت][---][---][---][---][---][---][---][---] سخت [آرام] ولی ازت
+          می خوام[---] بر نگردی هر کسی که به [تو] باشه[---] کاشکی تو منو [بردی]
+          [که چشمک][---] با[---][---][---][---][---] [ابو][---] [با] و و و و و
+          [او]
+        </p>
+        <p className={styles.bodyText}>
+          [با][---][---] [با] و[---][---] [با][---][---][---][---] کجایی تو
+          [خوش] می دیدی من خسته شدم [ما را] [به] این [زودی] چه جوری شد [عشق شدی]
+          به این است[---] [آخرش] سی با فکر [و] چقدر [نزار می خوام] که [چشم تو]
+          [و با رفت][---][---][---][---][---][---][---][---] سخت [آرام] ولی ازت
+          می خوام[---] بر نگردی هر کسی که به [تو] باشه[---] کاشکی تو منو [بردی]
+          [که چشمک][---] با[---][---][---][---][---] [ابو][---] [با] و و و و و
+          [او]
+        </p>
+        <p className={styles.bodyText}>
+          [با][---][---] [با] و[---][---] [با][---][---][---][---] کجایی تو
+          [خوش] می دیدی من خسته شدم [ما را] [به] این [زودی] چه جوری شد [عشق شدی]
+          به این است[---] [آخرش] سی با فکر [و] چقدر [نزار می خوام] که [چشم تو]
+          [و با رفت][---][---][---][---][---][---][---][---] سخت [آرام] ولی ازت
+          می خوام[---] بر نگردی هر کسی که به [تو] باشه[---] کاشکی تو منو [بردی]
+          [که چشمک][---] با[---][---][---][---][---] [ابو][---] [با] و و و و و
+          [او]
+        </p>
 
-          <p className={styles.bodyText}>
-            [با][---][---] [با] و[---][---] [با][---][---][---][---] کجایی تو
-            [خوش] می دیدی من خسته شدم [ما را] [به] این [زودی] چه جوری شد [عشق
-            شدی] به این است[---] [آخرش] سی با فکر [و] چقدر [نزار می خوام] که
-            [چشم تو] [و با رفت][---][---][---][---][---][---][---][---] سخت
-            [آرام] ولی ازت می خوام[---] بر نگردی هر کسی که به [تو] باشه[---]
-            کاشکی تو منو [بردی] [که چشمک][---] با[---][---][---][---][---]
-            [ابو][---] [با] و و و و و [او]
-          </p>
-        </div>
+        <p className={styles.bodyText}>
+          [با][---][---] [با] و[---][---] [با][---][---][---][---] کجایی تو
+          [خوش] می دیدی من خسته شدم [ما را] [به] این [زودی] چه جوری شد [عشق شدی]
+          به این است[---] [آخرش] سی با فکر [و] چقدر [نزار می خوام] که [چشم تو]
+          [و با رفت][---][---][---][---][---][---][---][---] سخت [آرام] ولی ازت
+          می خوام[---] بر نگردی هر کسی که به [تو] باشه[---] کاشکی تو منو [بردی]
+          [که چشمک][---] با[---][---][---][---][---] [ابو][---] [با] و و و و و
+          [او]
+        </p>
+      </div>
+:
 
+      <div className={styles.resultBody}>
 
+        <p className={styles.bodyTextEnglish}>[---][---] Lili, take another walk out [of] your fake world [---][---] [Please] put all the drugs out of your hand [---][---] [---][---] You'll see that you can breathe without no back [up] [---][---] So much [stuff] you got to [understand] For every step [---][---] in any walkAny town of any thought[I'll] be your guideFor every street of [any] [sceneAny] place you've never [beenI'll] be your guide [---][---][---][---]</p>
+        <p className={styles.bodyTextEnglish}>[---][---] Lili, take another walk out [of] your fake world [---][---] [Please] put all the drugs out of your hand [---][---] [---][---] You'll see that you can breathe without no back [up] [---][---] So much [stuff] you got to [understand] For every step [---][---] in any walkAny town of any thought[I'll] be your guideFor every street of [any] [sceneAny] place you've never [beenI'll] be your guide [---][---][---][---]</p>
+        <p className={styles.bodyTextEnglish}>[---][---] Lili, take another walk out [of] your fake world [---][---] [Please] put all the drugs out of your hand [---][---] [---][---] You'll see that you can breathe without no back [up] [---][---] So much [stuff] you got to [understand] For every step [---][---] in any walkAny town of any thought[I'll] be your guideFor every street of [any] [sceneAny] place you've never [beenI'll] be your guide [---][---][---][---]</p>
 
-        <div className={styles.resultFoot}>
-         <AudioPlayer></AudioPlayer>
-        </div>
-</>
-
-    )
-    
+      </div>
+}
+      <div className={styles.resultFoot}>
+        <AudioPlayer></AudioPlayer>
+      </div>
+    </>
+  );
 }

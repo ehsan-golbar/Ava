@@ -197,6 +197,8 @@ color: #000000;
 }
 
 
+
+
 .resultFoot{
     display: flex;
     justify-content: center;
@@ -292,6 +294,21 @@ color: #000000;
 
   }
 
+
+  .bodyTextEnglish{
+    /* [---][---] Lili, take another walk out [of] your fake world [---][---] [Please] put all the drugs out of your hand [---][---] [---][---] You'll see that you can breathe without no back [up] [---][---] So much [stuff] you got to [understand] For every step [---][---] in any walkAny town of any thought[I'll] be your guideFor every street of [any] [sceneAny] place you've never [beenI'll] be your guide [---][---][---][---] */
+
+
+font-family: 'IRANYekan';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 28px;
+
+color: #000000;
+
+
+  }
 
 
 

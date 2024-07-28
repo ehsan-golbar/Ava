@@ -16,12 +16,18 @@ import SimpleText from "./components/SimpleText";
 import TimedText from "./components/TimedText";
 import LinkFile from "./components/LinkFile";
 
+
+import { DataProvider } from './components/DataContext';
+
 export default function App() {
   return (
     <>
+            <DataProvider>
       <div style={{ background: "#FEFEFE" }}>
         <UserType></UserType>
         <Sidebar></Sidebar>
+
+
 
         <Routes>
           {/* <Route path="/" element={<UserType />} /> */}
@@ -35,19 +41,24 @@ export default function App() {
               path="upload/*"
               element={<UploadFile state="simpleResult" />}
             >
+
+
               <Route
                 path="simpleText"
-                element={<SimpleText source="convert"></SimpleText>}
+                element={<SimpleText source="convert" ></SimpleText>}
               ></Route>
               <Route index element={<TimedText source="convert"></TimedText>}></Route>
               <Route path="timedText" element={<TimedText source="convert"></TimedText>}></Route>
+
+             
+
             </Route>
             <Route path="link" element={<LinkFile />}></Route>
             <Route path="*" element={<div>404 Not Found</div>} />
           </Route>
           <Route path="/archive/*" element={<Archive />} >
-              <Route path="simpleResult" element={<SimpleText source="archive"></SimpleText>} ></Route>
-              <Route index element={<SimpleText source="archive"></SimpleText>} ></Route>
+              <Route path="simpleResult" element={<SimpleText source="archive" ></SimpleText>} ></Route>
+              <Route index element={<SimpleText source="archive" ></SimpleText>} ></Route>
               <Route path="timedResult" element={<TimedText source="archive" ></TimedText>} ></Route>
           
           
@@ -60,11 +71,14 @@ export default function App() {
           {/* Add more routes as needed */}
         </Routes>
 
+       
         {/*       
       <ConvertSpeech></ConvertSpeech>
       <Archive></Archive> */}
         {/* <p>salam</p> */}
       </div>
+
+      </DataProvider>
     </>
   );
 }

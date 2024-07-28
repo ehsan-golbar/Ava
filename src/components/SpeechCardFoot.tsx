@@ -4,11 +4,14 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import React from "react";
+import { useData } from './DataContext';
 
 export default function SpeechCardFoot() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [language, setLanguage] = React.useState("فارسی"); // State for selected language
+  const [language, setLanguage] = React.useState("fa"); // State for selected language
   const open = Boolean(anchorEl);
+
+  const {  setResultLanguage } = useData();
   
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -21,6 +24,9 @@ export default function SpeechCardFoot() {
   const handleLanguageChange = (selectedLanguage: string) => {
     setLanguage(selectedLanguage);
     handleClose();
+
+    setResultLanguage(selectedLanguage);
+    // {console.log('resultLanguage:', resultLanguage);}
   };
 
   return (
@@ -28,7 +34,7 @@ export default function SpeechCardFoot() {
       <p className={styles.footTitle}>زبان گفتار:</p>
 
       <div className={styles.langType}>
-        <p className={styles.footItem}>{language}</p>
+        <p className={styles.footItem}>{language === 'en' ? "انگلیسی" : "فارسی"}</p>
 
         <div>
           <Button
@@ -50,8 +56,8 @@ export default function SpeechCardFoot() {
               "aria-labelledby": "basic-button",
             }}
           >
-            <MenuItem onClick={() => handleLanguageChange("فارسی")}>فارسی</MenuItem>
-            <MenuItem onClick={() => handleLanguageChange("انگلیسی")}>انگلیسی</MenuItem>
+            <MenuItem onClick={() => handleLanguageChange("fa")}>فارسی</MenuItem>
+            <MenuItem onClick={() => handleLanguageChange("en")}>انگلیسی</MenuItem>
           </Menu>
         </div>
       </div>

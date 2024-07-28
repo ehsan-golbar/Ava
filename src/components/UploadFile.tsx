@@ -13,6 +13,9 @@ import SpeechCardFoot from "./SpeechCardFoot";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
 import SimpleText from "./SimpleText";
 import TimedText from "./TimedText";
+import { useState } from "react";
+
+import { DataProvider } from './DataContext';
 
 type UploadState = "upload" | "simpleResult" | "timedResult";
 
@@ -21,6 +24,14 @@ interface MyComponentProps {
 }
 
 export default function UploadFile(props: MyComponentProps) {
+
+
+
+
+  const [language, setLanguage] = useState<string | null>(null);
+
+
+  
   if (props.state === "upload") {
     return (
       <>
@@ -85,7 +96,7 @@ export default function UploadFile(props: MyComponentProps) {
               </div>
             </div> */}
 
-          <SpeechCardFoot></SpeechCardFoot>
+          <SpeechCardFoot ></SpeechCardFoot>
         </div>
       </>
     );
@@ -155,7 +166,10 @@ export default function UploadFile(props: MyComponentProps) {
             </div>
           </div>
 
+          {/* <DataProvider> */}
           <SpeechCardFoot></SpeechCardFoot>
+          {/* </DataProvider> */}
+
         </div>
       </>
     );
