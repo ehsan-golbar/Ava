@@ -108,20 +108,21 @@ export default function Archive() {
 
   const [page, setPage] = useState<number>(1);
 
-  const[openItem, setopenItem] = useState<number | null>(null);
+  // const[openItem, setopenItem] = useState<number | null>(null);
 
   // Total number of pages (could be dynamic based on data)
   const totalPages : number = 10;
   // const lastPageSel : number = 1 ;
   // Handler for page change event
 
-  const handleOpenItem  =(index:number) =>{
-      if (index === openItem){
-          setopenItem(null);
-      }else{
-        setopenItem(index)
-      }
-  }
+  // const handleOpenItem  =(index:number) =>{
+  //     if (index === openItem){
+  //         setopenItem(null);
+  //     }else{
+  //       setopenItem(index)
+  //     }
+  // }
+
   const handlePageChange = (event: React.ChangeEvent<unknown>, value : number) => {
     setPage(value);
 
@@ -167,7 +168,7 @@ export default function Archive() {
           {currentFiles.map((file, index) => (
 
         <li key={index}>
-            <button className="buttonStyle"   onClick={() => handleOpenItem(startIndex + index)}>
+            {/* <button className="buttonStyle"   onClick={() => handleOpenItem(startIndex + index)}> */}
               <FileItem
                 fileDescription={file.fileDescription}
                 fileDate={file.fileDate}
@@ -175,12 +176,12 @@ export default function Archive() {
                 fileTime={file.fileTime}
                 fileLogo={file.fileLogo}
 
-                fileResult={(startIndex + index) === openItem ? true : false}
+                // fileResult={ false}
                 blueText={file.fileLogo === 'chain' ? true : false}
-                backGround={(index + 1) % 2 == 0 ? true : false}
+                backGround={(index + 1) % 2 === 0 ? true : false}
               ></FileItem>
 
-</button>
+{/* </button> */}
         </li>
       ))}
       
@@ -227,7 +228,7 @@ export default function Archive() {
 
         <ThemeProvider theme={theme}>
         <Pagination
-          count={totalPages}
+          count={Math.ceil(files.length / itemsPerPage)}
           defaultPage={1}
           siblingCount={1}
           boundaryCount={1}

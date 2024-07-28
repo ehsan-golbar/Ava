@@ -7,7 +7,6 @@ import deleteIcon from "../assets/del Btn.png";
 
 import rstyles from "./resultConverting.module.css";
 
-
 import { useState } from "react";
 
 import downloadIconHover from "../assets/download Icon hover.png";
@@ -28,8 +27,8 @@ interface MyComponentProps {
   fileType: string;
   fileTime: string;
   fileLogo: FileType;
-  fileResult: boolean;
-  blueText : boolean;
+  // fileResult: boolean;
+  blueText: boolean;
   backGround: boolean;
 }
 
@@ -40,27 +39,43 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   const [deleteIconImg, setDeleteIconImg] = useState(deleteIcon);
 
 
+  const[fileResult, setFileResult] = useState<boolean> (false)
+
+  const [openItem, setopenItem] = useState<number | null>(null);
+
   const toPersianNumber = (num: number | string) => {
-    const persianDigits = '۰۱۲۳۴۵۶۷۸۹';
-    return num.toString().replace(/\d/g, (digit) => persianDigits[parseInt(digit)]);
+    const persianDigits = "۰۱۲۳۴۵۶۷۸۹";
+    return num
+      .toString()
+      .replace(/\d/g, (digit) => persianDigits[parseInt(digit)]);
   };
 
-  
+  const handleOpenItem = () => {
 
+    setFileResult((prev) => !prev)
+  };
 
   return (
     <>
-      {!props.fileResult ? (
+      {!fileResult ? (
         <div
           className={
             props.backGround ? styles.fileItemBackground : styles.fileItem
           }
         >
+
+<button className="buttonStyle" onClick={ handleOpenItem}>
           <div className={styles.fileName}>
             <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
 
-            <div className={!props.blueText ? styles.fileDescriptionUrl  :  styles.fileDescription}>
-              <p style={{paddingLeft:"2rem"}}>{props.fileDescription}</p>
+            <div
+              className={
+                !props.blueText
+                  ? styles.fileDescriptionUrl
+                  : styles.fileDescription
+              }
+            >
+              <p style={{ paddingLeft: "2rem" }}>{props.fileDescription}</p>
             </div>
           </div>
 
@@ -120,18 +135,29 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
               />
             </button>
           </div>
+
+          </button>
         </div>
       ) : (
         //************************************************************************ */
 
         <div className={styles.fileItemSelected}>
+
+
           <div className={styles.fileItem}>
+
+          <button className="buttonStyle" onClick={ handleOpenItem}>
             <div className={styles.fileName}>
               <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
 
-              <div className={!props.blueText ? styles.fileDescriptionUrl  :  styles.fileDescription}>
-              <p style={{paddingLeft:"2rem"}}>{props.fileDescription}</p>
-
+              <div
+                className={
+                  !props.blueText
+                    ? styles.fileDescriptionUrl
+                    : styles.fileDescription
+                }
+              >
+                <p style={{ paddingLeft: "2rem" }}>{props.fileDescription}</p>
               </div>
             </div>
 
@@ -148,57 +174,59 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
             </div>
 
             <div className={styles.fileActions}>
-            {/* <img src={downloadIcon} alt="downloadIcon" /> */}
+              {/* <img src={downloadIcon} alt="downloadIcon" /> */}
 
-            <Tooltip title="۳.۱۸ مگابایت" >
+              <Tooltip title="۳.۱۸ مگابایت">
+                <button className="buttonStyle">
+                  <img
+                    src={downloadIconImg}
+                    alt="Changeable"
+                    onMouseOver={() => setDownloadIconImg(downloadIconHover)}
+                    onMouseOut={() => setDownloadIconImg(downloadIcon)}
+                  />
+                </button>
+              </Tooltip>
+              {/* <img src={wordIcon} alt="wordIcon" /> */}
+
               <button className="buttonStyle">
                 <img
-                  src={downloadIconImg}
+                  src={wordIconImg}
                   alt="Changeable"
-                  onMouseOver={() => setDownloadIconImg(downloadIconHover)}
-                  onMouseOut={() => setDownloadIconImg(downloadIcon)}
+                  onMouseOver={() => setWordIconImg(wordIconHover)}
+                  onMouseOut={() => setWordIconImg(wordIcon)}
                 />
               </button>
-            </Tooltip>
-            {/* <img src={wordIcon} alt="wordIcon" /> */}
+              {/* <img src={copyIcon} alt="copyIcon" /> */}
 
-            <button className="buttonStyle">
-              <img
-                src={wordIconImg}
-                alt="Changeable"
-                onMouseOver={() => setWordIconImg(wordIconHover)}
-                onMouseOut={() => setWordIconImg(wordIcon)}
-              />
-            </button>
-            {/* <img src={copyIcon} alt="copyIcon" /> */}
+              <button className="buttonStyle">
+                <img
+                  src={copyIconImg}
+                  alt="Changeable"
+                  onMouseOver={() => setCopyIconImg(copyIconHover)}
+                  onMouseOut={() => setCopyIconImg(copyIcon)}
+                />
+              </button>
+              {/* <img src={deleteIcon} alt="deleteIcon" /> */}
 
-            <button className="buttonStyle">
-              <img
-                src={copyIconImg}
-                alt="Changeable"
-                onMouseOver={() => setCopyIconImg(copyIconHover)}
-                onMouseOut={() => setCopyIconImg(copyIcon)}
-              />
-            </button>
-            {/* <img src={deleteIcon} alt="deleteIcon" /> */}
+              <button className="buttonStyle">
+                <img
+                  src={deleteIconImg}
+                  alt="Changeable"
+                  onMouseOver={() => setDeleteIconImg(deleteIconHover)}
+                  onMouseOut={() => setDeleteIconImg(deleteIcon)}
+                />
+              </button>
+            </div>
 
-            <button className="buttonStyle">
-              <img
-                src={deleteIconImg}
-                alt="Changeable"
-                onMouseOver={() => setDeleteIconImg(deleteIconHover)}
-                onMouseOut={() => setDeleteIconImg(deleteIcon)}
-              />
             </button>
-          </div>  
           </div>
+          
 
           <div className={styles.resultBody}>
             {/* <ResultConverting result="simpleResult"></ResultConverting> */}
 
             <div className={rstyles.resultCard}>
-            <Outlet></Outlet>
-
+              <Outlet></Outlet>
             </div>
           </div>
         </div>
