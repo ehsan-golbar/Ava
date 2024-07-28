@@ -3,6 +3,7 @@ import dropIcon from "../assets/drop Icon.png";
 import userIcon from "../assets/user Icon.png";
 
 import logoutIcon from "../assets/logout.png"
+import { useState } from "react";
 
 
 
@@ -10,11 +11,17 @@ import logoutIcon from "../assets/logout.png"
 
 export default function UserType() {
 
+   const[open, setOpen] =  useState(false);
+  const handleClick = () =>{
+      setOpen( (prev) =>{ return !prev})
+  }
 
-  
+
   return (
     <>
-      <div className={styles.speechHead}>
+
+
+    {open ?        <div className={styles.speechHead}>
         <div className={styles.userType}>
           
 
@@ -26,7 +33,7 @@ export default function UserType() {
           <img src={userIcon} alt="userIcon" />
             <p className={styles.userTypeItem}>مهمان</p>
 
-            <button className="buttonStyle" style={{marginRight:'0.25rem'}}>
+            <button className="buttonStyle" style={{marginRight:'0.25rem'}} onClick={handleClick}>
               <img
                 style={{ width: "fit-content", transform: "scaleY(-1)" }}
                 src={dropIcon}
@@ -41,7 +48,7 @@ export default function UserType() {
           
           <div className={styles.userTypeOne}>
           
-          <button className="buttonStyle">
+          <button className="buttonStyle" >
           <img style={{paddingRight: "0.1rem", paddingLeft: "0.1rem"}} src={logoutIcon} alt="logoutIcon" />
             <p className={styles.userTypeItem}>خروج</p>
             </button>
@@ -49,27 +56,28 @@ export default function UserType() {
           
         </div>
       </div>
+ :       <div className={styles.speechHead}>
+ <div className={styles.userType}>
+   <div className={styles.userTypeOne}>
+   <img src={userIcon} alt="userIcon" />
+   <p className={styles.userTypeItem}>مهمان</p>
+
+   <button className="buttonStyle" onClick={handleClick}>
+     <img
+       style={{ width: "fit-content" }}
+       src={dropIcon}
+       alt="dropIcon"
+     />
+   </button>
+
+   </div>
+ </div>
+</div>}
 
 
-    <br />
+  
           
-      <div className={styles.speechHead}>
-        <div className={styles.userType}>
-          <div className={styles.userTypeOne}>
-          <img src={userIcon} alt="userIcon" />
-          <p className={styles.userTypeItem}>مهمان</p>
 
-          <button className="buttonStyle">
-            <img
-              style={{ width: "fit-content" }}
-              src={dropIcon}
-              alt="dropIcon"
-            />
-          </button>
-
-          </div>
-        </div>
-      </div>
     </>
   );
 }
