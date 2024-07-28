@@ -8,36 +8,54 @@ import Archive from "./components/Archive";
 // import dropIcon from "./assets/drop Icon.png";
 // import userIcon from "./assets/user Icon.png";
 
-import UserType from "./components/UserType"
+import UserType from "./components/UserType";
 import { Route, Routes } from "react-router-dom";
 import UploadFile from "./components/UploadFile";
-
+import RecordSpeech from "./components/RecordSpeech";
+import SimpleText from "./components/SimpleText";
+import TimedText from "./components/TimedText";
+import LinkFile from "./components/LinkFile";
 
 export default function App() {
   return (
     <>
+      <div style={{ background: "#FEFEFE" }}>
+        <UserType></UserType>
+        <Sidebar></Sidebar>
 
-    <div style={{background:"#FEFEFE"}}>
-    <UserType></UserType>
-      <Sidebar></Sidebar>
+        <Routes>
+          {/* <Route path="/" element={<UserType />} /> */}
+          <Route path="/convert-speech/*" element={<ConvertSpeech />}>
+            <Route index element={<RecordSpeech />} />
+            {/* Default child route */}
+            <Route path="record" element={<RecordSpeech />}></Route>
+            <Route
+              path="upload/*"
+              element={<UploadFile state="simpleResult" />}
+            >
+              <Route
+                path="simpleText"
+                element={<SimpleText></SimpleText>}
+              ></Route>
+              <Route index element={<TimedText></TimedText>}></Route>
+              <Route path="timedText" element={<TimedText></TimedText>}></Route>
+            </Route>
+            <Route path="link" element={<LinkFile />}></Route>
+            <Route path="*" element={<div>404 Not Found</div>} />
+          </Route>
+          <Route path="/archive" element={<Archive />} />
 
-      <Routes>
-        {/* <Route path="/" element={<UserType />} /> */}
-        <Route path="/convert-speech/*" element={<ConvertSpeech />} />
-        <Route path="/archive" element={<Archive />} />
+          {/* <Route path="/convert-speech/upload/*" element={<UploadFile state={"simpleResult"} />} /> */}
+          {/* <Route path="/convert-speech/upload/*" element={<UploadFile state={"simpleResult"} />} /> */}
 
-        {/* <Route path="/convert-speech/upload/*" element={<UploadFile state={"simpleResult"} />} /> */}
-        {/* <Route path="/convert-speech/upload/*" element={<UploadFile state={"simpleResult"} />} /> */}
+          {/* <Route path="/convert-speech/upload/*" element={<UploadFile state="simpleResult"/>}/> */}
+          {/* Add more routes as needed */}
+        </Routes>
 
-        {/* <Route path="/convert-speech/upload/*" element={<UploadFile state="simpleResult"/>}/> */}
-        {/* Add more routes as needed */}
-      </Routes>
-
-{/*       
+        {/*       
       <ConvertSpeech></ConvertSpeech>
       <Archive></Archive> */}
-      {/* <p>salam</p> */}
-
+        {/* <p>salam</p> */}
       </div>
     </>
   );

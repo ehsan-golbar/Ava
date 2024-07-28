@@ -10,7 +10,7 @@ import rstyles from "./resultConverting.module.css";
 import ResultConverting from "./ResultConverting";
 
 import SpeechCardFoot from "./SpeechCardFoot";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Outlet, Route, Routes } from "react-router-dom";
 import SimpleText from "./SimpleText";
 import TimedText from "./TimedText";
 
@@ -136,20 +136,22 @@ export default function UploadFile(props: MyComponentProps) {
               }
             ></ResultConverting> */}
             <div className={rstyles.resultCard}>
-              <Routes>
+              {/* <Routes> */}
                 {/* <Route  path="" element = {<ResultConverting
               result={
                 props.state === "timedResult" ? "timedResult" : "simpleResult"
               }
             ></ResultConverting>}></Route> */}
-
+{/* 
                 <Route
                   path="simpleText"
                   element={<SimpleText></SimpleText>}
                 ></Route>
                 <Route index element={<TimedText></TimedText>}></Route>
                 <Route path="timedText" element={<TimedText></TimedText>}></Route>
-              </Routes>
+              </Routes> */}
+
+              <Outlet></Outlet>
             </div>
           </div>
 
