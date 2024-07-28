@@ -86,6 +86,15 @@ const files: FileDetails[] = [
     fileType: ".mp3",
     fileTime: "3:45",
     fileLogo: "chain"
+  },
+
+
+  {
+    fileDescription:"khaterate To",
+    fileDate:"1400-08-21",
+    fileType:".mp3",
+    fileTime:"4:29",
+    fileLogo:"upload"
   }
   // Add more objects as needed
 ];
@@ -99,10 +108,20 @@ export default function Archive() {
 
   const [page, setPage] = useState<number>(1);
 
+  const[openItem, setopenItem] = useState<number | null>(null);
+
   // Total number of pages (could be dynamic based on data)
   const totalPages : number = 10;
   // const lastPageSel : number = 1 ;
   // Handler for page change event
+
+  const handleOpenItem  =(index:number) =>{
+      if (index === openItem){
+          setopenItem(null);
+      }else{
+        setopenItem(index)
+      }
+  }
   const handlePageChange = (event: React.ChangeEvent<unknown>, value : number) => {
     setPage(value);
 
@@ -148,6 +167,7 @@ export default function Archive() {
           {currentFiles.map((file, index) => (
 
         <li key={index}>
+            <button className="buttonStyle"   onClick={() => handleOpenItem(startIndex + index)}>
               <FileItem
                 fileDescription={file.fileDescription}
                 fileDate={file.fileDate}
@@ -155,10 +175,12 @@ export default function Archive() {
                 fileTime={file.fileTime}
                 fileLogo={file.fileLogo}
 
-                fileResult={false}
+                fileResult={(startIndex + index) === openItem ? true : false}
                 blueText={file.fileLogo === 'chain' ? true : false}
-                backGround={false}
+                backGround={(index + 1) % 2 == 0 ? true : false}
               ></FileItem>
+
+</button>
         </li>
       ))}
       
