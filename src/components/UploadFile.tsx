@@ -9,6 +9,7 @@ import micIcon from "../assets/mic Icon.png";
 import ResultConverting from "./ResultConverting";
 
 import SpeechCardFoot from "./SpeechCardFoot";
+import { Link } from "react-router-dom";
 
 type UploadState = "upload" | "simpleResult" | "timedResult";
 
@@ -26,24 +27,36 @@ export default function UploadFile(props: MyComponentProps) {
             <div className={styles.cardHeadItems}>
               <div className={styles.cardHeadItem}>
                 <button className="buttonStyle">
+
+
+                    <Link to="/convert-speech/record" className="linkStyle">
                   {/* <img src={micIconWhite} alt="micIcon" /> */}
                   <img src={micIcon} alt="micIcon" />
                   <p>ضبط صدا</p>
+
+                  </Link>
                 </button>
               </div>
 
               <div className={styles.cardHeadItemTwo}>
                 <button className="buttonStyle">
+
+                <Link to="/convert-speech/upload" className="linkStyle">
                   <img src={uploadIconWhite} alt="uploadIcon" />
                   <p>بارگذاری فایل</p>
+
+                  </Link>
                 </button>
               </div>
 
               <div className={styles.cardHeadItem}>
                 <button className="buttonStyle">
+
+                <Link to="/convert-speech/link" className="linkStyle">
                   <img src={chainicon} alt="chainIcon" />
 
                   <p>لینک</p>
+                  </Link>
                 </button>
               </div>
             </div>
@@ -90,24 +103,33 @@ export default function UploadFile(props: MyComponentProps) {
 
               <div className={styles.cardHeadItem}>
                 <button className="buttonStyle">
+
+                <Link to="/convert-speech/record" className="linkStyle">
                   {/* <img src={micIconWhite} alt="micIcon" /> */}
                   <img src={micIcon} alt="micIcon" />
                   <p>ضبط صدا</p>
+
+                  </Link>
                 </button>
               </div>
 
               <div className={styles.cardHeadItemTwo}>
                 <button className="buttonStyle">
+                <Link to="/convert-speech/upload" className="linkStyle">
                   <img src={uploadIconWhite} alt="uploadIcon" />
                   <p>بارگذاری فایل</p>
+                  </Link>
                 </button>
               </div>
 
               <div className={styles.cardHeadItem}>
                 <button className="buttonStyle">
+                <Link to="/convert-speech/link" className="linkStyle">
                   <img src={chainicon} alt="chainIcon" />
 
                   <p>لینک</p>
+
+                  </Link>
                 </button>
               </div>
             </div>

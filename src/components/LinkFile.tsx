@@ -10,6 +10,7 @@ import littleChainIcon from "../assets/little chain Icon.png"
 import uploadIcon from "../assets/upload Icon.png";
 
 import SpeechCardFoot from "./SpeechCardFoot";
+import { Link } from "react-router-dom";
 
 export default function LinkFile() {
     return(
@@ -22,9 +23,13 @@ export default function LinkFile() {
 
             <div className={styles.cardHeadItem}>
             <button className="buttonStyle">
+
+            <Link to="/convert-speech/record" className="linkStyle">
               {/* <img src={micIconWhite} alt="micIcon" /> */}
               <img src={micIcon} alt="micIcon" />
               <p>ضبط صدا</p>
+
+              </Link>
               </button>
             </div>
         
@@ -34,8 +39,11 @@ export default function LinkFile() {
 
             <div className={styles.cardHeadItem}>
             <button className="buttonStyle">
+
+            <Link to="/convert-speech/upload" className="linkStyle">
               <img src={uploadIcon} alt="uploadIcon" />
               <p>بارگذاری فایل</p>
+              </Link>
               </button>
             </div>
 
@@ -46,9 +54,12 @@ export default function LinkFile() {
             <div className={styles.cardHeadItemThree}>
               
             <button className="buttonStyle">
+            <Link to="/convert-speech/link" className="linkStyle">
               <img src={chainiconWhite} alt="chainIcon" />
 
               <p>لینک</p>
+
+              </Link>
               
             </button>
             </div>

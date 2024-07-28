@@ -44,9 +44,13 @@ export default function RecordSpeech() {
 
             <div className={styles.cardHeadItem}>
               <button className="buttonStyle">
+
+              <Link to="/convert-speech/link" className="linkStyle">
                 <img src={chainicon} alt="chainIcon" />
 
                 <p>لینک</p>
+
+                </Link>
               </button>
             </div>
           </div>
