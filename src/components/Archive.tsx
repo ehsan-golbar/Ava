@@ -4,6 +4,8 @@ import "../App.css";
 import { Pagination } from "@mui/material";
 
 
+import axios from "axios";
+
 
 // import downloadIcon from "../assets/download Icon.png";
 // import copyIcon from "../assets/copy Icon.png";
@@ -127,20 +129,81 @@ const files: FileDetails[] = [
 
 
 export default function Archive() {
-
-
-  const GetItemsUrl= "https://harf.roshan-ai.ir/api/requests/"
+  // const url = "https://harf.roshan-ai.ir/api/requests/";
+  // const token = "a85d08400c622b50b18b61e239b9903645297196";
 
   // useEffect( () => {
 
-  //  async function fetch(){
-  //         const result = await fetch(`${GetItemsUrl}`)
+   
 
-  //         const data = result.json()
+    
+  //   const fetchListRequests = async () => {
+  //     try {
+  //       const response = await fetch(url, {
+  //         method: 'GET',
+  //         headers: {
+  //           'Authorization': `Token ${token}`,
+            
+  //         }
+  //       });
+    
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! status: ${response.status}`);
+  //       }
+    
+  //       const data = await response.json();
+  //       console.log('Response data:', data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+    
+  //   // Call the function
+  //   fetchListRequests();
 
+    
 
-  //   }
+    
   // } ,[])
+
+
+
+  const url = "api/requests/2563/";
+const token = "a85d08400c622b50b18b61e239b9903645297196";
+
+
+
+useEffect(()=>{
+  const fetchRequestDetail = async () => {
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Token ${token}`,
+          'Access-Control-Allow-Origin': '*',
+          // 'Accept' : '*/*'
+          // 'Access-Control-Allow-Headers': '*',
+        }
+      });
+
+
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log('Response data:', data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+  
+  // Call the function
+  fetchRequestDetail();
+},[])
 
 
   const [page, setPage] = useState<number>(1);
