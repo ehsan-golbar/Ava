@@ -37,6 +37,7 @@ export default function App() {
             <Route index element={<RecordSpeech />} />
             {/* Default child route */}
             <Route path="record" element={<RecordSpeech />}></Route>
+            <Route index element={<RecordSpeech />}></Route>
             <Route
               path="upload/*"
               element={<UploadFile state="simpleResult" />}
