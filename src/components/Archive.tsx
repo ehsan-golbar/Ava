@@ -168,7 +168,7 @@ export default function Archive() {
 
 
 
-  const url = "api/requests/2563/";
+  const url = "/api/requests/2563/";
 const token = "a85d08400c622b50b18b61e239b9903645297196";
 
 
@@ -193,7 +193,19 @@ useEffect(()=>{
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
+
+      // console.log('Response data:', response)
+      // const contentType = response.headers.get('Content-Type');
+      // if (contentType && contentType.includes('application/json')) {
+      //   const errorData = await response.json();
+      //   console.log(' response data:', errorData);
+      // } else {
+      //   console.error('Non-JSON response received, possibly an error page');
+      //   const text = await response.text();
+      //   console.log('Response body:', text); // For debugging purposes
+      // }
+
+
       const data = await response.json();
       console.log('Response data:', data);
     } catch (error) {

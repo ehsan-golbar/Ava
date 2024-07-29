@@ -2,7 +2,6 @@
   "homepage": "https://ehsan-golbar.github.io/Ava",
   "name": "ava",
   "private": true,
-  "proxy": "https://harf.roshan-ai.ir/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
