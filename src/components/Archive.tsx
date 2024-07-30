@@ -161,7 +161,7 @@ useEffect(()=>{
         method: 'GET',
         headers: {
           'Authorization': `Token ${token}`,
-          'Access-Control-Allow-Origin': '*',
+          // 'Access-Control-Allow-Origin': '*',
 
         }
       });
@@ -284,7 +284,7 @@ useEffect(()=>{
               <FileItem
                 fileDescription={ file.url || "No description"}
                 fileDate={file.processed.split('T')[0]}
-                fileType={'chain'}
+                fileType={`.${file.url.split('.')[file.url.split('.').length - 1]}`}
                 fileTime={ formatDuration( file.duration)}
                 fileLogo={'chain'}
 
