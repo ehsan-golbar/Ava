@@ -13,7 +13,7 @@ import { useState } from "react";
 
 import AudioPlayer from "./AudioPlayer";
 import Tooltip from "@mui/material/Tooltip";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 
 import { useData } from './DataContext';
 
@@ -22,10 +22,25 @@ interface MyComponentProps {
   source: Source;
   // persian :boolean;
 }
+
+
+
+
+interface Segment {
+  start: string;
+  end: string;
+  text: string;
+}
+
+interface FileContext {
+  fileSegments: Segment[]; 
+}
+
 export default function SimpleText(props: MyComponentProps) {
   const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
   const [copyIconImg, setCopyIconImg] = useState(copyIcon);
 
+  const{ fileSegments  } = useOutletContext<FileContext>()
 
   const { resultLanguage } = useData();
 
@@ -104,7 +119,14 @@ export default function SimpleText(props: MyComponentProps) {
       </div>
 
 {  resultLanguage === 'fa'  ? <div className={styles.resultBody}>
-        <p className={styles.bodyText}>
+
+<p className={styles.bodyText}>
+{fileSegments
+    .map(segment => segment.text) // Extract text from each segment
+    .join(' ')}
+
+</p>
+        {/* <p className={styles.bodyText}>
           [با][---][---] [با] و[---][---] [با][---][---][---][---] کجایی تو
           [خوش] می دیدی من خسته شدم [ما را] [به] این [زودی] چه جوری شد [عشق شدی]
           به این است[---] [آخرش] سی با فکر [و] چقدر [نزار می خوام] که [چشم تو]
@@ -140,7 +162,7 @@ export default function SimpleText(props: MyComponentProps) {
           می خوام[---] بر نگردی هر کسی که به [تو] باشه[---] کاشکی تو منو [بردی]
           [که چشمک][---] با[---][---][---][---][---] [ابو][---] [با] و و و و و
           [او]
-        </p>
+        </p> */}
       </div>
 :
 

@@ -23,6 +23,13 @@ type FileType = "mic" | "upload" | "chain";
 
 type Language = 'persian' | 'english'
 
+interface Segment {
+  start: string;
+  end: string;
+  text: string;
+}
+
+
  interface MyComponentProps {
   fileDescription: string | null | undefined;
   fileDate: string;
@@ -34,6 +41,9 @@ type Language = 'persian' | 'english'
   backGround: boolean;
 
   lang : Language;
+
+  segments : Segment[];
+
 }
 
 const FileItem: React.FC<MyComponentProps> = (props) => {
@@ -232,7 +242,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
             {/* <ResultConverting result="simpleResult"></ResultConverting> */}
 
             <div className={rstyles.resultCard}>
-              <Outlet></Outlet>
+              <Outlet context={{fileSegments : props.segments}}></Outlet>
             </div>
           </div>
         </div>

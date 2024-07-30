@@ -67,62 +67,62 @@ type FileType = "mic" | "upload" | "chain";
 
 type Language = 'persian' | 'english'
 
-interface FileDetails {
-  fileDescription: string;
-  fileDate: string;
-  fileType: string;
-  fileTime: string;
-  fileLogo: FileType;
-  lang : Language;
-}   
+// interface FileDetails {
+//   fileDescription: string;
+//   fileDate: string;
+//   fileType: string;
+//   fileTime: string;
+//   fileLogo: FileType;
+//   lang : Language;
+// }   
 
-const files: FileDetails[] = [
-  {
-    fileDescription: "https://irsv.upmusics.com/Downloads/Musics/Sirvan%20K",
-    fileDate: "1400-08-21",
-    fileType: ".mp3",
-    fileTime: "4:29",
-    fileLogo: "chain",
-    lang : "english"
-  },
-  {                fileDescription:"  پادکست رادیو راه - فصل دوم -قسمت ششم- راه سروش ",
-    fileDate:"1400-08-21",
-    fileType:".mp3",
-    fileTime:"4:29",
-    fileLogo:"mic",
-    lang : "persian"
-  },
-
-
-    {
-      fileDescription:"khaterate To",
-      fileDate:"1400-08-21",
-      fileType:".mp3",
-      fileTime:"4:29",
-      fileLogo:"upload",
-    lang : "english"
-    }
-    ,
-  {
-    fileDescription: "https://example.com/path/to/another/music",
-    fileDate: "1400-09-01",
-    fileType: ".mp3",
-    fileTime: "3:45",
-    fileLogo: "chain",
-    lang : "english"
-  },
+// const files: FileDetails[] = [
+//   {
+//     fileDescription: "https://irsv.upmusics.com/Downloads/Musics/Sirvan%20K",
+//     fileDate: "1400-08-21",
+//     fileType: ".mp3",
+//     fileTime: "4:29",
+//     fileLogo: "chain",
+//     lang : "english"
+//   },
+//   {                fileDescription:"  پادکست رادیو راه - فصل دوم -قسمت ششم- راه سروش ",
+//     fileDate:"1400-08-21",
+//     fileType:".mp3",
+//     fileTime:"4:29",
+//     fileLogo:"mic",
+//     lang : "persian"
+//   },
 
 
-  {
-    fileDescription:"khaterate To",
-    fileDate:"1400-08-21",
-    fileType:".mp3",
-    fileTime:"4:29",
-    fileLogo:"upload",
-    lang : "english"
-  }
-  // Add more objects as needed
-];
+//     {
+//       fileDescription:"khaterate To",
+//       fileDate:"1400-08-21",
+//       fileType:".mp3",
+//       fileTime:"4:29",
+//       fileLogo:"upload",
+//     lang : "english"
+//     }
+//     ,
+//   {
+//     fileDescription: "https://example.com/path/to/another/music",
+//     fileDate: "1400-09-01",
+//     fileType: ".mp3",
+//     fileTime: "3:45",
+//     fileLogo: "chain",
+//     lang : "english"
+//   },
+
+
+//   {
+//     fileDescription:"khaterate To",
+//     fileDate:"1400-08-21",
+//     fileType:".mp3",
+//     fileTime:"4:29",
+//     fileLogo:"upload",
+//     lang : "english"
+//   }
+//   // Add more objects as needed
+// ];
 
 
 
@@ -292,6 +292,9 @@ useEffect(()=>{
                 blueText={ true }
                 backGround={(index + 1) % 2 === 0 ? true : false}
                 lang={'english'}
+
+                segments={file.segments}
+                
               ></FileItem>
 
 {/* </button> */}
