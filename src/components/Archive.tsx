@@ -189,7 +189,7 @@ useEffect(()=>{
 
 
 
-console.log(' data:',fetchFile[0].url );
+// console.log(' data:',fetchFile[0].url );
 
 
   const [page, setPage] = useState<number>(1);
@@ -234,7 +234,7 @@ console.log(' data:',fetchFile[0].url );
     if (seconds.length === 1) seconds = '0' + seconds;
   
     // Combine hours (if present), minutes, and seconds
-    if (hours) {
+    if (hours !== '0') {
       return `${hours}:${minutes}:${seconds}`;
     } else {
       return `${minutes}:${seconds}`;
@@ -282,7 +282,7 @@ console.log(' data:',fetchFile[0].url );
         <li key={index}>
             {/* <button className="buttonStyle"   onClick={() => handleOpenItem(startIndex + index)}> */}
               <FileItem
-                fileDescription={ file.url }
+                fileDescription={ file.url || "No description"}
                 fileDate={file.processed.split('T')[0]}
                 fileType={'chain'}
                 fileTime={ formatDuration( file.duration)}
