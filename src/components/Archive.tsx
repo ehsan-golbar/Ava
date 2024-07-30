@@ -126,49 +126,30 @@ const files: FileDetails[] = [
 
 
 
+interface Segment {
+  start: string;
+  end: string;
+  text: string;
+}
+
+interface FileData {
+  duration: string;
+  id: number;
+  processed: string;
+  segments: Segment[];
+  length: number;
+  url: string;
+}
+
+
 
 
 export default function Archive() {
-  // const url = "https://harf.roshan-ai.ir/api/requests/";
-  // const token = "a85d08400c622b50b18b61e239b9903645297196";
-
-  // useEffect( () => {
-
-   
-
-    
-  //   const fetchListRequests = async () => {
-  //     try {
-  //       const response = await fetch(url, {
-  //         method: 'GET',
-  //         headers: {
-  //           'Authorization': `Token ${token}`,
-            
-  //         }
-  //       });
-    
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! status: ${response.status}`);
-  //       }
-    
-  //       const data = await response.json();
-  //       console.log('Response data:', data);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
-    
-  //   // Call the function
-  //   fetchListRequests();
-
-    
-
-    
-  // } ,[])
 
 
+  const[fetchFile, setFetchFile ]= useState<FileData[]>([])
 
-  const url = "/api/requests/2563/";
+  const url = "/api/requests/";
 const token = "a85d08400c622b50b18b61e239b9903645297196";
 
 
@@ -181,8 +162,7 @@ useEffect(()=>{
         headers: {
           'Authorization': `Token ${token}`,
           'Access-Control-Allow-Origin': '*',
-          // 'Accept' : '*/*'
-          // 'Access-Control-Allow-Headers': '*',
+
         }
       });
 
@@ -194,20 +174,10 @@ useEffect(()=>{
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      // console.log('Response data:', response)
-      // const contentType = response.headers.get('Content-Type');
-      // if (contentType && contentType.includes('application/json')) {
-      //   const errorData = await response.json();
-      //   console.log(' response data:', errorData);
-      // } else {
-      //   console.error('Non-JSON response received, possibly an error page');
-      //   const text = await response.text();
-      //   console.log('Response body:', text); // For debugging purposes
-      // }
-
 
       const data = await response.json();
-      console.log('Response data:', data);
+      setFetchFile(data.results)
+      console.log('Response data:', data.results);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -216,6 +186,10 @@ useEffect(()=>{
   // Call the function
   fetchRequestDetail();
 },[])
+
+
+
+console.log(' data:',fetchFile[0].url );
 
 
   const [page, setPage] = useState<number>(1);
@@ -241,12 +215,38 @@ useEffect(()=>{
     // Fetch new data based on the new page, if necessary
   };
 
-  const itemsPerPage = 3;
+
+
+  const formatDuration = (duration: string): string => {
+    // Split the duration into parts based on colons
+    const parts = duration.split(':');
+    
+    // Extract hours, minutes, and seconds
+    let hours = parts.length === 3 ? parts[0] : '';  // Hours are present if there are 3 parts
+    let minutes = parts.length === 3 ? parts[1] : parts[0];  // If 3 parts, minutes are in the second slot
+    let seconds = parts.length === 3 ? parts[2] : parts[1];  // If 3 parts, seconds are in the third slot
+  
+    // Remove milliseconds from seconds
+    seconds = seconds.split('.')[0];
+  
+    // Ensure minutes and seconds are two digits long
+    if (minutes.length === 1) minutes = '0' + minutes;
+    if (seconds.length === 1) seconds = '0' + seconds;
+  
+    // Combine hours (if present), minutes, and seconds
+    if (hours) {
+      return `${hours}:${minutes}:${seconds}`;
+    } else {
+      return `${minutes}:${seconds}`;
+    }
+  }
+
+  const itemsPerPage = 5;
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
   // Slice the array to get only the items for the current page
-  const currentFiles = files.slice(startIndex, endIndex);
+  const currentFiles = fetchFile.slice(startIndex, endIndex);
 
   
   return (
@@ -282,16 +282,16 @@ useEffect(()=>{
         <li key={index}>
             {/* <button className="buttonStyle"   onClick={() => handleOpenItem(startIndex + index)}> */}
               <FileItem
-                fileDescription={file.fileDescription}
-                fileDate={file.fileDate}
-                fileType={file.fileType}
-                fileTime={file.fileTime}
-                fileLogo={file.fileLogo}
+                fileDescription={ file.url }
+                fileDate={file.processed.split('T')[0]}
+                fileType={'chain'}
+                fileTime={ formatDuration( file.duration)}
+                fileLogo={'chain'}
 
                 // fileResult={ false}
-                blueText={file.fileLogo === 'chain' ? true : false}
+                blueText={ true }
                 backGround={(index + 1) % 2 === 0 ? true : false}
-                lang={file.lang}
+                lang={'english'}
               ></FileItem>
 
 {/* </button> */}
@@ -341,7 +341,7 @@ useEffect(()=>{
 
         <ThemeProvider theme={theme}>
         <Pagination
-          count={Math.ceil(files.length / itemsPerPage)}
+          count={Math.ceil(fetchFile.length / itemsPerPage)}
           defaultPage={1}
           siblingCount={1}
           boundaryCount={1}

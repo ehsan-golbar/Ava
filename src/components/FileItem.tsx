@@ -24,7 +24,7 @@ type FileType = "mic" | "upload" | "chain";
 type Language = 'persian' | 'english'
 
  interface MyComponentProps {
-  fileDescription: string;
+  fileDescription: string | null | undefined;
   fileDate: string;
   fileType: string;
   fileTime: string;
