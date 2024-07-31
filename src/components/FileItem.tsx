@@ -21,7 +21,7 @@ import { Outlet } from "react-router-dom";
 
 type FileType = "mic" | "upload" | "chain";
 
-type Language = 'persian' | 'english'
+type Language = "persian" | "english";
 
 interface Segment {
   start: string;
@@ -29,8 +29,7 @@ interface Segment {
   text: string;
 }
 
-
- interface MyComponentProps {
+interface MyComponentProps {
   fileDescription: string | null | undefined;
   fileDate: string;
   fileType: string;
@@ -40,10 +39,9 @@ interface Segment {
   blueText: boolean;
   backGround: boolean;
 
-  lang : Language;
+  lang: Language;
 
-  segments : Segment[];
-
+  segments: Segment[];
 }
 
 const FileItem: React.FC<MyComponentProps> = (props) => {
@@ -52,8 +50,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   const [copyIconImg, setCopyIconImg] = useState(copyIcon);
   const [deleteIconImg, setDeleteIconImg] = useState(deleteIcon);
 
-
-  const[fileResult, setFileResult] = useState<boolean> (false)
+  const [fileResult, setFileResult] = useState<boolean>(false);
 
   const [openItem, setopenItem] = useState<number | null>(null);
 
@@ -65,8 +62,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   };
 
   const handleOpenItem = () => {
-
-    setFileResult((prev) => !prev)
+    setFileResult((prev) => !prev);
   };
 
   return (
@@ -77,34 +73,38 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
             props.backGround ? styles.fileItemBackground : styles.fileItem
           }
         >
+            <div className={styles.fileName}>
+            <button className="buttonStyle" onClick={handleOpenItem}>
+              <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
+             
 
-<button className="buttonStyle" onClick={ handleOpenItem}>
-          <div className={styles.fileName}>
-            <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
-
-            <div
-              className={
-                props.blueText
-                  ? styles.fileDescriptionUrl
-                  : ( props.lang === 'english' ? styles.fileDescription  : styles.fileDescriptionRight)
-              //  : styles.fileDescription 
-              }
-            >
-              <p style={{ paddingLeft: "1rem" }}>{props.fileDescription}</p>
+              <div
+                className={
+                  props.blueText
+                    ? styles.fileDescriptionUrl
+                    : props.lang === "english"
+                    ? styles.fileDescription
+                    : styles.fileDescriptionRight
+                  //  : styles.fileDescription
+                }
+              >
+                <p style={{ paddingLeft: "1rem" }}>{props.fileDescription}</p>
+              </div>
+              </button>
             </div>
-          </div>
 
-          <div className={styles.fileDate}>
-            <p>{toPersianNumber(props.fileDate)}</p>
-          </div>
+            <div className={styles.fileDate}>
+              <p>{toPersianNumber(props.fileDate)}</p>
+            </div>
 
-          <div className={styles.fileType}>
-            <p>{props.fileType}</p>
-          </div>
+            <div className={styles.fileType}>
+              <p>{props.fileType}</p>
+            </div>
 
-          <div className={styles.fileTime}>
-            <p>{toPersianNumber(props.fileTime)}</p>
-          </div>
+            <div className={styles.fileTime}>
+              <p>{toPersianNumber(props.fileTime)}</p>
+            </div>
+        
 
           <div className={styles.fileActions}>
             {/* <img src={downloadIcon} alt="downloadIcon" /> */}
@@ -150,45 +150,44 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
               />
             </button>
           </div>
-
-          </button>
         </div>
       ) : (
         //************************************************************************ */
 
         <div className={styles.fileItemSelected}>
-
-
           <div className={styles.fileItem}>
+              <div className={styles.fileName}>
+              <button className="buttonStyle" onClick={handleOpenItem}>
 
-          <button className="buttonStyle" onClick={ handleOpenItem}>
-            <div className={styles.fileName}>
-              <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
+                <FileTypeIcon fileType={props.fileLogo}></FileTypeIcon>
 
-              <div
-              className={
-                props.blueText
-                  ? styles.fileDescriptionUrl
-                  : ( props.lang === 'english' ? styles.fileDescription  : styles.fileDescriptionRight)
-              //  : styles.fileDescription 
-              }
-            >
-                <p style={{ paddingLeft: "2rem" }}>{props.fileDescription}</p>
+                <div
+                  className={
+                    props.blueText
+                      ? styles.fileDescriptionUrl
+                      : props.lang === "english"
+                      ? styles.fileDescription
+                      : styles.fileDescriptionRight
+                    //  : styles.fileDescription
+                  }
+                >
+                  <p style={{ paddingLeft: "2rem" }}>{props.fileDescription}</p>
+                </div>
+                </button>
               </div>
-            </div>
 
-            <div className={styles.fileDate}>
-              <p>{props.fileDate}</p>
-            </div>
+              <div className={styles.fileDate}>
+                <p>{props.fileDate}</p>
+              </div>
 
-            <div className={styles.fileType}>
-              <p>{props.fileType}</p>
-            </div>
+              <div className={styles.fileType}>
+                <p>{props.fileType}</p>
+              </div>
 
-            <div className={styles.fileTime}>
-              <p>{props.fileTime}</p>
-            </div>
-
+              <div className={styles.fileTime}>
+                <p>{props.fileTime}</p>
+              </div>
+           
             <div className={styles.fileActions}>
               {/* <img src={downloadIcon} alt="downloadIcon" /> */}
 
@@ -233,16 +232,13 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
                 />
               </button>
             </div>
-
-            </button>
           </div>
-          
 
           <div className={styles.resultBody}>
             {/* <ResultConverting result="simpleResult"></ResultConverting> */}
 
             <div className={rstyles.resultCard}>
-              <Outlet context={{fileSegments : props.segments}}></Outlet>
+              <Outlet context={{ fileSegments: props.segments }}></Outlet>
             </div>
           </div>
         </div>
