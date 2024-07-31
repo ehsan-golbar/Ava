@@ -152,10 +152,10 @@ export default function Archive() {
   const url = "/api/requests/";
 const token = "a85d08400c622b50b18b61e239b9903645297196";
 
-
+ 
 
 useEffect(()=>{
-  const fetchRequestDetail = async () => {
+  const fetchRequest = async () => {
     try {
       const response = await fetch(url, {
         method: 'GET',
@@ -164,7 +164,7 @@ useEffect(()=>{
           // 'Access-Control-Allow-Origin': '*',
 
         }
-      });
+      }); 
 
 
       console.log('Response status:', response.status);
@@ -184,7 +184,7 @@ useEffect(()=>{
   }
   
   // Call the function
-  fetchRequestDetail();
+  fetchRequest();
 },[])
 
 
@@ -294,7 +294,7 @@ useEffect(()=>{
                 lang={'english'}
 
                 segments={file.segments}
-                
+
               ></FileItem>
 
 {/* </button> */}

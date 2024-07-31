@@ -33,7 +33,7 @@ interface Segment {
 }
 
 interface FileContext {
-  fileSegments: Segment[]; 
+  fileSegments?: Segment[]; 
 }
 
 export default function SimpleText(props: MyComponentProps) {
@@ -121,7 +121,7 @@ export default function SimpleText(props: MyComponentProps) {
 {  resultLanguage === 'fa'  ? <div className={styles.resultBody}>
 
 <p className={styles.bodyText}>
-{fileSegments
+{ fileSegments &&  fileSegments
     .map(segment => segment.text) // Extract text from each segment
     .join(' ')}
 

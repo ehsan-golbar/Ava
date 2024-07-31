@@ -31,7 +31,7 @@ interface Segment {
 }
 
 interface FileContext {
-  fileSegments: Segment[];
+  fileSegments?: Segment[];
 }
 
 export default function TimedText(props: MyComponentProps) {
@@ -136,7 +136,7 @@ export default function TimedText(props: MyComponentProps) {
 
       <div className={styles.resultBody}>
         <ul className="ulStyle">
-          {fileSegments.map((segment, index) => (
+          {fileSegments && fileSegments.map((segment, index) => (
             <li key={index}>
               <TimedTextItem
                 text={segment.text}

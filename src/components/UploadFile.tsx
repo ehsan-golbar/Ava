@@ -162,7 +162,7 @@ export default function UploadFile(props: MyComponentProps) {
                 <Route path="timedText" element={<TimedText></TimedText>}></Route>
               </Routes> */}
 
-              <Outlet></Outlet>
+              <Outlet context={{fileSegments : []}}></Outlet>
             </div>
           </div>
 

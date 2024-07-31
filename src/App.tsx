@@ -19,9 +19,13 @@ import LinkFile from "./components/LinkFile";
 
 import { DataProvider } from './components/DataContext';
 
+import { FileFetchProvider } from './components/FileFetchContext';
+
 export default function App() {
   return (
     <>
+
+    <FileFetchProvider>
             <DataProvider>
       <div style={{ background: "#FEFEFE" }}>
         <UserType></UserType>
@@ -80,6 +84,8 @@ export default function App() {
       </div>
 
       </DataProvider>
+
+      </FileFetchProvider>
     </>
   );
 }

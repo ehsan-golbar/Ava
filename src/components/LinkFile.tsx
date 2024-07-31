@@ -11,8 +11,55 @@ import uploadIcon from "../assets/upload Icon.png";
 
 import SpeechCardFoot from "./SpeechCardFoot";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function LinkFile() {
+
+
+  const [fileUrl, setFileUrl] = useState<string  > ("")
+
+
+
+
+  const url = "/api/requests/";
+  const token = "a85d08400c622b50b18b61e239b9903645297196";
+  
+   
+  
+  useEffect(()=>{
+    const fetchRequest = async () => {
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Token ${token}`,
+            // 'Access-Control-Allow-Origin': '*',
+  
+          }
+        }); 
+  
+  
+        console.log('Response status:', response.status);
+        console.log('Response headers:', response.headers);
+    
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+  
+  
+        const data = await response.json();
+        // setFetchFile(data.results)
+        console.log('Response data:', data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    
+    // Call the function
+    fetchRequest();
+  },[])
+  
+  
     return(
         <>
          <div className={styles.speechCard}>
@@ -72,11 +119,14 @@ export default function LinkFile() {
               
                 
                 <div className={styles.linkInputSection}>
-                  <input className={styles.linkInput}  placeholder="example.com/sample.mp3"></input>
+                  {/* <p>{fileUrl}</p> */}
+                  <input className={styles.linkInput}  placeholder="example.com/sample.mp3" value={fileUrl }  onChange={(e) => setFileUrl(e.target.value) }></input>
 
 
                 <div className={styles.linkLogo}>
+                  <button className="buttonStyle">
                 <img src={littleChainIcon} alt="littleChainIcon" />
+                </button>
 
                 </div>
 
