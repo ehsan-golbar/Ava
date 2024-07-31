@@ -17,7 +17,7 @@ import { Link, useOutletContext } from "react-router-dom";
 
 import { useData } from './DataContext';
 
-type Source = "convert" | "archive";
+type Source = "upload" | "archive" |"link";
 interface MyComponentProps {
   source: Source;
   // persian :boolean;
@@ -54,9 +54,14 @@ export default function SimpleText(props: MyComponentProps) {
           <button className="buttonStyle">
             <Link
               to={
-                props.source === "convert"
+                props.source === "upload"
                   ? "/convert-speech/upload/simpleText"
-                  : "/archive/simpleResult"
+                  :
+                  props.source === "archive" 
+                  ?
+                  "/archive/simpleResult"
+                  :
+                  "/convert-speech/link/simpleText"
               }
               className="linkStyle"
             >
@@ -70,9 +75,14 @@ export default function SimpleText(props: MyComponentProps) {
           <button className="buttonStyle">
             <Link
               to={
-                props.source === "convert"
+                props.source === "upload"
                   ? "/convert-speech/upload/timedText"
-                  : "/archive/timedResult"
+                  : 
+                  props.source === "archive" 
+                  ?
+                  "/archive/simpleResult"
+                  :
+                  "/convert-speech/link/timedText"
               }
               className="linkStyle"
             >

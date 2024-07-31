@@ -1,12 +1,21 @@
 import React, { createContext, useState, useEffect, ReactNode, useContext } from 'react';
 
 // Define the shape of the data
-export interface FileData {
-  id: number;
-  name: string;
-  // Add other properties as needed
-}
-
+export interface Segment {
+    start: string;
+    end: string;
+    text: string;
+  }
+  
+ export interface FileData {
+    duration: string;
+    id: number;
+    processed: string;
+    segments: Segment[];
+    length: number;
+    url: string;
+  }
+  
 // Define the context type
 export interface FileFetchContextType {
   fetchFile: FileData[];

@@ -10,54 +10,79 @@ import littleChainIcon from "../assets/little chain Icon.png"
 import uploadIcon from "../assets/upload Icon.png";
 
 import SpeechCardFoot from "./SpeechCardFoot";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
+
+import { FileData, useFileFetch } from './FileFetchContext';
+
+import rstyles from "./resultConverting.module.css";
+
 
 export default function LinkFile() {
 
 
   const [fileUrl, setFileUrl] = useState<string  > ("")
 
+  const { fetchFile } = useFileFetch();
 
 
+const[ showResult , setShowResult] = useState<boolean>(false)
+
+
+const [selectedFile, setSelectedFile] = useState<FileData>()
 
   const url = "/api/requests/";
   const token = "a85d08400c622b50b18b61e239b9903645297196";
+
+
   
    
   
   useEffect(()=>{
-    const fetchRequest = async () => {
-      try {
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'Authorization': `Token ${token}`,
-            // 'Access-Control-Allow-Origin': '*',
+    // const fetchRequest = async () => {
+    //   try {
+    //     const response = await fetch(url, {
+    //       method: 'GET',
+    //       headers: {
+    //         'Authorization': `Token ${token}`,
+    //         // 'Access-Control-Allow-Origin': '*',
   
-          }
-        }); 
+    //       }
+    //     }); 
   
   
-        console.log('Response status:', response.status);
-        console.log('Response headers:', response.headers);
+    //     console.log('Response status:', response.status);
+    //     console.log('Response headers:', response.headers);
     
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP error! status: ${response.status}`);
+    //     }
   
   
-        const data = await response.json();
-        // setFetchFile(data.results)
-        console.log('Response data:', data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    }
+    //     const data = await response.json();
+    //     // setFetchFile(data.results)
+    //     console.log('Response data:', data);
+    //   } catch (error) {
+    //     console.error('Error fetching data:', error);
+    //   }
+    // }
     
-    // Call the function
-    fetchRequest();
+    // // Call the function
+    // fetchRequest();
+
+    console.log("link data " , fetchFile)
   },[])
+
+
+  const handleChainButoonClick = () => {
+    const item = fetchFile.find((item) => item.url === fileUrl);
+
+    console.log( "item Id : "  , item?.id)
+
+    setSelectedFile(item)
+    setShowResult(true)
+
+  }
   
   
     return(
@@ -115,27 +140,40 @@ export default function LinkFile() {
           </div>
 
           <div className={styles.cardBodyLink}>
-            <div className={styles.bodyDescriptionUpload}>
+
+
+            {!showResult ?
+              <div className={styles.bodyDescriptionUpload}>
               
                 
-                <div className={styles.linkInputSection}>
-                  {/* <p>{fileUrl}</p> */}
-                  <input className={styles.linkInput}  placeholder="example.com/sample.mp3" value={fileUrl }  onChange={(e) => setFileUrl(e.target.value) }></input>
+              <div className={styles.linkInputSection}>
+                {/* <p>{fileUrl}</p> */}
+                <input className={styles.linkInput}  placeholder="example.com/sample.mp3" value={fileUrl }  onChange={(e) => setFileUrl(e.target.value) }></input>
 
 
-                <div className={styles.linkLogo}>
-                  <button className="buttonStyle">
-                <img src={littleChainIcon} alt="littleChainIcon" />
-                </button>
+              <div className={styles.linkLogo}>
+                <button className="buttonStyle" onClick={handleChainButoonClick}>
+              <img src={littleChainIcon} alt="littleChainIcon" />
+              </button>
+
+              </div>
+
+              </div>
+            
+            <p className={styles.uploadDescription}>
+            نشانی اینترنتی فایل حاوی گفتار (صوتی/تصویری) را وارد
+            و دکمه را فشار دهید              </p>
+          </div>
+
+             ://****************************************************** */
+
+
+             <div className={rstyles.resultCard}>
+                <Outlet context={{fileSegments : selectedFile?.segments }}></Outlet>
 
                 </div>
-
-                </div>
-              
-              <p className={styles.uploadDescription}>
-              نشانی اینترنتی فایل حاوی گفتار (صوتی/تصویری) را وارد
-              و دکمه را فشار دهید              </p>
-            </div>
+             }
+            
           </div>
 
           {/* <div className={styles.cardFoot}>

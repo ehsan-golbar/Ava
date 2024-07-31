@@ -24,6 +24,9 @@ import { ThemeProvider } from "@emotion/react";
 import { useEffect, useState } from "react";
 
 
+import { useFileFetch } from './FileFetchContext';
+
+
 const theme = createTheme({
   components: {
     MuiPaginationItem: {
@@ -147,7 +150,7 @@ interface FileData {
 export default function Archive() {
 
 
-  const[fetchFile, setFetchFile ]= useState<FileData[]>([])
+  const{fetchFile, setFetchFile }= useFileFetch()
 
   const url = "/api/requests/";
 const token = "a85d08400c622b50b18b61e239b9903645297196";
