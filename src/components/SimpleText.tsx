@@ -80,7 +80,7 @@ export default function SimpleText(props: MyComponentProps) {
                   : 
                   props.source === "archive" 
                   ?
-                  "/archive/simpleResult"
+                  "/archive/timedResult"
                   :
                   "/convert-speech/link/timedText"
               }

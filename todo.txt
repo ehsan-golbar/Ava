@@ -23,3 +23,7 @@ add download bar to audioPlayer
 
 
 atyyle of tooltip
+
+
+
+get the files at beggining of refresh
