@@ -40,8 +40,10 @@ interface MyComponentProps {
   backGround: boolean;
 
   lang: Language;
-
+  fileId : number;
   segments: Segment[];
+
+  onDataUpdate: (data: boolean) => void;
 }
 
 const FileItem: React.FC<MyComponentProps> = (props) => {
@@ -50,9 +52,45 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   const [copyIconImg, setCopyIconImg] = useState(copyIcon);
   const [deleteIconImg, setDeleteIconImg] = useState(deleteIcon);
 
+  const [deleteLoading, setDeleteLoading] = useState<boolean>(false )
+  const [deleteIconSize, setDeleteIconSize] = useState("100%");
+
   const [fileResult, setFileResult] = useState<boolean>(false);
 
   const [openItem, setopenItem] = useState<number | null>(null);
+
+  const url = `/api/requests/${props.fileId}/`
+const token = "a85d08400c622b50b18b61e239b9903645297196";
+
+
+  const deleteFile = async() =>{
+    try {
+      const response = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Token ${token}`,
+          // 'Access-Control-Allow-Origin': '*',
+
+        }
+
+      }); 
+
+
+
+      console.log("url" , url)
+      
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      console.log(`file ${props.fileId} removed`)
+
+    }catch(error){
+      console.log(error)
+    }
+  }
 
   const toPersianNumber = (num: number | string) => {
     const persianDigits = "۰۱۲۳۴۵۶۷۸۹";
@@ -64,6 +102,17 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   const handleOpenItem = () => {
     setFileResult((prev) => !prev);
   };
+
+
+  const handleDeleteClick = () =>{
+    setDeleteLoading(true)
+      deleteFile()
+
+      setDeleteLoading(false)
+
+      props.onDataUpdate(true)
+      
+  }
 
   return (
     <>
@@ -110,6 +159,8 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
             {/* <img src={downloadIcon} alt="downloadIcon" /> */}
 
             <Tooltip title="۳.۱۸ مگابایت">
+
+            {/* <div style={{width:"25%", display:"flex" ,  justifyContent:"center", margin:"0 0.25rem"}}> */}
               <button className="buttonStyle">
                 <img
                   src={downloadIconImg}
@@ -118,9 +169,12 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
                   onMouseOut={() => setDownloadIconImg(downloadIcon)}
                 />
               </button>
+              {/* </div> */}
             </Tooltip>
             {/* <img src={wordIcon} alt="wordIcon" /> */}
 
+
+            {/* <div style={{width:"25%", display:"flex" ,  justifyContent:"center", margin:"0 0.25rem"}}> */}
             <button className="buttonStyle">
               <img
                 src={wordIconImg}
@@ -130,7 +184,9 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
               />
             </button>
             {/* <img src={copyIcon} alt="copyIcon" /> */}
+{/* </div> */}
 
+            {/* <div style={{ width:"25%",display:"flex" ,  justifyContent:"center", margin:"0 0.25rem", padding :"0 0.25rem"}}> */}
             <button className="buttonStyle">
               <img
                 src={copyIconImg}
@@ -139,15 +195,23 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
                 onMouseOut={() => setCopyIconImg(copyIcon)}
               />
             </button>
+            {/* </div> */}
             {/* <img src={deleteIcon} alt="deleteIcon" /> */}
 
-            <button className="buttonStyle">
+            <button className="buttonStyle"  onClick={handleDeleteClick}  disabled={deleteLoading}>
+            {/* <div style={{display:"flex", justifyContent:"center" , alignContent: "center" , paddingLeft:"1rem"}}> */}
+
               <img
                 src={deleteIconImg}
                 alt="Changeable"
-                onMouseOver={() => setDeleteIconImg(deleteIconHover)}
-                onMouseOut={() => setDeleteIconImg(deleteIcon)}
+                onMouseOver={() => setDeleteIconImg(deleteIconHover)
+                }
+                onMouseOut={() =>setDeleteIconImg(deleteIcon)      }
+                // style={{width:`${deleteIconSize}`}}  
+                style={{ opacity: deleteLoading ? 0.5 : 1 }}
               />
+                          {/* </div> */}
+
             </button>
           </div>
         </div>
@@ -223,12 +287,14 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
               </button>
               {/* <img src={deleteIcon} alt="deleteIcon" /> */}
 
-              <button className="buttonStyle">
+              <button className="buttonStyle"  onClick={handleDeleteClick}>
                 <img
                   src={deleteIconImg}
                   alt="Changeable"
                   onMouseOver={() => setDeleteIconImg(deleteIconHover)}
                   onMouseOut={() => setDeleteIconImg(deleteIcon)}
+                  // style={{ opacity: deleteLoading ? 0.5 : 1, }}// Change opacity based on loading state}}
+                  
                 />
               </button>
             </div>

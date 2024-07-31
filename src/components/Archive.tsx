@@ -152,8 +152,10 @@ export default function Archive() {
 
   const{fetchFile, setFetchFile }= useFileFetch()
 
+  const[deleteFromChild, setDeleteFromChild] = useState<boolean>(false)
+
   const url = "/api/requests/";
-const token = "a85d08400c622b50b18b61e239b9903645297196";
+const token = "a85d08400c622b50b18b61e239b9903645297196"; 
 
  
 
@@ -181,6 +183,8 @@ useEffect(()=>{
       const data = await response.json();
       setFetchFile(data.results)
       console.log('Response data:', data.results);
+
+     
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -188,7 +192,9 @@ useEffect(()=>{
   
   // Call the function
   fetchRequest();
-},[])
+
+  setDeleteFromChild(false)
+},[deleteFromChild])
 
 
 
@@ -295,9 +301,9 @@ useEffect(()=>{
                 blueText={ true }
                 backGround={(index + 1) % 2 === 0 ? true : false}
                 lang={'english'}
-
+                fileId={file.id}
                 segments={file.segments}
-
+                onDataUpdate={setDeleteFromChild}
               ></FileItem>
 
 {/* </button> */}
