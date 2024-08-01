@@ -52,7 +52,6 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   const [copyIconImg, setCopyIconImg] = useState(copyIcon);
   const [deleteIconImg, setDeleteIconImg] = useState(deleteIcon);
 
-  const [deleteLoading, setDeleteLoading] = useState<boolean>(false )
   const [deleteIconSize, setDeleteIconSize] = useState("100%");
 
   const [fileResult, setFileResult] = useState<boolean>(false);
@@ -64,6 +63,8 @@ const token = "a85d08400c622b50b18b61e239b9903645297196";
 
 
   const deleteFile = async() =>{
+
+    props.onDataUpdate(true)
     try {
       const response = await fetch(url, {
         method: 'DELETE',
@@ -87,9 +88,13 @@ const token = "a85d08400c622b50b18b61e239b9903645297196";
 
       console.log(`file ${props.fileId} removed`)
 
+      props.onDataUpdate(false)
+
     }catch(error){
       console.log(error)
     }
+
+    
   }
 
   const toPersianNumber = (num: number | string) => {
@@ -105,12 +110,12 @@ const token = "a85d08400c622b50b18b61e239b9903645297196";
 
 
   const handleDeleteClick = () =>{
-    setDeleteLoading(true)
+    
       deleteFile()
 
-      setDeleteLoading(false)
+    
 
-      props.onDataUpdate(true)
+      // props.onDataUpdate(true)
       
   }
 
@@ -198,7 +203,7 @@ const token = "a85d08400c622b50b18b61e239b9903645297196";
             {/* </div> */}
             {/* <img src={deleteIcon} alt="deleteIcon" /> */}
 
-            <button className="buttonStyle"  onClick={handleDeleteClick}  disabled={deleteLoading}>
+            <button className="buttonStyle"  onClick={handleDeleteClick}  >
             {/* <div style={{display:"flex", justifyContent:"center" , alignContent: "center" , paddingLeft:"1rem"}}> */}
 
               <img
@@ -208,7 +213,7 @@ const token = "a85d08400c622b50b18b61e239b9903645297196";
                 }
                 onMouseOut={() =>setDeleteIconImg(deleteIcon)      }
                 // style={{width:`${deleteIconSize}`}}  
-                style={{ opacity: deleteLoading ? 0.5 : 1 }}
+                // style={{ opacity: deleteLoading ? 0.5 : 1 }}
               />
                           {/* </div> */}
 
