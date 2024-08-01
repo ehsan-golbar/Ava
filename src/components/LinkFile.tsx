@@ -13,9 +13,34 @@ import SpeechCardFoot from "./SpeechCardFoot";
 import { Link, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { FileData, useFileFetch } from './FileFetchContext';
+// import { FileData, useFileFetch } from './FileFetchContext';
 
 import rstyles from "./resultConverting.module.css";
+
+
+interface Segment {
+  start: string;
+  end: string;
+  text: string;
+}
+
+interface Stats {
+  words: number;
+  known_words: number;
+}
+
+
+interface FileData {
+  duration: string;
+  // id: number;
+  // processed: string;
+  
+media_url:string;
+  segments: Segment[];
+  // length: number;
+  stats : Stats;
+}
+
 
 
 export default function LinkFile() {
@@ -23,7 +48,7 @@ export default function LinkFile() {
 
   const [fileUrl, setFileUrl] = useState<string  > ("")
 
-  const { fetchFile } = useFileFetch();
+  // const { fetchFile } = useFileFetch();
 
 
 const[ showResult , setShowResult] = useState<boolean>(false)
@@ -31,56 +56,40 @@ const[ showResult , setShowResult] = useState<boolean>(false)
 
 const [selectedFile, setSelectedFile] = useState<FileData>()
 
-  const url = "/api/requests/";
+  const url = "/api/transcribe_files/";
   const token = "a85d08400c622b50b18b61e239b9903645297196";
 
 
-  
+  const fetchFile = async () => {
+    const response = await fetch(url, {
+      method : 'POST',
+      headers :{
+        'Content-Type': 'application/json',
+        'Authorization' : `Token ${token}`
+      },
+
+      body: JSON.stringify({
+        media_urls: [`${fileUrl}`]
+      })
+    })
+
+
+    console.log('post status : ', response.status)
+
+    const data = await response.json()
+
+        console.log( "item Id : "  , data[0])
+
+    setSelectedFile(data[0])
+    setShowResult(true)
+  }
    
-  
-  useEffect(()=>{
-    // const fetchRequest = async () => {
-    //   try {
-    //     const response = await fetch(url, {
-    //       method: 'GET',
-    //       headers: {
-    //         'Authorization': `Token ${token}`,
-    //         // 'Access-Control-Allow-Origin': '*',
-  
-    //       }
-    //     }); 
-  
-  
-    //     console.log('Response status:', response.status);
-    //     console.log('Response headers:', response.headers);
-    
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP error! status: ${response.status}`);
-    //     }
-  
-  
-    //     const data = await response.json();
-    //     // setFetchFile(data.results)
-    //     console.log('Response data:', data);
-    //   } catch (error) {
-    //     console.error('Error fetching data:', error);
-    //   }
-    // }
-    
-    // // Call the function
-    // fetchRequest();
-
-    console.log("link data " , fetchFile)
-  },[])
-
 
   const handleChainButoonClick = () => {
-    const item = fetchFile.find((item) => item.url === fileUrl);
 
-    console.log( "item Id : "  , item?.id)
-
-    setSelectedFile(item)
-    setShowResult(true)
+      fetchFile();
+      // console.log
+    // const item = fetchFile.find((item) => item.url === fileUrl);
 
   }
   
