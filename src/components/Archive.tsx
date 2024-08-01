@@ -139,13 +139,15 @@ export default function Archive() {
 
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
 
+  // const [firstLoading ]
+
   const url = "/api/requests/";
   const token = "a85d08400c622b50b18b61e239b9903645297196";
 
   useEffect(() => {
-    const fetchRequest = async () => {
+    const fetchRequest = async (fetchUrl : string) => {
       try {
-        const response = await fetch(url, {
+        const response = await fetch(fetchUrl, {
           method: "GET",
           headers: {
             Authorization: `Token ${token}`,
@@ -161,7 +163,19 @@ export default function Archive() {
         }
 
         const data = await response.json();
-        setFetchFile(data.results);
+        // setFetchFile(data.results);
+
+        
+        setFetchFile(prevFiles => {
+          const newFiles = data.results.filter((newFile: FileData)  => !prevFiles.some(prevFile => prevFile.id === newFile.id));
+          return [...prevFiles, ...newFiles];
+        });
+
+        if (data.next){
+          const nextUrlParts = data.next.split('/');
+          const relativePath = '/' + nextUrlParts.slice(3).join('/');
+          fetchRequest(relativePath)
+        }
         console.log("Response data:", data.results);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -169,7 +183,9 @@ export default function Archive() {
     };
 
     // Call the function
-    fetchRequest();
+
+    // setFetchFile([])
+    fetchRequest(url);
 
     // setDeleteFromChild(false);s
   }, [deleteLoading]);
