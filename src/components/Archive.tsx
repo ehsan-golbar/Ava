@@ -239,7 +239,12 @@ useEffect(()=>{
     seconds = seconds.split('.')[0];
   
     // Ensure minutes and seconds are two digits long
-    if (minutes.length === 1) minutes = '0' + minutes;
+    if (hours === '0' || hours === '' ){
+          if (minutes.startsWith('0')) minutes = minutes[1]
+    }else
+    {
+      if (minutes.length === 1) minutes = '0' + minutes;
+    }
     if (seconds.length === 1) seconds = '0' + seconds;
   
     // Combine hours (if present), minutes, and seconds

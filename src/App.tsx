@@ -39,7 +39,7 @@ export default function App() {
                 <Route index element={<RecordSpeech />}></Route>
                 <Route
                   path="upload/*"
-                  element={<UploadFile state="simpleResult" />}
+                  element={<UploadFile state="upload" />}
                 >
                   <Route
                     path="simpleText"
