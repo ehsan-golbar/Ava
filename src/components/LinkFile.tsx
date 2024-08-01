@@ -71,13 +71,32 @@ export default function LinkFile() {
 
     console.log("post status : ", response.status);
 
-    const data = await response.json();
 
-    console.log("item Id : ", data[0]);
+    if (!response.ok  ) {
+      throw new Error(`HTTP error! status: ${response.status}`);
 
-    setSelectedFile(data[0]);
-    setLoading(false);
-    setShowResult(true);
+
+    }else{
+     
+      const data = await response.json();
+      console.log( "data : ",data[0].message)
+      if(data[0].message === "Download error!"){
+
+        setLoading(false);
+        setShowResult(false);
+
+      }else{
+
+        console.log("item Id : ", data[0]);
+  
+        setSelectedFile(data[0]);
+        setLoading(false);
+        setShowResult(true);
+      }
+
+    }
+
+
   };
 
   const handleChainButoonClick =  () => {
