@@ -309,7 +309,7 @@ export default function Archive() {
                     file.url.split(".")[file.url.split(".").length - 1]
                   }`}
                   fileTime={formatDuration(file.duration)}
-                  fileLogo={"chain"}
+                  fileLogo={file.url.split(".")[file.url.split(".").length - 1] === 'mp3' ? 'chain':( file.url.split(".")[file.url.split(".").length - 1] === 'mp4' ? 'upload' : 'mic')}
                   // fileResult={ false}
                   blueText={true}
                   backGround={(index + 1) % 2 === 0 ? true : false}
