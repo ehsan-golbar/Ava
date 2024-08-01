@@ -95,7 +95,7 @@ function timeout(delay: number) {
 
       console.log(`file ${props.fileId} removed`)
       await timeout(1000); //for 1 sec delay
-      props.parrentFetch(false)
+      props.parrentFetch((prev : boolean) => !prev )
 
     }catch(error){
       console.log(error)
