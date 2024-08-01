@@ -18,6 +18,7 @@ import ResultConverting from "./ResultConverting";
 
 import Tooltip from "@mui/material/Tooltip";
 import { Outlet } from "react-router-dom";
+import Progress from "./Progress";
 
 type FileType = "mic" | "upload" | "chain";
 
@@ -58,6 +59,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   const [deleteIconSize, setDeleteIconSize] = useState("100%");
 
   const [fileResult, setFileResult] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const [openItem, setopenItem] = useState<number | null>(null);
 
@@ -72,7 +74,8 @@ function timeout(delay: number) {
   const deleteFile = async() =>{
 
     // props.onDataUpdate()
-    props.parrentFetch( true)
+    // props.parrentFetch( true)
+    setLoading(true)
     try {
       const response = await fetch(url, {
         method: 'DELETE',
@@ -91,12 +94,18 @@ function timeout(delay: number) {
       console.log('Response status:', response.status);
       console.log('Response headers:', response.headers);
       if (!response.ok) {
+        props.parrentFetch( true)
+        setLoading(false)
+        alert(`HTTP error! status: ${response.status}`)
+
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       console.log(`file ${props.fileId} removed`)
       await timeout(500); //for 1 sec delay
-      props.parrentFetch( false)
+
+      props.parrentFetch( true)
+      setLoading(false)
 
     }catch(error){
       console.log(error)
@@ -117,9 +126,10 @@ function timeout(delay: number) {
   };
 
 
-  const handleDeleteClick = () =>{
-      
-      deleteFile()
+  const handleDeleteClick = async() =>{
+    // props.parrentFetch( true)
+     await deleteFile()
+      // props.parrentFetch( false)
 
     
 
@@ -129,7 +139,7 @@ function timeout(delay: number) {
 
   return (
     <>
-      {!fileResult ? (
+      {!loading ? ( !fileResult ? (
         <div
           className={
             props.backGround ? styles.fileItemBackground : styles.fileItem
@@ -321,7 +331,7 @@ function timeout(delay: number) {
             </div>
           </div>
         </div>
-      )}
+      )): <div style={{display:'flex' , justifyContent:'center' , alignItems:'center', margin:'1rem 0'}}> <Progress progressColor="blue"></Progress> </div>}
     </>
   );
 };

@@ -187,6 +187,7 @@ export default function Archive() {
         }
         console.log("Response data:", data.results);
         setFirstLoading(false)
+        setDeleteLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -266,9 +267,9 @@ export default function Archive() {
   const currentFiles = fetchFile.slice(startIndex, endIndex);
 
 
-  const handleFileDeleted = () => {
+  const handleFileDeleted = (entry :boolean) => {
     // Toggle fetchToggle to trigger re-fetch
-    setDeleteLoading(prev => !prev);
+    setDeleteLoading(true);
   };
 
 
@@ -315,7 +316,7 @@ export default function Archive() {
                   lang={"english"}
                   fileId={file.id}
                   segments={file.segments}
-                  parrentFetch={setDeleteLoading}
+                  parrentFetch={handleFileDeleted}
                   parrentUrl={url}
                 ></FileItem>
 
