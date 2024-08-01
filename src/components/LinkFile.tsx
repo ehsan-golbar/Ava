@@ -73,6 +73,10 @@ export default function LinkFile() {
 
 
     if (!response.ok  ) {
+
+      alert(`HTTP error! status: ${response.status}`)
+      setLoading(false);
+      setShowResult(false);
       throw new Error(`HTTP error! status: ${response.status}`);
 
 
@@ -81,7 +85,7 @@ export default function LinkFile() {
       const data = await response.json();
       console.log( "data : ",data[0].message)
       if(data[0].message === "Download error!"){
-
+        alert(`URL does not exist on server`)
         setLoading(false);
         setShowResult(false);
 
