@@ -139,6 +139,7 @@ export default function Archive() {
   const [deleteFromChild, setDeleteFromChild] = useState<boolean>(false);
 
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
+  const [firstLoading, setFirstLoading] = useState<boolean>(false);
 
   // const [fetchToggle, setFetchToggle] = useState(false);
   // const [firstLoading ]
@@ -146,16 +147,22 @@ export default function Archive() {
   const url = "/api/requests/";
   const token = "a85d08400c622b50b18b61e239b9903645297196";
 
+  useEffect(() => {
 
-  const fetchRequest  = React.useCallback(async (fetchUrl : string) => {
-    try {
-      const response = await fetch(fetchUrl, {
-        method: "GET",
-        headers: {
-          Authorization: `Token ${token}`,
-          // 'Access-Control-Allow-Origin': '*',
-        },
-      });
+    
+    const fetchRequest = async (fetchUrl : string) => {
+
+      setFirstLoading(true)
+
+      
+      try {
+        const response = await fetch(fetchUrl, {
+          method: "GET",
+          headers: {
+            Authorization: `Token ${token}`,
+            // 'Access-Control-Allow-Origin': '*',
+          },
+        });
 
       console.log("Response status:", response.status);
       console.log("Response headers:", response.headers);
@@ -173,66 +180,27 @@ export default function Archive() {
         return [...prevFiles, ...newFiles];
       });
 
-      if (data.next){
-        const nextUrlParts = data.next.split('/');
-        const relativePath = '/' + nextUrlParts.slice(3).join('/');
-        fetchRequest(relativePath)
+        if (data.next){
+          const nextUrlParts = data.next.split('/');
+          const relativePath = '/' + nextUrlParts.slice(3).join('/');
+          fetchRequest(relativePath)
+        }
+        console.log("Response data:", data.results);
+        setFirstLoading(false)
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-      console.log("Response data:", data.results);
-
-      setDeleteLoading(false)
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }, [])
-
-  useEffect(() => {
-    // const fetchRequest = async (fetchUrl : string) => {
-    //   try {
-    //     const response = await fetch(fetchUrl, {
-    //       method: "GET",
-    //       headers: {
-    //         Authorization: `Token ${token}`,
-    //         // 'Access-Control-Allow-Origin': '*',
-    //       },
-    //     });
-
-    //     console.log("Response status:", response.status);
-    //     console.log("Response headers:", response.headers);
-
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP error! status: ${response.status}`);
-    //     }
-
-    //     const data = await response.json();
-    //     // setFetchFile(data.results);
-
-        
-    //     setFetchFile(prevFiles => {
-    //       const newFiles = data.results.filter((newFile: FileData)  => !prevFiles.some(prevFile => prevFile.id === newFile.id));
-    //       return [...prevFiles, ...newFiles];
-    //     });
-
-    //     if (data.next){
-    //       const nextUrlParts = data.next.split('/');
-    //       const relativePath = '/' + nextUrlParts.slice(3).join('/');
-    //       fetchRequest(relativePath)
-    //     }
-    //     console.log("Response data:", data.results);
-
-    //     setDeleteLoading(false)
-    //   } catch (error) {
-    //     console.error("Error fetching data:", error);
-    //   }
-    // };
+    };
 
     // Call the function
 
-    // setFetchFile([])
+    setFetchFile([])
     fetchRequest(url);
 
     // setDeleteFromChild(false);s
-  }, [fetchRequest]);
+   console.log("load" , firstLoading)
+   
+  }, [deleteLoading]);
 
   // console.log(' data:',fetchFile[0].url );
 
@@ -298,10 +266,10 @@ export default function Archive() {
   const currentFiles = fetchFile.slice(startIndex, endIndex);
 
 
-  const handleFileDeleted = () => {
-    // Toggle fetchToggle to trigger re-fetch
-    setDeleteLoading(true);
-  };
+  // const handleFileDeleted = () => {
+  //   // Toggle fetchToggle to trigger re-fetch
+  //   setDeleteLoading(true);
+  // };
 
 
   return (
@@ -311,7 +279,7 @@ export default function Archive() {
           <p> آرشیو من</p>
         </div>
 
-        {!deleteLoading ? (<div className={styles.archiveFiles}>
+        {!firstLoading  && !deleteLoading ? (<div className={styles.archiveFiles}>
           <div className={styles.fileItems}>
             <div style={{ width: "50%" }}>
               <p className={styles.fileItemsTitle}>نام فایل</p>
@@ -347,7 +315,7 @@ export default function Archive() {
                   lang={"english"}
                   fileId={file.id}
                   segments={file.segments}
-                  parrentFetch={handleFileDeleted}
+                  parrentFetch={setDeleteLoading}
                   parrentUrl={url}
                 ></FileItem>
 

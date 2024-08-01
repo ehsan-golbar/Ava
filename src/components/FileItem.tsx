@@ -43,9 +43,11 @@ interface MyComponentProps {
   fileId : number;
   segments: Segment[];
 
-  parrentFetch: (fetchUrl : string) => void;
+  parrentFetch: (entry: boolean) => void;
   parrentUrl : string
 }
+
+
 
 const FileItem: React.FC<MyComponentProps> = (props) => {
   const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
@@ -62,6 +64,10 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   const url = `/api/requests/${props.fileId}/`
 const token = "a85d08400c622b50b18b61e239b9903645297196";
 
+
+function timeout(delay: number) {
+  return new Promise( res => setTimeout(res, delay) );
+}
 
   const deleteFile = async() =>{
 
@@ -88,8 +94,8 @@ const token = "a85d08400c622b50b18b61e239b9903645297196";
       }
 
       console.log(`file ${props.fileId} removed`)
-
-      props.parrentFetch(props.parrentUrl)
+      await timeout(1000); //for 1 sec delay
+      props.parrentFetch(false)
 
     }catch(error){
       console.log(error)
