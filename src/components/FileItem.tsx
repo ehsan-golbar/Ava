@@ -43,7 +43,8 @@ interface MyComponentProps {
   fileId : number;
   segments: Segment[];
 
-  onDataUpdate: (data: boolean) => void;
+  parrentFetch: (fetchUrl : string) => void;
+  parrentUrl : string
 }
 
 const FileItem: React.FC<MyComponentProps> = (props) => {
@@ -64,7 +65,7 @@ const token = "a85d08400c622b50b18b61e239b9903645297196";
 
   const deleteFile = async() =>{
 
-    props.onDataUpdate(true)
+    // props.onDataUpdate()
     try {
       const response = await fetch(url, {
         method: 'DELETE',
@@ -88,7 +89,7 @@ const token = "a85d08400c622b50b18b61e239b9903645297196";
 
       console.log(`file ${props.fileId} removed`)
 
-      props.onDataUpdate(false)
+      props.parrentFetch(props.parrentUrl)
 
     }catch(error){
       console.log(error)

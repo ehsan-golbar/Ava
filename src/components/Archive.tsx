@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 
 import { useFileFetch } from "./FileFetchContext";
 import Progress from "./Progress";
+import React from "react";
 
 const theme = createTheme({
   components: {
@@ -139,48 +140,91 @@ export default function Archive() {
 
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
 
+  // const [fetchToggle, setFetchToggle] = useState(false);
   // const [firstLoading ]
 
   const url = "/api/requests/";
   const token = "a85d08400c622b50b18b61e239b9903645297196";
 
+
+  const fetchRequest  = React.useCallback(async (fetchUrl : string) => {
+    try {
+      const response = await fetch(fetchUrl, {
+        method: "GET",
+        headers: {
+          Authorization: `Token ${token}`,
+          // 'Access-Control-Allow-Origin': '*',
+        },
+      });
+
+      console.log("Response status:", response.status);
+      console.log("Response headers:", response.headers);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      // setFetchFile(data.results);
+
+      
+      setFetchFile(prevFiles => {
+        const newFiles = data.results.filter((newFile: FileData)  => !prevFiles.some(prevFile => prevFile.id === newFile.id));
+        return [...prevFiles, ...newFiles];
+      });
+
+      if (data.next){
+        const nextUrlParts = data.next.split('/');
+        const relativePath = '/' + nextUrlParts.slice(3).join('/');
+        fetchRequest(relativePath)
+      }
+      console.log("Response data:", data.results);
+
+      setDeleteLoading(false)
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }, [])
+
   useEffect(() => {
-    const fetchRequest = async (fetchUrl : string) => {
-      try {
-        const response = await fetch(fetchUrl, {
-          method: "GET",
-          headers: {
-            Authorization: `Token ${token}`,
-            // 'Access-Control-Allow-Origin': '*',
-          },
-        });
+    // const fetchRequest = async (fetchUrl : string) => {
+    //   try {
+    //     const response = await fetch(fetchUrl, {
+    //       method: "GET",
+    //       headers: {
+    //         Authorization: `Token ${token}`,
+    //         // 'Access-Control-Allow-Origin': '*',
+    //       },
+    //     });
 
-        console.log("Response status:", response.status);
-        console.log("Response headers:", response.headers);
+    //     console.log("Response status:", response.status);
+    //     console.log("Response headers:", response.headers);
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP error! status: ${response.status}`);
+    //     }
 
-        const data = await response.json();
-        // setFetchFile(data.results);
+    //     const data = await response.json();
+    //     // setFetchFile(data.results);
 
         
-        setFetchFile(prevFiles => {
-          const newFiles = data.results.filter((newFile: FileData)  => !prevFiles.some(prevFile => prevFile.id === newFile.id));
-          return [...prevFiles, ...newFiles];
-        });
+    //     setFetchFile(prevFiles => {
+    //       const newFiles = data.results.filter((newFile: FileData)  => !prevFiles.some(prevFile => prevFile.id === newFile.id));
+    //       return [...prevFiles, ...newFiles];
+    //     });
 
-        if (data.next){
-          const nextUrlParts = data.next.split('/');
-          const relativePath = '/' + nextUrlParts.slice(3).join('/');
-          fetchRequest(relativePath)
-        }
-        console.log("Response data:", data.results);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+    //     if (data.next){
+    //       const nextUrlParts = data.next.split('/');
+    //       const relativePath = '/' + nextUrlParts.slice(3).join('/');
+    //       fetchRequest(relativePath)
+    //     }
+    //     console.log("Response data:", data.results);
+
+    //     setDeleteLoading(false)
+    //   } catch (error) {
+    //     console.error("Error fetching data:", error);
+    //   }
+    // };
 
     // Call the function
 
@@ -188,7 +232,7 @@ export default function Archive() {
     fetchRequest(url);
 
     // setDeleteFromChild(false);s
-  }, [deleteLoading]);
+  }, [fetchRequest]);
 
   // console.log(' data:',fetchFile[0].url );
 
@@ -253,6 +297,13 @@ export default function Archive() {
   // Slice the array to get only the items for the current page
   const currentFiles = fetchFile.slice(startIndex, endIndex);
 
+
+  const handleFileDeleted = () => {
+    // Toggle fetchToggle to trigger re-fetch
+    setDeleteLoading(true);
+  };
+
+
   return (
     <>
       <div className={styles.archive}>
@@ -296,7 +347,8 @@ export default function Archive() {
                   lang={"english"}
                   fileId={file.id}
                   segments={file.segments}
-                  onDataUpdate={setDeleteLoading}
+                  parrentFetch={handleFileDeleted}
+                  parrentUrl={url}
                 ></FileItem>
 
                 {/* </button> */}
