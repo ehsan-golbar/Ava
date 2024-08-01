@@ -43,7 +43,7 @@ interface MyComponentProps {
   fileId : number;
   segments: Segment[];
 
-  parrentFetch: (entry: boolean) => void;
+  parrentFetch: (entry:boolean) => void;
   parrentUrl : string
 }
 
@@ -72,6 +72,7 @@ function timeout(delay: number) {
   const deleteFile = async() =>{
 
     // props.onDataUpdate()
+    props.parrentFetch( true)
     try {
       const response = await fetch(url, {
         method: 'DELETE',
@@ -94,8 +95,8 @@ function timeout(delay: number) {
       }
 
       console.log(`file ${props.fileId} removed`)
-      await timeout(1000); //for 1 sec delay
-      props.parrentFetch((prev : boolean) => !prev )
+      await timeout(500); //for 1 sec delay
+      props.parrentFetch( false)
 
     }catch(error){
       console.log(error)
@@ -117,7 +118,7 @@ function timeout(delay: number) {
 
 
   const handleDeleteClick = () =>{
-    
+      
       deleteFile()
 
     

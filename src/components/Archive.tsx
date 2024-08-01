@@ -266,10 +266,10 @@ export default function Archive() {
   const currentFiles = fetchFile.slice(startIndex, endIndex);
 
 
-  // const handleFileDeleted = () => {
-  //   // Toggle fetchToggle to trigger re-fetch
-  //   setDeleteLoading(true);
-  // };
+  const handleFileDeleted = () => {
+    // Toggle fetchToggle to trigger re-fetch
+    setDeleteLoading(prev => !prev);
+  };
 
 
   return (
