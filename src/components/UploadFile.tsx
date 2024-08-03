@@ -73,10 +73,17 @@ export default function UploadFile(props: MyComponentProps) {
                   پیاده شده آن، در اینجا ظاهر می شود
                 </p>
               ) : (
+
+                <div>
                 <p className={rstyles.bodyTextEnglish}>
-                  To upload a speech file (audio/video), press the button Text
+                  To upload a speech file (audio/video), press the button
+                  </p>
+
+                  <p className={rstyles.bodyTextEnglish}>
+                   Text
                   Unloaded, it appears here
-                </p>
+                  </p>
+                  </div>
               )}
             </div>
           </div>
