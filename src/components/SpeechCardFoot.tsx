@@ -10,7 +10,7 @@ import { useData } from './DataContext';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from './store/store';
-import { setResultLanguage } from './store/slices/fileFetchSlice';
+import { setResultLanguage } from './store/slices/languageSlice';
 
 export default function SpeechCardFoot() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

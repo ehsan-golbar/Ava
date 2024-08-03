@@ -19,8 +19,8 @@ import { DataProvider } from './DataContext';
 
 
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from './store/store';
-import { setResultLanguage } from './store/slices/fileFetchSlice';
+import { RootState, useAppDispatch, useAppSelector } from './store/store';
+import { setResultLanguage } from './store/slices/languageSlice';
 
 type UploadState = "upload" | "simpleResult" | "timedResult";
 
@@ -33,7 +33,8 @@ export default function UploadFile(props: MyComponentProps) {
 
 
 
-  const resultLanguage = useSelector((state: RootState) => state.data.resultLanguage);
+  // const resultLanguage = useSelector((state: RootState) => state.data.resultLanguage);
+  const resultLanguage = useAppSelector((state) => state.data.resultLanguage);
   // const dispatch: AppDispatch = useDispatch();
 
 

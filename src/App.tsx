@@ -23,8 +23,8 @@ import { FileFetchProvider } from "./components/FileFetchContext";
 export default function App() {
   return (
     <>
-      <FileFetchProvider>
-        <DataProvider>
+      {/* <FileFetchProvider> */}
+        {/* <DataProvider> */}
           <div style={{ background: "#FEFEFE" }}>
             <UserType></UserType>
             <Sidebar></Sidebar>
@@ -99,8 +99,8 @@ export default function App() {
       <Archive></Archive> */}
             {/* <p>salam</p> */}
           </div>
-        </DataProvider>
-      </FileFetchProvider>
+        {/* </DataProvider> */}
+      {/* </FileFetchProvider> */}
     </>
   );
 }

@@ -19,7 +19,7 @@ import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import { useEffect, useState } from "react";
 
-import { useFileFetch } from "./FileFetchContext";
+// import { useFileFetch } from "./FileFetchContext";
 import Progress from "./Progress";
 import React from "react";
 
@@ -134,7 +134,7 @@ interface FileData {
 }
 
 export default function Archive() {
-  const { fetchFile, setFetchFile } = useFileFetch();
+  const [ fetchFile, setFetchFile ] = useState<FileData[]>([]);
 
   const [deleteFromChild, setDeleteFromChild] = useState<boolean>(false);
 
