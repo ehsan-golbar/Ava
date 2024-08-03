@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 
-  <BrowserRouter basename='/Ava'>
+  <BrowserRouter>
   <React.StrictMode>
 
   <Provider store={store}>
