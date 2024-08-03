@@ -150,7 +150,7 @@ const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
     // Call the function
 
     setFetchFile([])
-    fetchRequest(url);
+    fetchRequest("/api/requests/");
 
     // setDeleteFromChild(false);s
    console.log("load" , firstLoading)
