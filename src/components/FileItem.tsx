@@ -17,9 +17,10 @@ import deleteIconHover from "../assets/del Btn hover.png";
 import Tooltip from "@mui/material/Tooltip";
 import { Outlet } from "react-router-dom";
 import Progress from "./Progress";
-import { useAppDispatch } from "./store/store";
+import { useAppDispatch, useAppSelector } from "./store/store";
 import { Segment } from "@mui/icons-material";
 import { setFileSegments } from "./store/slices/fetchFileSegmentsSlice";
+import { setDeleteStatus } from "./store/slices/DeleteStatus";
 
 type FileType = "mic" | "upload" | "chain";
 
@@ -45,8 +46,7 @@ interface MyComponentProps {
   fileId: number;
   segments: Segment[];
 
-  parrentFetch: (entry: boolean) => void;
-  parrentUrl: string;
+
 }
 
 const FileItem: React.FC<MyComponentProps> = (props) => {
@@ -66,6 +66,8 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   const token = "a85d08400c622b50b18b61e239b9903645297196";
 
   const dispatch = useAppDispatch();
+const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
+
 
   function timeout(delay: number) {
     return new Promise((res) => setTimeout(res, delay));
@@ -75,6 +77,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
     // props.onDataUpdate()
     // props.parrentFetch( true)
     setLoading(true);
+    dispatch(setDeleteStatus(true))
     try {
       const response = await fetch(url, {
         method: "DELETE",
@@ -89,7 +92,9 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
       console.log("Response status:", response.status);
       console.log("Response headers:", response.headers);
       if (!response.ok) {
-        props.parrentFetch(true);
+        // props.parrentFetch(true);
+       dispatch(setDeleteStatus(false))
+
         setLoading(false);
         alert(`HTTP error! status: ${response.status}`);
 
@@ -97,10 +102,12 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
       }
 
       console.log(`file ${props.fileId} removed`);
-      await timeout(500); //for 1 sec delay
+      await timeout(1000); //for 1 sec delay
 
-      props.parrentFetch(true);
+      // props.parrentFetch(true);
       setLoading(false);
+    dispatch(setDeleteStatus(false))
+
     } catch (error) {
       console.log(error);
     }
