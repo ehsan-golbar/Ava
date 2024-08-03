@@ -17,6 +17,11 @@ import { useState } from "react";
 
 import { DataProvider } from './DataContext';
 
+
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from './store/store';
+import { setResultLanguage } from './store/slices/fileFetchSlice';
+
 type UploadState = "upload" | "simpleResult" | "timedResult";
 
 interface MyComponentProps {
@@ -28,13 +33,16 @@ export default function UploadFile(props: MyComponentProps) {
 
 
 
-  const [language, setLanguage] = useState<string | null>(null);
+  const resultLanguage = useSelector((state: RootState) => state.data.resultLanguage);
+  // const dispatch: AppDispatch = useDispatch();
 
 
   
   if (props.state === "upload") {
     return (
       <>
+
+      
         <div className={styles.speechCard}>
           <div className={styles.cardHead}>
             {/* <div className={styles.cardHeadItemOne}> */}
@@ -77,11 +85,23 @@ export default function UploadFile(props: MyComponentProps) {
                   <img src={bigUploadIcon} alt="bigUploadIcon" />
                 </div>
               </button>
-              <p className={styles.uploadDescription}>
-                برای بارگذاری فایل گفتاری (صوتی/تصویری)، دکمه را فشار دهید متن
-                پیاده شده آن، در اینجا ظاهر می شود
-              </p>
+
+{  resultLanguage === 'fa'    ?    <p className={styles.uploadDescription}>
+              برای بارگذاری فایل گفتاری (صوتی/تصویری)، دکمه را فشار دهید متن
+              پیاده شده آن، در اینجا ظاهر می شود
+            </p> :  <p className={rstyles.bodyTextEnglish}>
+              
+            To upload a speech file (audio/video), press the button Text
+            Unloaded, it appears here
+              </p>}
+
+
             </div>
+
+
+
+      
+
           </div>
           {/* 
             <div className={styles.cardFoot}>
@@ -95,6 +115,7 @@ export default function UploadFile(props: MyComponentProps) {
                 </button>
               </div>
             </div> */}
+
 
           <SpeechCardFoot ></SpeechCardFoot>
         </div>

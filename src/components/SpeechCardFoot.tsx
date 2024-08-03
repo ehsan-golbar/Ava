@@ -6,12 +6,23 @@ import MenuItem from "@mui/material/MenuItem";
 import React from "react";
 import { useData } from './DataContext';
 
+
+
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from './store/store';
+import { setResultLanguage } from './store/slices/fileFetchSlice';
+
 export default function SpeechCardFoot() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [language, setLanguage] = React.useState("fa"); // State for selected language
+  // const [language, setLanguage] = React.useState("fa"); // State for selected language
   const open = Boolean(anchorEl);
 
-  const {  setResultLanguage } = useData();
+
+  const resultLanguage = useSelector((state: RootState) => state.data.resultLanguage);
+  const dispatch: AppDispatch = useDispatch();
+
+
+  // const {  setResultLanguage } = useData();
   
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -22,10 +33,10 @@ export default function SpeechCardFoot() {
   };
   
   const handleLanguageChange = (selectedLanguage: string) => {
-    setLanguage(selectedLanguage);
+    // setLanguage(selectedLanguage);
     handleClose();
 
-    setResultLanguage(selectedLanguage);
+    dispatch(setResultLanguage(selectedLanguage))
     // {console.log('resultLanguage:', resultLanguage);}
   };
 
@@ -34,7 +45,7 @@ export default function SpeechCardFoot() {
       <p className={styles.footTitle}>زبان گفتار:</p>
 
       <div className={styles.langType}>
-        <p className={styles.footItem}>{language === 'en' ? "انگلیسی" : "فارسی"}</p>
+        <p className={styles.footItem}>{resultLanguage === 'en' ? "انگلیسی" : "فارسی"}</p>
 
         <div>
           <Button
