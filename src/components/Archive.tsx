@@ -292,7 +292,7 @@ const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
         <p>{page}</p> */}
         </ThemeProvider>
         {/* <PaginationItem MuiPaginationItem-icon = {styles.a} disabled ></PaginationItem> */}
-      </div>
+      </div> 
     </>
   );
 }
