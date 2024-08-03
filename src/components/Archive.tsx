@@ -3,7 +3,7 @@ import "../App.css";
 
 import { Pagination } from "@mui/material";
 
-import axios from "axios";
+// import axios from "axios";
 
 
 
@@ -13,12 +13,12 @@ import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import { useEffect, useState } from "react";
 
-import { useAppDispatch, useAppSelector } from "./store/store";
+import { useAppSelector } from "./store/store";
 
 // import { useFileFetch } from "./FileFetchContext";
 import Progress from "./Progress";
-import React from "react";
-import { setDeleteStatus } from "./store/slices/DeleteStatus";
+// import React from "react";
+// import { setDeleteStatus } from "./store/slices/DeleteStatus";
 
 const theme = createTheme({
   components: {
@@ -56,9 +56,9 @@ const theme = createTheme({
   },
 });
 
-type FileType = "mic" | "upload" | "chain";
+// type FileType = "mic" | "upload" | "chain";
 
-type Language = "persian" | "english";
+// type Language = "persian" | "english";
 
 
 
@@ -79,7 +79,7 @@ interface FileData {
 
 export default function Archive() {
 
-const dispatch = useAppDispatch()
+// const dispatch = useAppDispatch()
 
 const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
 
@@ -160,7 +160,7 @@ const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
   // const[openItem, setopenItem] = useState<number | null>(null);
 
   // Total number of pages (could be dynamic based on data)
-  const totalPages: number = 10;
+  // const totalPages: number = 10;
   // const lastPageSel : number = 1 ;
   // Handler for page change event
 
@@ -173,11 +173,12 @@ const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
   // }
 
   const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
+    // event: React.ChangeEvent<unknown>,
+    // event: React.ChangeEvent<unknown> ,
     value: number
   ) => {
     setPage(value);
-
+    // event.type
     // Fetch new data based on the new page, if necessary
   };
 
@@ -217,10 +218,10 @@ const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
   const currentFiles = fetchFile.slice(startIndex, endIndex);
 
 
-  const handleFileDeleted = (entry :boolean) => {
-    // Toggle fetchToggle to trigger re-fetch
-    // setDeleteLoading(true);
-  };
+  // const handleFileDeleted = (entry :boolean) => {
+  //   // Toggle fetchToggle to trigger re-fetch
+  //   // setDeleteLoading(true);
+  // };
 
 
   return (
@@ -283,7 +284,7 @@ const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
             siblingCount={1}
             boundaryCount={1}
             page={page}
-            onChange={handlePageChange}
+            onChange={(_blank, value) => handlePageChange( value)}
             // color="primary"
             // color=""
           ></Pagination>

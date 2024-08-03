@@ -16,9 +16,9 @@ import SimpleText from "./components/SimpleText";
 import TimedText from "./components/TimedText";
 import LinkFile from "./components/LinkFile";
 
-import { DataProvider } from "./components/DataContext";
+// import { DataProvider } from "./components/DataContext";
 
-import { FileFetchProvider } from "./components/FileFetchContext";
+// import { FileFetchProvider } from "./components/FileFetchContext";
 
 export default function App() {
   return (

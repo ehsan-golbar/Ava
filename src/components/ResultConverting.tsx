@@ -4,16 +4,16 @@ import styles from "./resultConverting.module.css";
 
 
 
-type ResultState = 'simpleResult' | "timedResult"
+// type ResultState = 'simpleResult' | "timedResult"
 
 
-interface MyComponentProps{
-  result : ResultState;
-}
+// interface MyComponentProps{
+//   result : ResultState;
+// }
 
 
 
-export default function ResultConverting(props : MyComponentProps) {
+export default function ResultConverting() {
 
 
   return (

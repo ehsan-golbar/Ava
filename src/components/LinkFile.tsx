@@ -9,12 +9,12 @@ import uploadIcon from "../assets/upload Icon.png";
 
 import SpeechCardFoot from "./SpeechCardFoot";
 import { Link, Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // import { FileData, useFileFetch } from './FileFetchContext';
 
 import rstyles from "./resultConverting.module.css";
-import { Flag } from "@mui/icons-material";
+// import { Flag } from "@mui/icons-material";
 import Progress from "./Progress";
 import { useAppDispatch } from "./store/store";
 import { setFileSegments } from "./store/slices/fetchFileSegmentsSlice";

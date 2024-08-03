@@ -13,9 +13,9 @@ import { useState } from "react";
 
 import AudioPlayer from "./AudioPlayer";
 import Tooltip from "@mui/material/Tooltip";
-import { Link, useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { useData } from './DataContext';
+// import { useData } from './DataContext';
 import { useAppSelector } from "./store/store";
 
 type Source = "upload" | "archive" |"link";
@@ -27,15 +27,15 @@ interface MyComponentProps {
 
 
 
-interface Segment {
-  start: string;
-  end: string;
-  text: string;
-}
+// interface Segment {
+//   start: string;
+//   end: string;
+//   text: string;
+// }
 
-interface FileContext {
-  fileSegments?: Segment[]; 
-}
+// interface FileContext {
+//   fileSegments?: Segment[]; 
+// }
 
 export default function SimpleText(props: MyComponentProps) {
   const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);

@@ -17,7 +17,7 @@ import deleteIconHover from "../assets/del Btn hover.png";
 import Tooltip from "@mui/material/Tooltip";
 import { Outlet } from "react-router-dom";
 import Progress from "./Progress";
-import { useAppDispatch, useAppSelector } from "./store/store";
+import { useAppDispatch} from "./store/store";
 import { Segment } from "@mui/icons-material";
 import { setFileSegments } from "./store/slices/fetchFileSegmentsSlice";
 import { setDeleteStatus } from "./store/slices/DeleteStatus";
@@ -66,7 +66,7 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   const token = "a85d08400c622b50b18b61e239b9903645297196";
 
   const dispatch = useAppDispatch();
-const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
+// const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
 
 
   function timeout(delay: number) {
