@@ -19,6 +19,9 @@ import ResultConverting from "./ResultConverting";
 import Tooltip from "@mui/material/Tooltip";
 import { Outlet } from "react-router-dom";
 import Progress from "./Progress";
+import { useAppDispatch } from "./store/store";
+import { Segment } from "@mui/icons-material";
+import { setFileSegments } from "./store/slices/fetchFileSlice";
 
 type FileType = "mic" | "upload" | "chain";
 
@@ -66,6 +69,8 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
   const url = `/api/requests/${props.fileId}/`
 const token = "a85d08400c622b50b18b61e239b9903645297196";
 
+
+const dispatch = useAppDispatch()
 
 function timeout(delay: number) {
   return new Promise( res => setTimeout(res, delay) );
@@ -122,7 +127,12 @@ function timeout(delay: number) {
   };
 
   const handleOpenItem = () => {
+
+    dispatch(setFileSegments(props.segments))
     setFileResult((prev) => !prev);
+
+
+    
   };
 
 
@@ -327,7 +337,7 @@ function timeout(delay: number) {
             {/* <ResultConverting result="simpleResult"></ResultConverting> */}
 
             <div className={rstyles.resultCard}>
-              <Outlet context={{ fileSegments: props.segments }}></Outlet>
+              <Outlet ></Outlet>
             </div>
           </div>
         </div>

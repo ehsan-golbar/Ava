@@ -7,14 +7,7 @@ export interface Segment {
   text: string;
 }
 
-export interface FileData {
-  duration: string;
-  id: number;
-  processed: string;
-  segments: Segment[];
-  length: number;
-  url: string;
-}
+
 
 export  interface DataState {
 

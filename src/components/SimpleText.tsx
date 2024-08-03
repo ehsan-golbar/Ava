@@ -16,6 +16,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { Link, useOutletContext } from "react-router-dom";
 
 import { useData } from './DataContext';
+import { useAppSelector } from "./store/store";
 
 type Source = "upload" | "archive" |"link";
 interface MyComponentProps {
@@ -40,11 +41,15 @@ export default function SimpleText(props: MyComponentProps) {
   const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
   const [copyIconImg, setCopyIconImg] = useState(copyIcon);
 
-  const{ fileSegments  } = useOutletContext<FileContext>()
+  // const{ fileSegments  } = useOutletContext<FileContext>()
 
-  const { resultLanguage } = useData();
 
-  console.log('Result Language:', resultLanguage); // Debugging
+  const fileSegments = useAppSelector((state) => state.fileFetch.fileSegments);
+
+
+
+  const resultLanguage = useAppSelector((state) => state.data.resultLanguage);
+
 
   return (
     <>

@@ -18,6 +18,8 @@ import { useEffect, useState } from "react";
 import rstyles from "./resultConverting.module.css";
 import { Flag } from "@mui/icons-material";
 import Progress from "./Progress";
+import { useAppDispatch } from "./store/store";
+import { setFileSegments } from "./store/slices/fetchFileSlice";
 
 interface Segment {
   start: string;
@@ -53,6 +55,9 @@ export default function LinkFile() {
   const [loading, setLoading] = useState<boolean>(false);
   const url = "/api/transcribe_files/";
   const token = "a85d08400c622b50b18b61e239b9903645297196";
+ const  dispatch = useAppDispatch()
+
+
 
   const fetchFile = async () => {
 
@@ -94,6 +99,7 @@ export default function LinkFile() {
         console.log("item Id : ", data[0]);
   
         setSelectedFile(data[0]);
+        dispatch(setFileSegments(data[0].segment))
         setLoading(false);
         setShowResult(true);
       }

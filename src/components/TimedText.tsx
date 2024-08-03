@@ -18,6 +18,8 @@ import AudioPlayer from "./AudioPlayer";
 
 import Tooltip from "@mui/material/Tooltip";
 import { Link, useOutletContext } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useAppSelector } from "./store/store";
 
 type Source = "upload" | "archive" | "link";
 interface MyComponentProps {
@@ -38,7 +40,9 @@ export default function TimedText(props: MyComponentProps) {
   const [downloadIconImg, setDownloadIconImg] = useState(downloadIcon);
   const [copyIconImg, setCopyIconImg] = useState(copyIcon);
 
-  const { fileSegments } = useOutletContext<FileContext>();
+  // const { fileSegments } = useOutletContext<FileContext>();
+
+  const fileSegments = useAppSelector((state) => state.fileFetch.fileSegments);
 
   const formatDuration = (duration: string): string => {
     // Split the duration into parts based on colons
