@@ -136,7 +136,7 @@ interface FileData {
 export default function Archive() {
   const [ fetchFile, setFetchFile ] = useState<FileData[]>([]);
 
-  const [deleteFromChild, setDeleteFromChild] = useState<boolean>(false);
+  // const [deleteFromChild, setDeleteFromChild] = useState<boolean>(false);
 
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
   const [firstLoading, setFirstLoading] = useState<boolean>(false);

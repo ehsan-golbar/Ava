@@ -6,11 +6,8 @@ import "../App.css";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Sidebar() {
-
-
   const location = useLocation();
 
-  
   return (
     <>
       <nav className={styles.sidebar}>
@@ -21,43 +18,51 @@ export default function Sidebar() {
         </div>
         <div className={styles.sidebarPages}>
           {/* <a className="aStyle" href="#"> */}
-          
-            {/* <div className={styles.pagesItem}> */}
 
-            
-            <div className={location.pathname.startsWith("/convert-speech") ? styles.pagesItemSelected  : styles.pagesItem}>
-            
-              <button className="buttonStyle">
+          {/* <div className={styles.pagesItem}> */}
+
+          <div
+            className={
+              location.pathname.startsWith("/convert-speech")
+                ? styles.pagesItemSelected
+                : styles.pagesItem
+            }
+          >
+            <button className="buttonStyle">
               <Link to="/convert-speech" className="linkStyle">
-              <img
-                className={styles.pagesItemRight}
-                src={speechIcon}
-                alt="speechIcon"
-              />
-              <p className={styles.pagesItemLeft}>تبدیل گفتار</p>
+                <img
+                  className={styles.pagesItemRight}
+                  src={speechIcon}
+                  alt="speechIcon"
+                />
+                <p className={styles.pagesItemLeft}>تبدیل گفتار</p>
               </Link>
-              </button>
-
-           
-
-            </div>
+            </button>
+          </div>
 
           {/* </a> */}
 
           {/* <a href="#" className="aStyle"> */}
 
-            <div className={location.pathname.startsWith("/archive") ? styles.pagesItemSelected :styles.pagesItem  }>
-              <button className="buttonStyle">
-          <Link to="/archive" className="linkStyle">
-
-              <img className={styles.pagesItemRight} src={archiveIcon} alt="archiveIcon" />
-              <p className={styles.pagesItemLeft}>آرشیو</p>
-
+          <div
+            className={
+              location.pathname.startsWith("/archive")
+                ? styles.pagesItemSelected
+                : styles.pagesItem
+            }
+          >
+            <button className="buttonStyle">
+              <Link to="/archive" className="linkStyle">
+                <img
+                  className={styles.pagesItemRight}
+                  src={archiveIcon}
+                  alt="archiveIcon"
+                />
+                <p className={styles.pagesItemLeft}>آرشیو</p>
               </Link>
-              </button>
-            </div>
+            </button>
+          </div>
 
-            
           {/* </a> */}
         </div>
       </nav>

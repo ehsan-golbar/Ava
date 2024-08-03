@@ -17,39 +17,29 @@ export default function RecordSpeech() {
             {/* <div className={styles.cardHeadItemOne}> */}
             <div className={styles.cardHeadItemOne}>
               <button className="buttonStyle">
-
-              <Link to="/convert-speech/record" className="linkStyle">
-
-                
-                <img src={micIconWhite} alt="micIcon" />
-                {/* <img src={micIcon} alt="micIcon" /> */}
-                <p>ضبط صدا</p>
-
+                <Link to="/convert-speech/record" className="linkStyle">
+                  <img src={micIconWhite} alt="micIcon" />
+                  {/* <img src={micIcon} alt="micIcon" /> */}
+                  <p>ضبط صدا</p>
                 </Link>
               </button>
             </div>
 
             <div className={styles.cardHeadItem}>
-
-        
               <button className="buttonStyle">
-              <Link to="/convert-speech/upload" className="linkStyle">
-                <img src={uploadIcon} alt="uploadIcon" />
-                <p>بارگذاری فایل</p>
+                <Link to="/convert-speech/upload" className="linkStyle">
+                  <img src={uploadIcon} alt="uploadIcon" />
+                  <p>بارگذاری فایل</p>
                 </Link>
               </button>
-
-       
             </div>
 
             <div className={styles.cardHeadItem}>
               <button className="buttonStyle">
+                <Link to="/convert-speech/link" className="linkStyle">
+                  <img src={chainicon} alt="chainIcon" />
 
-              <Link to="/convert-speech/link" className="linkStyle">
-                <img src={chainicon} alt="chainIcon" />
-
-                <p>لینک</p>
-
+                  <p>لینک</p>
                 </Link>
               </button>
             </div>
@@ -69,18 +59,6 @@ export default function RecordSpeech() {
             </p>
           </div>
         </div>
-        {/* 
-          <div className={styles.cardFoot}>
-            <p className={styles.footTitle}>زبان گفتار:</p>
-
-            <div className={styles.langType}>
-              <p className={styles.footItem}>فارسی</p>
-
-              <button className="buttonStyle">
-                <img src={dropIcon} alt="dropIcon" />
-              </button>
-            </div>
-          </div> */}
 
         <SpeechCardFoot></SpeechCardFoot>
       </div>

@@ -1,26 +1,14 @@
-// import micIconWhite from "../assets/mic Icon white.png";
 import styles from "./speech.module.css";
 import chainicon from "../assets/chain Icon.png";
 import uploadIconWhite from "../assets/upload Icon white.png";
 import bigUploadIcon from "../assets/big upload Icon.png";
-// import dropIcon from "../assets/drop Icon.png";
 import micIcon from "../assets/mic Icon.png";
 import rstyles from "./resultConverting.module.css";
 
-import ResultConverting from "./ResultConverting";
-
 import SpeechCardFoot from "./SpeechCardFoot";
-import { Link, Outlet, Route, Routes } from "react-router-dom";
-import SimpleText from "./SimpleText";
-import TimedText from "./TimedText";
-import { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 
-import { DataProvider } from './DataContext';
-
-
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, useAppDispatch, useAppSelector } from './store/store';
-import { setResultLanguage } from './store/slices/languageSlice';
+import { useAppSelector } from "./store/store";
 
 type UploadState = "upload" | "simpleResult" | "timedResult";
 
@@ -29,21 +17,13 @@ interface MyComponentProps {
 }
 
 export default function UploadFile(props: MyComponentProps) {
-
-
-
-
   // const resultLanguage = useSelector((state: RootState) => state.data.resultLanguage);
   const resultLanguage = useAppSelector((state) => state.data.resultLanguage);
   // const dispatch: AppDispatch = useDispatch();
 
-
-  
   if (props.state === "upload") {
     return (
       <>
-
-      
         <div className={styles.speechCard}>
           <div className={styles.cardHead}>
             {/* <div className={styles.cardHeadItemOne}> */}
@@ -87,38 +67,21 @@ export default function UploadFile(props: MyComponentProps) {
                 </div>
               </button>
 
-{  resultLanguage === 'fa'    ?    <p className={styles.uploadDescription}>
-              برای بارگذاری فایل گفتاری (صوتی/تصویری)، دکمه را فشار دهید متن
-              پیاده شده آن، در اینجا ظاهر می شود
-            </p> :  <p className={rstyles.bodyTextEnglish}>
-              
-            To upload a speech file (audio/video), press the button Text
-            Unloaded, it appears here
-              </p>}
-
-
+              {resultLanguage === "fa" ? (
+                <p className={styles.uploadDescription}>
+                  برای بارگذاری فایل گفتاری (صوتی/تصویری)، دکمه را فشار دهید متن
+                  پیاده شده آن، در اینجا ظاهر می شود
+                </p>
+              ) : (
+                <p className={rstyles.bodyTextEnglish}>
+                  To upload a speech file (audio/video), press the button Text
+                  Unloaded, it appears here
+                </p>
+              )}
             </div>
-
-
-
-      
-
           </div>
-          {/* 
-            <div className={styles.cardFoot}>
-              <p className={styles.footTitle}>زبان گفتار:</p>
-    
-              <div className={styles.langType}>
-                <p className={styles.footItem}>فارسی</p>
-    
-                <button className="buttonStyle">
-                  <img src={dropIcon} alt="dropIcon" />
-                </button>
-              </div>
-            </div> */}
 
-
-          <SpeechCardFoot ></SpeechCardFoot>
+          <SpeechCardFoot></SpeechCardFoot>
         </div>
       </>
     );
@@ -163,35 +126,12 @@ export default function UploadFile(props: MyComponentProps) {
           </div>
 
           <div className={styles.cardBodyUpload}>
-            {/* <ResultConverting
-              result={
-                props.state === "timedResult" ? "timedResult" : "simpleResult"
-              }
-            ></ResultConverting> */}
             <div className={rstyles.resultCard}>
-              {/* <Routes> */}
-                {/* <Route  path="" element = {<ResultConverting
-              result={
-                props.state === "timedResult" ? "timedResult" : "simpleResult"
-              }
-            ></ResultConverting>}></Route> */}
-{/* 
-                <Route
-                  path="simpleText"
-                  element={<SimpleText></SimpleText>}
-                ></Route>
-                <Route index element={<TimedText></TimedText>}></Route>
-                <Route path="timedText" element={<TimedText></TimedText>}></Route>
-              </Routes> */}
-
-              <Outlet context={{fileSegments : []}}></Outlet>
+              <Outlet context={{ fileSegments: [] }}></Outlet>
             </div>
           </div>
 
-          {/* <DataProvider> */}
           <SpeechCardFoot></SpeechCardFoot>
-          {/* </DataProvider> */}
-
         </div>
       </>
     );

@@ -1,9 +1,7 @@
 // import micIconWhite from "../assets/mic Icon white.png";
 import styles from "./speech.module.css";
 import chainiconWhite from "../assets/chain Icon white.png";
-// import uploadIconWhite from "../assets/upload Icon white.png";
-// import bigUploadIcon from "../assets/big upload Icon.png";
-// import dropIcon from "../assets/drop Icon.png";
+
 import micIcon from "../assets/mic Icon.png";
 import littleChainIcon from "../assets/little chain Icon.png";
 
@@ -55,12 +53,9 @@ export default function LinkFile() {
   const [loading, setLoading] = useState<boolean>(false);
   const url = "/api/transcribe_files/";
   const token = "a85d08400c622b50b18b61e239b9903645297196";
- const  dispatch = useAppDispatch()
-
-
+  const dispatch = useAppDispatch();
 
   const fetchFile = async () => {
-
     setLoading(true);
     const response = await fetch(url, {
       method: "POST",
@@ -76,43 +71,32 @@ export default function LinkFile() {
 
     console.log("post status : ", response.status);
 
-
-    if (!response.ok  ) {
-
-      alert(`HTTP error! status: ${response.status}`)
+    if (!response.ok) {
+      alert(`HTTP error! status: ${response.status}`);
       setLoading(false);
       setShowResult(false);
       throw new Error(`HTTP error! status: ${response.status}`);
-
-
-    }else{
-     
+    } else {
       const data = await response.json();
-      console.log( "data : ",data[0].message)
-      if(data[0].message === "Download error!"){
-        alert(`URL does not exist on server`)
+      console.log("data : ", data[0].message);
+      if (data[0].message === "Download error!") {
+        alert(`URL does not exist on server`);
         setLoading(false);
         setShowResult(false);
-
-      }else{
-
+      } else {
         console.log("item Id : ", data[0]);
-  
+
         setSelectedFile(data[0]);
-        dispatch(setFileSegments(data[0].segments))
+        dispatch(setFileSegments(data[0].segments));
         setLoading(false);
         setShowResult(true);
       }
-
     }
-
-
   };
 
-  const handleChainButoonClick =  () => {
-    
+  const handleChainButoonClick = () => {
     fetchFile();
-    
+
     // console.log
     // const item = fetchFile.find((item) => item.url === fileUrl);
   };
@@ -155,56 +139,46 @@ export default function LinkFile() {
         </div>
 
         <div className={styles.cardBodyLink}>
+          {!loading ? (
+            !showResult ? (
+              <div className={styles.bodyDescriptionUpload}>
+                <div className={styles.linkInputSection}>
+                  {/* <p>{fileUrl}</p> */}
+                  <input
+                    className={styles.linkInput}
+                    placeholder="example.com/sample.mp3"
+                    value={fileUrl}
+                    onChange={(e) => setFileUrl(e.target.value)}
+                  ></input>
 
-
-          { !loading ? (!showResult ? (
-            <div className={styles.bodyDescriptionUpload}>
-              <div className={styles.linkInputSection}>
-                {/* <p>{fileUrl}</p> */}
-                <input
-                  className={styles.linkInput}
-                  placeholder="example.com/sample.mp3"
-                  value={fileUrl}
-                  onChange={(e) => setFileUrl(e.target.value)}
-                ></input>
-
-                <div className={styles.linkLogo}>
-                  <button
-                    className="buttonStyle"
-                    onClick={handleChainButoonClick}
-                  >
-                    <img src={littleChainIcon} alt="littleChainIcon" />
-                  </button>
+                  <div className={styles.linkLogo}>
+                    <button
+                      className="buttonStyle"
+                      onClick={handleChainButoonClick}
+                    >
+                      <img src={littleChainIcon} alt="littleChainIcon" />
+                    </button>
+                  </div>
                 </div>
+
+                <p className={styles.uploadDescription}>
+                  نشانی اینترنتی فایل حاوی گفتار (صوتی/تصویری) را وارد و دکمه را
+                  فشار دهید{" "}
+                </p>
               </div>
+            ) : (
+              //****************************************************** */
 
-              <p className={styles.uploadDescription}>
-                نشانی اینترنتی فایل حاوی گفتار (صوتی/تصویری) را وارد و دکمه را
-                فشار دهید{" "}
-              </p>
-            </div>
+              <div className={rstyles.resultCard}>
+                <Outlet
+                  context={{ fileSegments: selectedFile?.segments }}
+                ></Outlet>
+              </div>
+            )
           ) : (
-            //****************************************************** */
-
-            <div className={rstyles.resultCard}>
-              <Outlet
-                context={{ fileSegments: selectedFile?.segments }}
-              ></Outlet>
-            </div>
-          )) : <Progress progressColor="red"></Progress>}
+            <Progress progressColor="red"></Progress>
+          )}
         </div>
-
-        {/* <div className={styles.cardFoot}>
-            <p className={styles.footTitle}>زبان گفتار:</p>
-
-            <div className={styles.langType}>
-              <p className={styles.footItem}>فارسی</p>
-
-              <button className="buttonStyle">
-                <img src={dropIcon} alt="dropIcon" />
-              </button>
-            </div>
-          </div> */}
 
         <SpeechCardFoot></SpeechCardFoot>
       </div>

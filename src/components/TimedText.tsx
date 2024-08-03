@@ -1,7 +1,6 @@
 import styles from "./resultConverting.module.css";
 import textIconLight from "../assets/text icon light.png";
-// import textIcon from "../assets/text icon.png";
-// import timeIconLight from "../assets/time icon light.png";
+
 import timeIcon from "../assets/time icon.png";
 
 import refreshIcon from "../assets/Refresh.png";
@@ -46,27 +45,27 @@ export default function TimedText(props: MyComponentProps) {
 
   const formatDuration = (duration: string): string => {
     // Split the duration into parts based on colons
-    const parts = duration.split(':');
-    
+    const parts = duration.split(":");
+
     // Extract hours, minutes, and seconds
-    let hours = parts.length === 3 ? parts[0] : '';  // Hours are present if there are 3 parts
-    let minutes = parts.length === 3 ? parts[1] : parts[0];  // If 3 parts, minutes are in the second slot
-    let seconds = parts.length === 3 ? parts[2] : parts[1];  // If 3 parts, seconds are in the third slot
-  
+    let hours = parts.length === 3 ? parts[0] : ""; // Hours are present if there are 3 parts
+    let minutes = parts.length === 3 ? parts[1] : parts[0]; // If 3 parts, minutes are in the second slot
+    let seconds = parts.length === 3 ? parts[2] : parts[1]; // If 3 parts, seconds are in the third slot
+
     // Remove milliseconds from seconds
-    seconds = seconds.split('.')[0];
-  
+    seconds = seconds.split(".")[0];
+
     // Ensure minutes and seconds are two digits long
-    if (minutes.length === 1) minutes = '0' + minutes;
-    if (seconds.length === 1) seconds = '0' + seconds;
-  
+    if (minutes.length === 1) minutes = "0" + minutes;
+    if (seconds.length === 1) seconds = "0" + seconds;
+
     // Combine hours (if present), minutes, and seconds
-    if (hours !== '0') {
+    if (hours !== "0") {
       return `${hours}:${minutes}:${seconds}`;
     } else {
       return `${minutes}:${seconds}`;
     }
-  }
+  };
 
   return (
     <>
@@ -77,12 +76,9 @@ export default function TimedText(props: MyComponentProps) {
               to={
                 props.source === "upload"
                   ? "/convert-speech/upload/simpleText"
-                  : 
-                  props.source === "archive" 
-                  ?
-                  "/archive/simpleResult"
-                  :
-                  "/convert-speech/link/simpleText"
+                  : props.source === "archive"
+                  ? "/archive/simpleResult"
+                  : "/convert-speech/link/simpleText"
               }
               className="linkStyle"
             >
@@ -98,12 +94,9 @@ export default function TimedText(props: MyComponentProps) {
               to={
                 props.source === "upload"
                   ? "/convert-speech/upload/timedText"
-                  : 
-                  props.source === "archive"
-                  ?
-                  "/archive/timedResult"
-                  :
-                  "/convert-speech/link/timedText"
+                  : props.source === "archive"
+                  ? "/archive/timedResult"
+                  : "/convert-speech/link/timedText"
               }
               className="linkStyle"
             >
@@ -150,76 +143,18 @@ export default function TimedText(props: MyComponentProps) {
 
       <div className={styles.resultBody}>
         <ul className="ulStyle">
-          {fileSegments && fileSegments.map((segment, index) => (
-            <li key={index}>
-              <TimedTextItem
-                text={segment.text}
-                timeOne={formatDuration(segment.start)}
-                timeTwo={formatDuration(segment.end)}
-                backGround={(index +1 ) % 2 == 0 ? true : false}
-                textBlue={false}
-              ></TimedTextItem>
-            </li>
-          ))}
-
-          {/* <li> */}
-            {/* <div className={styles.timedTextItem}>
-
-                <div className={styles.timedTextItemOne}>
-              <p className="pStyle">01:03</p>
-
-              </div>
-
-
-              <div className={styles.timedTextItemTwo}>
-              <p className="pStyle">02:00</p>
-              </div>
-              <div className={styles.timedTextItemThree}>
-              <p className="pStyle">[به] این [زودی] چه جوری شد [عشق]</p>
-
-              </div>
-            </div>
-
-             */}
-
-            {/* <TimedTextItem
-              text="[به] این [زودی] چه جوری شد [عشق]"
-              timeOne="02:00"
-              timeTwo="01:03"
-              backGround={false}
-              textBlue={false}
-            ></TimedTextItem>
-          </li>
-
-          <li>
-            <TimedTextItem
-              text="[به] این  [عشق]"
-              timeOne="02:00"
-              timeTwo="01:03"
-              backGround={true}
-              textBlue={false}
-            ></TimedTextItem>
-          </li>
-
-          <li>
-            <TimedTextItem
-              text="[به] این  [عشق]"
-              timeOne="02:00"
-              timeTwo="01:03"
-              backGround={false}
-              textBlue={false}
-            ></TimedTextItem>
-          </li>
-
-          <li>
-            <TimedTextItem
-              text="[به] این  [عشق]"
-              timeOne="02:00"
-              timeTwo="01:03"
-              backGround={true}
-              textBlue={false}
-            ></TimedTextItem>
-          </li> */}
+          {fileSegments &&
+            fileSegments.map((segment, index) => (
+              <li key={index}>
+                <TimedTextItem
+                  text={segment.text}
+                  timeOne={formatDuration(segment.start)}
+                  timeTwo={formatDuration(segment.end)}
+                  backGround={(index + 1) % 2 == 0 ? true : false}
+                  textBlue={false}
+                ></TimedTextItem>
+              </li>
+            ))}
         </ul>
       </div>
 
