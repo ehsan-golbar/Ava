@@ -93,7 +93,7 @@ const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
   // const [fetchToggle, setFetchToggle] = useState(false);
   // const [firstLoading ]
 
-  const url = "https://harf.roshan-ai.ir/api/requests/";
+  const url = "/api/requests/";
   // const baseURL = import.meta.env.VITE_API_BASE_URL;
 // const endpoint = '/requests/';
 // const url = `${baseURL}${endpoint}`;
