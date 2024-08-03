@@ -93,13 +93,17 @@ const deleteLoading = useAppSelector( (state) => state.deleteStatus.status)
   // const [fetchToggle, setFetchToggle] = useState(false);
   // const [firstLoading ]
 
-  const url = "/api/requests/";
+  // const url = "/api/requests/";
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+const endpoint = '/requests/';
+const url = `${baseURL}${endpoint}`;
   const token = "a85d08400c622b50b18b61e239b9903645297196";
 
   useEffect(() => {
 
     
     const fetchRequest = async (fetchUrl : string) => {
+      console.log ("base url",url )
 
       setFirstLoading(true)
 

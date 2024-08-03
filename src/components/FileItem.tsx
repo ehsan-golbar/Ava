@@ -62,7 +62,13 @@ const FileItem: React.FC<MyComponentProps> = (props) => {
 
   // const [openItem, setopenItem] = useState<number | null>(null);
 
-  const url = `/api/requests/${props.fileId}/`;
+
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
+  console.log ("base url",baseURL )
+const endpoint = `/requests/${props.fileId}/`;
+const url = `${baseURL}${endpoint}`;
+  // const url = `/api/requests/${props.fileId}/`;
   const token = "a85d08400c622b50b18b61e239b9903645297196";
 
   const dispatch = useAppDispatch();
