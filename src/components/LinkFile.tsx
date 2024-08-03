@@ -99,7 +99,7 @@ export default function LinkFile() {
         console.log("item Id : ", data[0]);
   
         setSelectedFile(data[0]);
-        dispatch(setFileSegments(data[0].segment))
+        dispatch(setFileSegments(data[0].segments))
         setLoading(false);
         setShowResult(true);
       }
