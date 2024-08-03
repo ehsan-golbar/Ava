@@ -41,7 +41,7 @@ export default function TimedText(props: MyComponentProps) {
 
   // const { fileSegments } = useOutletContext<FileContext>();
 
-  const fileSegments = useAppSelector((state) => state.fileFetch.fileSegments);
+  const fileSegments = useAppSelector((state) => state.fileFetchSegments.fileSegments);
 
   const formatDuration = (duration: string): string => {
     // Split the duration into parts based on colons

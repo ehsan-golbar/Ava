@@ -1,7 +1,7 @@
 // src/store.ts
 import { configureStore } from '@reduxjs/toolkit';
 import languageReducer from './slices/languageSlice';
-import fileFetchReducer from './slices/fetchFileSlice'
+import fileFetchReducer from './slices/fetchFileSegmentsSlice'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 
@@ -11,7 +11,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 const store = configureStore({
   reducer: {
     data: languageReducer,
-    fileFetch: fileFetchReducer,
+    fileFetchSegments: fileFetchReducer,
   },
 });
 

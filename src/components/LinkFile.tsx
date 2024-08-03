@@ -17,7 +17,7 @@ import rstyles from "./resultConverting.module.css";
 import { Flag } from "@mui/icons-material";
 import Progress from "./Progress";
 import { useAppDispatch } from "./store/store";
-import { setFileSegments } from "./store/slices/fetchFileSlice";
+import { setFileSegments } from "./store/slices/fetchFileSegmentsSlice";
 
 interface Segment {
   start: string;

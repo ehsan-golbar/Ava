@@ -44,7 +44,7 @@ export default function SimpleText(props: MyComponentProps) {
   // const{ fileSegments  } = useOutletContext<FileContext>()
 
 
-  const fileSegments = useAppSelector((state) => state.fileFetch.fileSegments);
+  const fileSegments = useAppSelector((state) => state.fileFetchSegments.fileSegments);
 
 
 

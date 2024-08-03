@@ -19,7 +19,7 @@ import { Outlet } from "react-router-dom";
 import Progress from "./Progress";
 import { useAppDispatch } from "./store/store";
 import { Segment } from "@mui/icons-material";
-import { setFileSegments } from "./store/slices/fetchFileSlice";
+import { setFileSegments } from "./store/slices/fetchFileSegmentsSlice";
 
 type FileType = "mic" | "upload" | "chain";
 

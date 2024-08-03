@@ -10,7 +10,7 @@ const initialState: DataState = {
 };
 
 const dataSlice = createSlice({
-  name: 'data',
+  name: 'lang',
   initialState,
   reducers: {
     setResultLanguage: (state, action: PayloadAction<string>) => {

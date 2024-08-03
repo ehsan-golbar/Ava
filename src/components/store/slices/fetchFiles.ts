@@ -7,28 +7,38 @@ export interface Segment {
   text: string;
 }
 
+export interface FileData {
+    duration: string;
+    id: number;
+    processed: string;
+    segments: Segment[];
+    length: number;
+    url: string;
+  }
+  
+
 
 
 export  interface DataState {
 
-  fileSegments: Segment[];
+  files: FileData[];
 }
 
 const initialState: DataState = {
 
-  fileSegments: [],
+    files: [],
 };
 
 const dataSlice = createSlice({
-  name: 'data',
+  name: 'files',
   initialState,
   reducers: {
 
-    setFileSegments: (state, action: PayloadAction<Segment[]>) => {
-      state.fileSegments = action.payload;
+    setFiles: (state, action: PayloadAction<FileData[]>) => {
+      state.files = action.payload;
     },
   },
 });
 
-export const {  setFileSegments } = dataSlice.actions;
+export const {  setFiles } = dataSlice.actions;
 export default dataSlice.reducer;

@@ -5,13 +5,7 @@ import { Pagination } from "@mui/material";
 
 import axios from "axios";
 
-// import downloadIcon from "../assets/download Icon.png";
-// import copyIcon from "../assets/copy Icon.png";
-// import wordIcon from "../assets/Word icon.png";
-// import deleteIcon from "../assets/del Btn.png";
 
-// import littleChain from "../assets/little chain Icon.png";
-// import FileTypeIcon from "./FileTypeIcon";
 
 import FileItem from "./FileItem";
 
@@ -63,60 +57,7 @@ type FileType = "mic" | "upload" | "chain";
 
 type Language = "persian" | "english";
 
-// interface FileDetails {
-//   fileDescription: string;
-//   fileDate: string;
-//   fileType: string;
-//   fileTime: string;
-//   fileLogo: FileType;
-//   lang : Language;
-// }
 
-// const files: FileDetails[] = [
-//   {
-//     fileDescription: "https://irsv.upmusics.com/Downloads/Musics/Sirvan%20K",
-//     fileDate: "1400-08-21",
-//     fileType: ".mp3",
-//     fileTime: "4:29",
-//     fileLogo: "chain",
-//     lang : "english"
-//   },
-//   {                fileDescription:"  پادکست رادیو راه - فصل دوم -قسمت ششم- راه سروش ",
-//     fileDate:"1400-08-21",
-//     fileType:".mp3",
-//     fileTime:"4:29",
-//     fileLogo:"mic",
-//     lang : "persian"
-//   },
-
-//     {
-//       fileDescription:"khaterate To",
-//       fileDate:"1400-08-21",
-//       fileType:".mp3",
-//       fileTime:"4:29",
-//       fileLogo:"upload",
-//     lang : "english"
-//     }
-//     ,
-//   {
-//     fileDescription: "https://example.com/path/to/another/music",
-//     fileDate: "1400-09-01",
-//     fileType: ".mp3",
-//     fileTime: "3:45",
-//     fileLogo: "chain",
-//     lang : "english"
-//   },
-
-//   {
-//     fileDescription:"khaterate To",
-//     fileDate:"1400-08-21",
-//     fileType:".mp3",
-//     fileTime:"4:29",
-//     fileLogo:"upload",
-//     lang : "english"
-//   }
-//   // Add more objects as needed
-// ];
 
 interface Segment {
   start: string;
